@@ -346,6 +346,7 @@ class TestTemplateMailable extends TemplateMailable
         $result = $this->parseTextComponent($result, $this->promo, 'promo');
 
         $result = $this->parseLinkComponent($result, 'link');
+        $result = $this->parseLinkComponent($result, 'link_unsubscribe');
 
         foreach ($variables as $variableName) {
             //$pattern ="#{!!(\s)*$variableName(\s)*!!}#i";

@@ -119,7 +119,9 @@ Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
 
     [[promo]]
 
-        Click here to unsubscribe {{unsubscribeToken}}
+    <span style="font-size:10px;color:darkgrey">If you want to unsubscribe
+        [[link_unsubscribe:unsubbie|{{unsubscribeToken}}]]
+    </span>
     ';
 
         $textTemplate = 'Hello, {{ name }}!';

@@ -1,4 +1,7 @@
 # notification subscriptions
+is signature/ promo translatable ?
+can promo contain link?
+
 
 mail_preventable => mail_unsubscribable
 unsubscribe link ?
