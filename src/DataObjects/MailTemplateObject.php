@@ -10,6 +10,8 @@ class MailTemplateObject
 
     private string $mailable;
 
+    private string $notification;
+
     private ?string $htmlLayout;
 
     private ?string $textLayout;
@@ -53,6 +55,13 @@ class MailTemplateObject
     public function mailable(string $mailable): static
     {
         $this->mailable = $mailable;
+
+        return $this;
+    }
+
+    public function notification(string $notification): static
+    {
+        $this->notification = $notification;
 
         return $this;
     }
@@ -178,6 +187,11 @@ class MailTemplateObject
     public function getMailable(): string
     {
         return $this->mailable;
+    }
+
+    public function getNotification(): string
+    {
+        return $this->notification;
     }
 
     public function getTextLayout(): ?string

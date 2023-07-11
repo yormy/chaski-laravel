@@ -55,6 +55,8 @@ class TranslatableMailTemplate extends MailTemplate
 
         $this->tags = $data->getTags();
 
+        $this->notification = $data->getNotification();
+
         $this->save();
 
         return $this;

@@ -113,8 +113,6 @@ class TestTemplateMailable extends TemplateMailable
 
             $message->getHeaders()
                 ->addTextHeader('X-TX', Stringable::toString(Carbon::now()->toString()));
-
-            // dd($message->getBody());
         });
     }
 
@@ -164,6 +162,13 @@ class TestTemplateMailable extends TemplateMailable
         $view['html'] = new HtmlString($result);
 
         return $view;
+    }
+
+    private function getUnsubscribeToken()
+    {
+        $mailableXid = $this->mailTemplate->xid;
+        $id = StringableUser::toString($this->notifiable). "|" . $mailableXid;
+       // dd($id);
     }
 
     private function parseTextComponent(string $org, array $data, $componentName = 'signature'): string
@@ -335,6 +340,7 @@ class TestTemplateMailable extends TemplateMailable
 
         $result = $this->parseLinkComponent($result, 'link');
 
+        $this->getUnsubscribeToken();
         foreach ($variables as $variableName) {
             //$pattern ="#{!!(\s)*$variableName(\s)*!!}#i";
         }

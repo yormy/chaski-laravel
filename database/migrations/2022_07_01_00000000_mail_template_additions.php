@@ -27,7 +27,7 @@ return new class extends Migration
             $table->boolean('is_hidden')->default(false);
             $table->boolean('cannot_edit')->default(false);
 
-            $table->string('notification')->nullable()->comment('notification class'); // TODO: still needed ?
+            $table->string('notification')->nullable()->comment('notification class');
             $table->string('placeholders')->nullable()->comment('comma separated list of placeholders');  // TODO: still needed ?, getVariables?
         });
     }
