@@ -2,16 +2,15 @@
 is signature/ promo translatable ?
 can promo contain link?
 
+## Unsubscribe link template:
+- Nu moet ik het per taal en per notification instellen, kan het generieker ?
+- 
 
-mail_preventable => mail_unsubscribable
-unsubscribe link ?
-- in mail :
-- --- mailable-xid
-- --- user-id
-- --- user-type
+# Handle unsubscribe link click (additional route)
+--- forward to where when unsubscribed (in case of success or failire)
+rename: mail_preventable => mail_unsubscribable
 
-
-Mark read: email / notificaion
+# Mark read: email / notificaion
 moet in de frontend een lijst met notifications of een lijst met emails of een lijst met notifcations met de link naar de email?
 
 # CLEANUP
