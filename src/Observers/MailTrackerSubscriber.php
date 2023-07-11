@@ -20,8 +20,6 @@ class MailTrackerSubscriber
 {
     /**
      * Binding of SettingsChanged Events
-     *
-     * @param Dispatcher $events
      */
     public function subscribe(Dispatcher $events)
     {

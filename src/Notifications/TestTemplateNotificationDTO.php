@@ -4,7 +4,6 @@ namespace Yormy\ChaskiLaravel\Notifications;
 
 class TestTemplateNotificationDTO
 {
-
     private string $name;
 
     private string $buttonLink;
@@ -74,7 +73,6 @@ class TestTemplateNotificationDTO
         return $this->buttonLink;
     }
 
-
     public function getLinks(): array
     {
         return $this->links;
@@ -89,9 +87,9 @@ class TestTemplateNotificationDTO
     {
         return $this->signature;
     }
+
     public function getPromo(): array
     {
         return $this->promo;
     }
 }
-

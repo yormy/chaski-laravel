@@ -33,13 +33,12 @@ class EmailParsingTableTest extends TestCase
     {
         $variables = [
             'headerItems' => $this->tableHeader,
-            'rows' => $this->tableRows
+            'rows' => $this->tableRows,
         ];
 
         $htmlRenderedLink = $this->generateComponent($variables, 'table');
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
     }
-
 
     /**
      * @test
@@ -50,7 +49,7 @@ class EmailParsingTableTest extends TestCase
     {
         $variables = [
             'headerItems' => $this->tableHeaderHardcoded,
-            'rows' => $this->tableRowsHardcoded
+            'rows' => $this->tableRowsHardcoded,
         ];
 
         $htmlRendered = $this->generateComponent($variables, 'table');
@@ -58,51 +57,51 @@ class EmailParsingTableTest extends TestCase
         $this->assertStringContainsString($htmlRendered, $this->htmlEmailEnglish);
     }
 
-//
-//    /**
-//     * @test
-//     *
-//     * @group chaski-parsing
-//     */
-//    public function Email_includes_link2_from_data_Label_destination_from_data(): void
-//    {
-//        $variables = [
-//            'label' => array_key_first($this->link2),
-//            'destination' => $this->link2[array_key_first($this->link2)]
-//        ];
-//
-//        $htmlRenderedLink = $this->generateComponent($variables, 'link');
-//        $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
-//    }
-//
-//    /**
-//     * @test
-//     *
-//     * @group chaski-parsing
-//     */
-//    public function Email_includes_link_from_data_Label_hardcoded(): void
-//    {
-//        $variables = [
-//            'label' => $this->layoutHardcodedLabel,
-//            'destination' => $this->link1[array_key_first($this->link1)]
-//        ];
-//        $htmlRenderedLink = $this->generateComponent($variables, 'link');
-//        $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
-//    }
-//
-//
-//    /**
-//     * @test
-//     *
-//     * @group chaski-parsing
-//     */
-//    public function Email_includes_Label_and_destination_hardcoded(): void
-//    {
-//        $variables = [
-//            'label' => $this->layoutHardcodedLabel,
-//            'destination' => $this->layoutHardcodedDestination
-//        ];
-//        $htmlRenderedLink = $this->generateComponent($variables, 'link');
-//        $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
-//    }
+    //
+    //    /**
+    //     * @test
+    //     *
+    //     * @group chaski-parsing
+    //     */
+    //    public function Email_includes_link2_from_data_Label_destination_from_data(): void
+    //    {
+    //        $variables = [
+    //            'label' => array_key_first($this->link2),
+    //            'destination' => $this->link2[array_key_first($this->link2)]
+    //        ];
+    //
+    //        $htmlRenderedLink = $this->generateComponent($variables, 'link');
+    //        $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
+    //    }
+    //
+    //    /**
+    //     * @test
+    //     *
+    //     * @group chaski-parsing
+    //     */
+    //    public function Email_includes_link_from_data_Label_hardcoded(): void
+    //    {
+    //        $variables = [
+    //            'label' => $this->layoutHardcodedLabel,
+    //            'destination' => $this->link1[array_key_first($this->link1)]
+    //        ];
+    //        $htmlRenderedLink = $this->generateComponent($variables, 'link');
+    //        $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
+    //    }
+    //
+    //
+    //    /**
+    //     * @test
+    //     *
+    //     * @group chaski-parsing
+    //     */
+    //    public function Email_includes_Label_and_destination_hardcoded(): void
+    //    {
+    //        $variables = [
+    //            'label' => $this->layoutHardcodedLabel,
+    //            'destination' => $this->layoutHardcodedDestination
+    //        ];
+    //        $htmlRenderedLink = $this->generateComponent($variables, 'link');
+    //        $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
+    //    }
 }

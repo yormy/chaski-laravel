@@ -29,7 +29,9 @@ class MailTemplateObject
     private bool $isHidden = false;
 
     private bool $slackPreventable = true;
+
     private bool $mailPreventable = true;
+
     private bool $smsPreventable = true;
 
     private bool $cannotEdit = false;
@@ -155,9 +157,10 @@ class MailTemplateObject
 
     public function getDefaultLanguge()
     {
-        if (!isset($this->defaultLanguage)) {
-            return config('chaski.default_language','en');
+        if (! isset($this->defaultLanguage)) {
+            return config('chaski.default_language', 'en');
         }
+
         return $this->defaultLanguage;
     }
 
@@ -179,7 +182,7 @@ class MailTemplateObject
 
     public function getTextLayout(): ?string
     {
-        if (!isset($this->textLayout)) {
+        if (! isset($this->textLayout)) {
             return null;
         }
 
@@ -188,7 +191,7 @@ class MailTemplateObject
 
     public function getHtmlLayout(): ?string
     {
-        if (!isset($this->htmlLayout)) {
+        if (! isset($this->htmlLayout)) {
             return null;
         }
 
@@ -197,7 +200,7 @@ class MailTemplateObject
 
     public function getName(): string
     {
-        if (!isset($this->name)) {
+        if (! isset($this->name)) {
             return Str::random(10);
         }
 
@@ -231,9 +234,10 @@ class MailTemplateObject
 
     public function getNotes(): string
     {
-        if (!isset($this->notes)) {
+        if (! isset($this->notes)) {
             return '';
         }
+
         return $this->notes;
     }
 

@@ -12,7 +12,6 @@ class EmailDeliveredListener
 
     /**
      * @psalm-suppress UndefinedClass
-     * @param EmailDeliveredEvent $event
      */
     public function handle(EmailDeliveredEvent $event)
     {

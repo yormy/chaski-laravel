@@ -11,7 +11,6 @@ class EmailComplaintListener
 
     /**
      * @psalm-suppress UndefinedClass
-     * @param ComplaintMessageEvent $event
      */
     public function handle(ComplaintMessageEvent $event)
     {

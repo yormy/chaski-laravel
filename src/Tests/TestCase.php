@@ -43,7 +43,6 @@ abstract class TestCase extends BaseTestCase
         config(['app.url' => 'http://test.test?myNewParam=5']);
     }
 
-
     /**
      * We need to update the .env.example
      * because in a job the previous settings in config are not used and the settings from .env are used.

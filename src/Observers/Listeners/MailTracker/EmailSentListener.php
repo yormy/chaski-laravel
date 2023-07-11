@@ -12,7 +12,6 @@ class EmailSentListener
 
     /**
      * @psalm-suppress UndefinedClass
-     * @param EmailSentEvent $event
      */
     public function handle(EmailSentEvent $event)
     {

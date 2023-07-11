@@ -18,11 +18,11 @@ class TranslatableMailTemplate extends MailTemplate
         'subject',
         'summary',
         'html_template',
-        'text_template'
+        'text_template',
     ];
 
     protected $casts = [
-        'tags' => 'array'
+        'tags' => 'array',
     ];
 
     public function create(MailTemplateObject $data): self

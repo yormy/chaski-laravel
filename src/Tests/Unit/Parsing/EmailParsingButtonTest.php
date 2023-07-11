@@ -29,7 +29,7 @@ class EmailParsingButtonTest extends TestCase
     {
         $variables = [
             'label' => array_key_first($this->button1),
-            'destination' => $this->button1[array_key_first($this->button1)]
+            'destination' => $this->button1[array_key_first($this->button1)],
         ];
         $htmlRendered = $this->generateComponent($variables, 'button');
 
@@ -45,7 +45,7 @@ class EmailParsingButtonTest extends TestCase
     {
         $variables = [
             'label' => array_key_first($this->button2),
-            'destination' => $this->button2[array_key_first($this->button2)]
+            'destination' => $this->button2[array_key_first($this->button2)],
         ];
 
         $htmlRenderedLink = $this->generateComponent($variables, 'button');
@@ -62,13 +62,12 @@ class EmailParsingButtonTest extends TestCase
     {
         $variables = [
             'label' => $this->layoutHardcodedLabel,
-            'destination' => $this->button1[array_key_first($this->button1)]
+            'destination' => $this->button1[array_key_first($this->button1)],
         ];
         $htmlRenderedLink = $this->generateComponent($variables, 'button');
 
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
     }
-
 
     /**
      * @test
@@ -79,7 +78,7 @@ class EmailParsingButtonTest extends TestCase
     {
         $variables = [
             'label' => $this->layoutHardcodedLabel,
-            'destination' => $this->layoutHardcodedDestination
+            'destination' => $this->layoutHardcodedDestination,
         ];
         $htmlRenderedLink = $this->generateComponent($variables, 'button');
 

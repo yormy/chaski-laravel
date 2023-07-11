@@ -15,7 +15,7 @@ class User extends Authenticatable
     protected $table = 'test_users';
 
     protected $fillable = [
-        'email'
+        'email',
     ];
 
     public $timestamps = false;

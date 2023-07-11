@@ -2,7 +2,6 @@
 
 namespace Yormy\ChaskiLaravel\Services;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 
 class Stringable
@@ -14,7 +13,7 @@ class Stringable
 
     public static function fromString(?string $value): ?string
     {
-        if (!$value) {
+        if (! $value) {
             return null;
         }
 

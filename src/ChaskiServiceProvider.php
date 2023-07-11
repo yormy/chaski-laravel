@@ -7,15 +7,13 @@ use Illuminate\Support\ServiceProvider;
 use jdavidbakr\MailTracker\MailTracker;
 use Yormy\ChaskiLaravel\Console\Commands\GenerateAccepts;
 use Yormy\ChaskiLaravel\Http\Middleware\Honeypot;
-use Yormy\ChaskiLaravel\Models\MailTracker\ChaskiEmailSent;
-use Yormy\ChaskiLaravel\Models\MailTracker\EmailSent;
-use Yormy\ChaskiLaravel\Models\MailTracker\SentEmail;
 use Yormy\ChaskiLaravel\ServiceProviders\EventServiceProvider;
 use Yormy\ChaskiLaravel\ServiceProviders\RouteServiceProvider;
 
 class ChaskiServiceProvider extends ServiceProvider
 {
     const CONFIG_FILE = __DIR__.'/../config/chaski.php';
+
     const CONFIG__MAIL_TRACKER_FILE = __DIR__.'/../config/mail-tracker.php';
 
     /**
@@ -91,7 +89,6 @@ class ChaskiServiceProvider extends ServiceProvider
         $router->aliasMiddleware('tripwire.honeypotwire', Honeypot::class);
     }
 
-
     public function registerListeners(): void
     {
         //        $this->app['events']->listen(TripwireBlockedEvent::class, NotifyAdmin::class);
@@ -104,17 +101,17 @@ class ChaskiServiceProvider extends ServiceProvider
 
     private function morphMaps()
     {
-//        $logModelpath = config('chaski.models.log');
-//        $sections = explode('\\', $logModelpath);
-//        $LogModelName = end($sections);
-//
-//        $blockModelpath = config('chaski.models.block');
-//        $sections = explode('\\', $blockModelpath);
-//        $blockModelName = end($sections);
-//
-//        Relation::enforceMorphMap([
-//            $LogModelName => $logModelpath,
-//            $blockModelName => $blockModelpath,
-//        ]);
+        //        $logModelpath = config('chaski.models.log');
+        //        $sections = explode('\\', $logModelpath);
+        //        $LogModelName = end($sections);
+        //
+        //        $blockModelpath = config('chaski.models.block');
+        //        $sections = explode('\\', $blockModelpath);
+        //        $blockModelName = end($sections);
+        //
+        //        Relation::enforceMorphMap([
+        //            $LogModelName => $logModelpath,
+        //            $blockModelName => $blockModelpath,
+        //        ]);
     }
 }

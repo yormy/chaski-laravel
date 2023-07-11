@@ -17,31 +17,33 @@ class TestTemplateMailable extends TemplateMailable
 
     protected static $templateModelClass = TranslatableMailTemplate::class;
 
-
     public string $name;
 
     public string $title;
 
-    public string $link_1  = '';
+    public string $link_1 = '';
 
     public string $link_2 = '';
+
     public string $link_3 = '';
+
     public string $link_4 = '';
 
-    public string $button_1  = '';
+    public string $button_1 = '';
+
     public string $button_2 = '';
+
     public string $button_3 = '';
+
     public string $button_4 = '';
 
     private array $links;
 
     private array $buttons;
 
-
     private array $promo;
 
     private array $signature;
-
 
     private $notifiable;
 
@@ -112,28 +114,27 @@ class TestTemplateMailable extends TemplateMailable
             $message->getHeaders()
                 ->addTextHeader('X-TX', Stringable::toString(Carbon::now()->toString()));
 
-
-           // dd($message->getBody());
+            // dd($message->getBody());
         });
     }
 
-//
-//
-//    public function addHeaders(string $notificationId = null, string $mailTemplate = null)
-//    {
-//        foreach ($this->trackingHeaders as $name => $value) {
-//            $this->withSymfonyMessage(function (Email $message) use ($name, $value) {
-//                $message->getHeaders()
-//                    ->addTextHeader($name, base64_encode($value));
-//            });
-//        }
-//    }
+    //
+    //
+    //    public function addHeaders(string $notificationId = null, string $mailTemplate = null)
+    //    {
+    //        foreach ($this->trackingHeaders as $name => $value) {
+    //            $this->withSymfonyMessage(function (Email $message) use ($name, $value) {
+    //                $message->getHeaders()
+    //                    ->addTextHeader($name, base64_encode($value));
+    //            });
+    //        }
+    //    }
     public function getHtmlLayout(): string
     {
         $variables = $this->createVariablesArray();
 
         $layout = $this->mailTemplate->html_layout;
-        if (!$layout) {
+        if (! $layout) {
             $layout = config('chaski.default_layout.html');
         }
 
@@ -147,7 +148,7 @@ class TestTemplateMailable extends TemplateMailable
         $variables = $this->createVariablesArray();
 
         $layout = $this->mailTemplate->text_layout;
-        if (!$layout) {
+        if (! $layout) {
             $layout = config('chaski.default_layout.text');
         }
 
@@ -165,12 +166,11 @@ class TestTemplateMailable extends TemplateMailable
         return $view;
     }
 
-
     private function parseTextComponent(string $org, array $data, $componentName = 'signature'): string
     {
         $result = $org;
 
-        $signaturePattern ="#\[\[$componentName\]\]#iUs";
+        $signaturePattern = "#\[\[$componentName\]\]#iUs";
         $matches = [];
         preg_match_all($signaturePattern, $org, $matches);
         $outerSignatures = $matches[0];
@@ -192,19 +192,20 @@ class TestTemplateMailable extends TemplateMailable
     private function linkDetailsDetermine(array $data, string $item): array
     {
         if (is_numeric($item)) {
-            $zerobasedIndex = (int)$item - 1;
-            $i=0;
+            $zerobasedIndex = (int) $item - 1;
+            $i = 0;
             foreach ($data as $label => $destination) {
                 if ($i === $zerobasedIndex) {
                     // render this one
                     $variables = [
                         'destination' => $destination,
-                        'label' => $label
+                        'label' => $label,
                     ];
                     break;
                 }
                 $i++;
             }
+
             return $variables;
         }
 
@@ -215,7 +216,7 @@ class TestTemplateMailable extends TemplateMailable
 
         $variables = [
             'destination' => $buttonDestination,
-            'label' => $buttonLabel
+            'label' => $buttonLabel,
         ];
 
         return $variables;
@@ -225,7 +226,7 @@ class TestTemplateMailable extends TemplateMailable
     {
         $result = $org;
 
-        $pattern ="#\[\[$linkName:(.*)\]\]#iUs";
+        $pattern = "#\[\[$linkName:(.*)\]\]#iUs";
 
         $matches = [];
         preg_match_all($pattern, $org, $matches);
@@ -236,7 +237,7 @@ class TestTemplateMailable extends TemplateMailable
 
             $variables = $this->linkDetailsDetermine($data, $item);
 
-            $htmlRenderedButton = view($viewRoot. ".". $linkName, $variables)->render();
+            $htmlRenderedButton = view($viewRoot.'.'.$linkName, $variables)->render();
 
             $result = str_ireplace($outer[$matchIndex], $htmlRenderedButton, $result);
         }
@@ -253,46 +254,46 @@ class TestTemplateMailable extends TemplateMailable
     {
         return $this->parseButtonLinkComponent($org, $this->buttons, $linkName, 'chaski-laravel::_partials.buttons');
     }
-//
-//    private function parseButtonComponent2(string $org, $buttonName = 'button'): string
-//    {
-//        $result = $org;
-//
-//        $buttonPattern ="#\[\[$buttonName:(.*)\]\]#iUs";
-//        $matches = [];
-//        preg_match_all($buttonPattern, $org, $matches);
-//        $outerButtons = $matches[0];
-//        $innerButtons = $matches[1];
-//        foreach ($innerButtons as $matchIndex => $innerButton) {
-//            $buttonDetails = explode('|', $innerButton);
-//
-//            $buttonLabel = $buttonDetails[0];
-//            $buttonDestination = $buttonDetails[1];
-//
-//            $variables = [
-//                'destination' => $buttonDestination,
-//                'label' => $buttonLabel
-//            ];
-//            $htmlRenderedButton = view("chaski-laravel::$buttonName", $variables)->render();
-//
-//            $result = str_ireplace($outerButtons[$matchIndex], $htmlRenderedButton, $result);
-//        }
-//
-//        return $result;
-//    }
+    //
+    //    private function parseButtonComponent2(string $org, $buttonName = 'button'): string
+    //    {
+    //        $result = $org;
+    //
+    //        $buttonPattern ="#\[\[$buttonName:(.*)\]\]#iUs";
+    //        $matches = [];
+    //        preg_match_all($buttonPattern, $org, $matches);
+    //        $outerButtons = $matches[0];
+    //        $innerButtons = $matches[1];
+    //        foreach ($innerButtons as $matchIndex => $innerButton) {
+    //            $buttonDetails = explode('|', $innerButton);
+    //
+    //            $buttonLabel = $buttonDetails[0];
+    //            $buttonDestination = $buttonDetails[1];
+    //
+    //            $variables = [
+    //                'destination' => $buttonDestination,
+    //                'label' => $buttonLabel
+    //            ];
+    //            $htmlRenderedButton = view("chaski-laravel::$buttonName", $variables)->render();
+    //
+    //            $result = str_ireplace($outerButtons[$matchIndex], $htmlRenderedButton, $result);
+    //        }
+    //
+    //        return $result;
+    //    }
 
     private function parseTableComponent(string $org, $componentName): string
     {
         $result = $org;
 
-        $componentPattern ="#\[\[$componentName:(.*)\]\]#iUs";
+        $componentPattern = "#\[\[$componentName:(.*)\]\]#iUs";
         $matches = [];
         preg_match_all($componentPattern, $org, $matches);
         $outerComponent = $matches[0];
         $innerComponent = $matches[1];
         foreach ($innerComponent as $matchIndex => $innerComponent) {
 
-            $innerComponent = str_replace(array("\r", "\n"), '', $innerComponent);
+            $innerComponent = str_replace(["\r", "\n"], '', $innerComponent);
             $innerComponent = trim($innerComponent);
 
             $tableLines = explode(';', $innerComponent);
@@ -301,15 +302,15 @@ class TestTemplateMailable extends TemplateMailable
 
             $allRows = [];
             foreach ($tableLines as $row) {
-                if($row) {
+                if ($row) {
                     $rowItems = explode('|', $row);
                     $allRows[] = $rowItems;
                 }
-            };
+            }
 
             $data = [
                 'headerItems' => explode('|', $headerItems),
-                'rows' => $allRows
+                'rows' => $allRows,
             ];
 
             $htmlRenderedComponent = view("chaski-laravel::_partials.tables.$componentName", $data)->render();
@@ -329,13 +330,12 @@ class TestTemplateMailable extends TemplateMailable
         $result = $this->parseTableComponent($result, 'table');
 
         $result = $this->parseButtonComponent($result, 'button_danger');
-        $result = $this->parseButtonComponent($result,  'button');
+        $result = $this->parseButtonComponent($result, 'button');
 
-        $result = $this->parseTextComponent($result,  $this->signature, 'signature');
-        $result = $this->parseTextComponent($result,  $this->promo, 'promo');
+        $result = $this->parseTextComponent($result, $this->signature, 'signature');
+        $result = $this->parseTextComponent($result, $this->promo, 'promo');
 
-        $result = $this->parseLinkComponent($result,  'link');
-
+        $result = $this->parseLinkComponent($result, 'link');
 
         foreach ($variables as $variableName) {
             //$pattern ="#{!!(\s)*$variableName(\s)*!!}#i";
@@ -343,7 +343,6 @@ class TestTemplateMailable extends TemplateMailable
 
         return $result;
     }
-
 
     private function createVariablesArray(): array
     {

@@ -31,7 +31,7 @@ class EmailParsingLanguageTest extends TestCase
     public function Email_as_dutch_No_English(): void
     {
         App::setLocale('nl');
-        $this->assertStringNotContainsString($this->english. $this->username, $this->htmlEmailDutch);
+        $this->assertStringNotContainsString($this->english.$this->username, $this->htmlEmailDutch);
     }
 
     /**
@@ -42,7 +42,7 @@ class EmailParsingLanguageTest extends TestCase
     public function Email_as_english_No_dutch(): void
     {
         App::setLocale('nl');
-        $this->assertStringNotContainsString($this->dutch. $this->username, $this->htmlEmailEnglish);
+        $this->assertStringNotContainsString($this->dutch.$this->username, $this->htmlEmailEnglish);
     }
 
     /**
@@ -53,7 +53,7 @@ class EmailParsingLanguageTest extends TestCase
     public function Email_as_english_Show_english(): void
     {
         App::setLocale('nl');
-        $this->assertStringContainsString($this->english. $this->username, $this->htmlEmailEnglish);
+        $this->assertStringContainsString($this->english.$this->username, $this->htmlEmailEnglish);
     }
 
     /**
@@ -64,6 +64,6 @@ class EmailParsingLanguageTest extends TestCase
     public function Email_as_dutch_Show_dutch(): void
     {
         App::setLocale('nl');
-        $this->assertStringContainsString($this->dutch. $this->username, $this->htmlEmailDutch);
+        $this->assertStringContainsString($this->dutch.$this->username, $this->htmlEmailDutch);
     }
 }

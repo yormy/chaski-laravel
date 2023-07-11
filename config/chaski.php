@@ -9,13 +9,12 @@ return [
 
     'default_language' => 'en',
 
-
     'models' => [
         // List here all the models that are notifyables.
         // if you send notifications to users and admins, list them both
         'notifiables' => [
-                User::class,
-                //Admin::class,
+            User::class,
+            //Admin::class,
         ],
 
         // set your overrideesfor encryption
@@ -26,14 +25,14 @@ return [
     'mail_tracker' => [
         // do not log the following messages content
         'prevent_content_logging' => [
-            TranslatableMailTemplate::class
-        ]
+            TranslatableMailTemplate::class,
+        ],
     ],
 
     'prevented_content_logging' => '*** CONTENT NOT STORED FOR SECURITY ***',
 
     'default_layout' => [
         'html' => 'chaski-laravel::layouts.html.red',
-        'text' => 'chaski-laravel::layouts.text.main'
-    ]
+        'text' => 'chaski-laravel::layouts.text.main',
+    ],
 ];

@@ -132,13 +132,12 @@ class EmailTrackingTest extends TestCase
         $this->assertEquals(1, $sentEmailUrlClicks->last()->clicks);
     }
 
-
     // --------- HELPERS ---------
     private function prepareEmailGetTrackables(): array
     {
         $variables = [
             'label' => array_key_first($this->link1),
-            'destination' => $this->link1[array_key_first($this->link1)]
+            'destination' => $this->link1[array_key_first($this->link1)],
         ];
 
         $htmlRenderedLink = $this->generateComponent($variables, 'link');
@@ -157,15 +156,14 @@ class EmailTrackingTest extends TestCase
                 $trackableLink['link'] = $link;
                 $trackableLink['url'] = $matches[1];
 
-
                 $patternHash = '#n\?l=.*&h=(.*)#s';
                 $found = preg_match($patternHash, $link, $matches);
                 if ($found) {
                     $hash = $matches[1];
                     //$hash = substr($hash,2, strlen($matches[1]));
-                    $hash = preg_replace('/' . '=3D' . '/', '', $hash, 1);
-                    $hash = preg_replace('/' . '3D' . '/', '', $hash, 1);
-                    $hash = str_replace('=','',$hash);
+                    $hash = preg_replace('/'.'=3D'.'/', '', $hash, 1);
+                    $hash = preg_replace('/'.'3D'.'/', '', $hash, 1);
+                    $hash = str_replace('=', '', $hash);
 
                     $trackableLink['hash'] = $hash;
                     $trackableLinks[] = $trackableLink;
@@ -176,7 +174,6 @@ class EmailTrackingTest extends TestCase
         return $trackableLinks;
     }
 
-
     private function getOpenHash(array $trackables): ?string
     {
         foreach ($trackables as $link) {
@@ -186,6 +183,7 @@ class EmailTrackingTest extends TestCase
                 return $matches[1][0];
             }
         }
+
         return null;
     }
 
@@ -195,10 +193,11 @@ class EmailTrackingTest extends TestCase
         $pattern = "#http[s]*:\/\/$domain\/email\/(.*)\"#sU";
         preg_match_all($pattern, $injectedHtml, $matches);
 
-        return array_map(function($item) {
+        return array_map(function ($item) {
             $item = trim($item);
             $item = str_replace("\r", '', $item);
             $item = str_replace("\n", '', $item);
+
             return $item;
         }, $matches[1]);
     }
@@ -212,8 +211,8 @@ class EmailTrackingTest extends TestCase
     private function triggerEmailLinkClick(array $link)
     {
         $request = new Request();
-        $request->merge(['l' => $link['link'] ]);
-        $request->merge(['h' => $link['hash'] ]);
+        $request->merge(['l' => $link['link']]);
+        $request->merge(['h' => $link['hash']]);
 
         $mailtrackController = new MailTrackerController();
         $mailtrackController->getN($request);

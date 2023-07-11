@@ -4,7 +4,7 @@ namespace Yormy\ChaskiLaravel\Tests\Unit\Parsing;
 
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
-use Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits\EmailParsingTrait;;
+use Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits\EmailParsingTrait;
 
 class EmailParsingButtonTemplateTest extends TestCase
 {
@@ -29,7 +29,7 @@ class EmailParsingButtonTemplateTest extends TestCase
     {
         $variables = [
             'label' => array_key_first($this->button1),
-            'destination' => $this->button1[array_key_first($this->button1)]
+            'destination' => $this->button1[array_key_first($this->button1)],
         ];
         $htmlRendered = $this->generateComponent($variables, 'button_danger');
         $this->assertStringContainsString($htmlRendered, $this->htmlEmailEnglish);
@@ -44,7 +44,7 @@ class EmailParsingButtonTemplateTest extends TestCase
     {
         $variables = [
             'label' => $this->layoutHardcodedLabel,
-            'destination' => $this->layoutHardcodedDestination
+            'destination' => $this->layoutHardcodedDestination,
         ];
         $htmlRenderedLink = $this->generateComponent($variables, 'button_danger');
 

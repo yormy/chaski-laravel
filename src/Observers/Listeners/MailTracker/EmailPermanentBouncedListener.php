@@ -11,7 +11,6 @@ class EmailPermanentBouncedListener
 
     /**
      * @psalm-suppress UndefinedClass
-     * @param PermanentBouncedMessageEvent $event
      */
     public function handle(PermanentBouncedMessageEvent $event)
     {
@@ -21,7 +20,7 @@ class EmailPermanentBouncedListener
             $tracker = $event->sent_email;
             $tracker->user_id = $user->id;
             $tracker->user_type = get_class($user);
-            $tracker->status_bounced ='PERMANENT';
+            $tracker->status_bounced = 'PERMANENT';
             $tracker->save();
         }
     }

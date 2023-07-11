@@ -27,7 +27,7 @@ class EmailParsingLinkTest extends TestCase
      */
     public function Email_includes_name_from_data(): void
     {
-        $this->assertStringContainsString($this->english. $this->username, $this->htmlEmailEnglish);
+        $this->assertStringContainsString($this->english.$this->username, $this->htmlEmailEnglish);
     }
 
     /**
@@ -39,7 +39,7 @@ class EmailParsingLinkTest extends TestCase
     {
         $variables = [
             'label' => array_key_first($this->link1),
-            'destination' => $this->link1[array_key_first($this->link1)]
+            'destination' => $this->link1[array_key_first($this->link1)],
         ];
         $htmlRenderedLink = $this->generateComponent($variables, 'link');
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
@@ -54,7 +54,7 @@ class EmailParsingLinkTest extends TestCase
     {
         $variables = [
             'label' => array_key_first($this->link2),
-            'destination' => $this->link2[array_key_first($this->link2)]
+            'destination' => $this->link2[array_key_first($this->link2)],
         ];
 
         $htmlRenderedLink = $this->generateComponent($variables, 'link');
@@ -70,12 +70,11 @@ class EmailParsingLinkTest extends TestCase
     {
         $variables = [
             'label' => $this->layoutHardcodedLabel,
-            'destination' => $this->link1[array_key_first($this->link1)]
+            'destination' => $this->link1[array_key_first($this->link1)],
         ];
         $htmlRenderedLink = $this->generateComponent($variables, 'link');
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
     }
-
 
     /**
      * @test
@@ -86,7 +85,7 @@ class EmailParsingLinkTest extends TestCase
     {
         $variables = [
             'label' => $this->layoutHardcodedLabel,
-            'destination' => $this->layoutHardcodedDestination
+            'destination' => $this->layoutHardcodedDestination,
         ];
         $htmlRenderedLink = $this->generateComponent($variables, 'link');
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);

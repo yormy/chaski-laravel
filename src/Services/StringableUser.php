@@ -2,16 +2,13 @@
 
 namespace Yormy\ChaskiLaravel\Services;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
-
 class StringableUser
 {
     public static function toString($notifyable): ?string
     {
         $notifiables = config('chaski.models.notifiables');
 
-        if (!$notifyable) {
+        if (! $notifyable) {
             return null;
         }
 
@@ -20,18 +17,18 @@ class StringableUser
             $notifiableTypeId = 'unknown';
         }
 
-        $string = $notifyable->id.'|'. $notifiableTypeId;
+        $string = $notifyable->id.'|'.$notifiableTypeId;
 
         return Stringable::toString($string);
     }
 
-    public static function fromString(?string $value): ? \stdClass
+    public static function fromString(?string $value): ?\stdClass
     {
         $decrypted = Stringable::fromString($value);
 
         $items = explode('|', $decrypted);
 
-        if (sizeof($items) !== 2) {
+        if (count($items) !== 2) {
             return null;
         }
 

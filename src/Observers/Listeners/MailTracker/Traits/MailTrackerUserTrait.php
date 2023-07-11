@@ -8,7 +8,7 @@ use Yormy\ChaskiLaravel\Services\StringableUser;
 
 trait MailTrackerUserTrait
 {
-    public function getUser(SentEmail $sentEmail): ? \stdClass
+    public function getUser(SentEmail $sentEmail): ?\stdClass
     {
         $stringedUser = $sentEmail->getHeader('X-UXID');
 
@@ -31,6 +31,7 @@ trait MailTrackerUserTrait
         if (in_array($mailTemplateName, config('chaski.mail_tracker.prevent_content_logging'))) {
             return true;
         }
+
         return false;
     }
 }
