@@ -41,8 +41,13 @@ class EmailParsingLinkTest extends TestCase
             'label' => array_key_first($this->link1),
             'destination' => $this->link1[array_key_first($this->link1)],
         ];
-        $htmlRenderedLink = $this->generateComponent($variables, 'link');
+        $htmlRenderedLink = $this->generateLinkComponent($variables);
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
+    }
+
+    private function generateLinkComponent($variables): string
+    {
+        return $this->generateComponent($variables, 'link', 'chaski-laravel::_partials.links');
     }
 
     /**
@@ -57,7 +62,7 @@ class EmailParsingLinkTest extends TestCase
             'destination' => $this->link2[array_key_first($this->link2)],
         ];
 
-        $htmlRenderedLink = $this->generateComponent($variables, 'link');
+        $htmlRenderedLink = $this->generateLinkComponent($variables);
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
     }
 
@@ -72,7 +77,7 @@ class EmailParsingLinkTest extends TestCase
             'label' => $this->layoutHardcodedLabel,
             'destination' => $this->link1[array_key_first($this->link1)],
         ];
-        $htmlRenderedLink = $this->generateComponent($variables, 'link');
+        $htmlRenderedLink = $this->generateLinkComponent($variables);
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
     }
 
@@ -87,7 +92,7 @@ class EmailParsingLinkTest extends TestCase
             'label' => $this->layoutHardcodedLabel,
             'destination' => $this->layoutHardcodedDestination,
         ];
-        $htmlRenderedLink = $this->generateComponent($variables, 'link');
+        $htmlRenderedLink = $this->generateLinkComponent($variables);
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
     }
 }

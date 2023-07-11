@@ -38,6 +38,7 @@ class EmailTrackingTest extends TestCase
         $trackables = $this->prepareEmailGetTrackables();
 
         $emailHash = $this->getOpenHash($trackables);
+
         $sentEmail = SentEmail::where('hash', $emailHash)->first();
 
         $sentEmail->refresh();
@@ -140,10 +141,15 @@ class EmailTrackingTest extends TestCase
             'destination' => $this->link1[array_key_first($this->link1)],
         ];
 
-        $htmlRenderedLink = $this->generateComponent($variables, 'link');
+        $htmlRenderedLink = $this->generateLinkComponent($variables, 'link');
         $injectedHtml = $this->injectTrackingPixels($this->htmlEmailEnglish);
 
         return $this->getTrackables($injectedHtml);
+    }
+
+    private function generateLinkComponent($variables, string $template): string
+    {
+        return $this->generateComponent($variables, $template, 'chaski-laravel::_partials.links');
     }
 
     private function getTrackableLinks(array $trackables): array
@@ -159,13 +165,7 @@ class EmailTrackingTest extends TestCase
                 $patternHash = '#n\?l=.*&h=(.*)#s';
                 $found = preg_match($patternHash, $link, $matches);
                 if ($found) {
-                    $hash = $matches[1];
-                    //$hash = substr($hash,2, strlen($matches[1]));
-                    $hash = preg_replace('/'.'=3D'.'/', '', $hash, 1);
-                    $hash = preg_replace('/'.'3D'.'/', '', $hash, 1);
-                    $hash = str_replace('=', '', $hash);
-
-                    $trackableLink['hash'] = $hash;
+                    $trackableLink['hash'] = $matches[1];
                     $trackableLinks[] = $trackableLink;
                 }
             }
@@ -193,13 +193,7 @@ class EmailTrackingTest extends TestCase
         $pattern = "#http[s]*:\/\/$domain\/email\/(.*)\"#sU";
         preg_match_all($pattern, $injectedHtml, $matches);
 
-        return array_map(function ($item) {
-            $item = trim($item);
-            $item = str_replace("\r", '', $item);
-            $item = str_replace("\n", '', $item);
-
-            return $item;
-        }, $matches[1]);
+        return $matches[1];
     }
 
     private function triggerEmailOpen(string $hash)
@@ -229,6 +223,6 @@ class EmailTrackingTest extends TestCase
         $tracker = new MailTracker;
         $tracker->messageSending($event);
 
-        return $email->getBody()->toString();
+        return $email->getBody()->getBody();
     }
 }

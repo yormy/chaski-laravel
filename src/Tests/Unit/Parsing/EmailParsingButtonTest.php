@@ -31,9 +31,14 @@ class EmailParsingButtonTest extends TestCase
             'label' => array_key_first($this->button1),
             'destination' => $this->button1[array_key_first($this->button1)],
         ];
-        $htmlRendered = $this->generateComponent($variables, 'button');
+        $htmlRendered = $this->generateButtonComponent($variables, 'button');
 
         $this->assertStringContainsString($htmlRendered, $this->htmlEmailEnglish);
+    }
+
+    private function generateButtonComponent(array $variables, string $template): string
+    {
+        return $this->generateComponent($variables, $template, 'chaski-laravel::_partials.buttons');
     }
 
     /**
@@ -48,7 +53,7 @@ class EmailParsingButtonTest extends TestCase
             'destination' => $this->button2[array_key_first($this->button2)],
         ];
 
-        $htmlRenderedLink = $this->generateComponent($variables, 'button');
+        $htmlRenderedLink = $this->generateButtonComponent($variables, 'button');
 
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
     }
@@ -64,7 +69,7 @@ class EmailParsingButtonTest extends TestCase
             'label' => $this->layoutHardcodedLabel,
             'destination' => $this->button1[array_key_first($this->button1)],
         ];
-        $htmlRenderedLink = $this->generateComponent($variables, 'button');
+        $htmlRenderedLink = $this->generateButtonComponent($variables, 'button');
 
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
     }
@@ -80,7 +85,7 @@ class EmailParsingButtonTest extends TestCase
             'label' => $this->layoutHardcodedLabel,
             'destination' => $this->layoutHardcodedDestination,
         ];
-        $htmlRenderedLink = $this->generateComponent($variables, 'button');
+        $htmlRenderedLink = $this->generateButtonComponent($variables, 'button');
 
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
     }

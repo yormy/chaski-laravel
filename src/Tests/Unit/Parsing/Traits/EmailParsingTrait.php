@@ -74,9 +74,9 @@ trait EmailParsingTrait
             ->buttons(array_merge($this->button1, $this->button2));
     }
 
-    private function generateComponent(array $variables, string $template): string
+    private function generateComponent(array $variables, string $template, string $viewRoot): string
     {
-        return view("chaski-laravel::$template", $variables)->render();
+        return view("$viewRoot.$template", $variables)->render();
     }
 
     private function createTemplate()

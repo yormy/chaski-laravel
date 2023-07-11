@@ -31,8 +31,13 @@ class EmailParsingButtonTemplateTest extends TestCase
             'label' => array_key_first($this->button1),
             'destination' => $this->button1[array_key_first($this->button1)],
         ];
-        $htmlRendered = $this->generateComponent($variables, 'button_danger');
+        $htmlRendered = $this->generateButtonComponent($variables, 'button_danger');
         $this->assertStringContainsString($htmlRendered, $this->htmlEmailEnglish);
+    }
+
+    private function generateButtonComponent(array $variables, string $template): string
+    {
+        return $this->generateComponent($variables, $template, 'chaski-laravel::_partials.buttons');
     }
 
     /**
@@ -46,7 +51,7 @@ class EmailParsingButtonTemplateTest extends TestCase
             'label' => $this->layoutHardcodedLabel,
             'destination' => $this->layoutHardcodedDestination,
         ];
-        $htmlRenderedLink = $this->generateComponent($variables, 'button_danger');
+        $htmlRenderedLink = $this->generateButtonComponent($variables, 'button_danger');
 
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
     }

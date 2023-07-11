@@ -34,8 +34,13 @@ class EmailParsingPromoTest extends TestCase
             'line4' => $this->promo[3] ?? '',
         ];
 
-        $htmlRenderedLink = $this->generateComponent($variables, 'promo');
+        $htmlRenderedLink = $this->generateTextComponent($variables, 'promo');
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
+    }
+
+    private function generateTextComponent($variables, $template): string
+    {
+        return $this->generateComponent($variables, $template, 'chaski-laravel::_partials.texts');
     }
 
     /**
@@ -52,7 +57,7 @@ class EmailParsingPromoTest extends TestCase
             'line4' => $this->signature[3] ?? '',
         ];
 
-        $htmlRenderedLink = $this->generateComponent($variables, 'signature');
+        $htmlRenderedLink = $this->generateTextComponent($variables, 'signature');
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
     }
 }

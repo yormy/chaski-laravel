@@ -36,8 +36,13 @@ class EmailParsingTableTest extends TestCase
             'rows' => $this->tableRows,
         ];
 
-        $htmlRenderedLink = $this->generateComponent($variables, 'table');
+        $htmlRenderedLink = $this->generateTableComponent($variables, 'table');
         $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
+    }
+
+    private function generateTableComponent($variables, $template): string
+    {
+        return $this->generateComponent($variables, $template, 'chaski-laravel::_partials.tables');
     }
 
     /**
@@ -52,56 +57,9 @@ class EmailParsingTableTest extends TestCase
             'rows' => $this->tableRowsHardcoded,
         ];
 
-        $htmlRendered = $this->generateComponent($variables, 'table');
+        $htmlRendered = $this->generateTableComponent($variables, 'table');
 
         $this->assertStringContainsString($htmlRendered, $this->htmlEmailEnglish);
     }
 
-    //
-    //    /**
-    //     * @test
-    //     *
-    //     * @group chaski-parsing
-    //     */
-    //    public function Email_includes_link2_from_data_Label_destination_from_data(): void
-    //    {
-    //        $variables = [
-    //            'label' => array_key_first($this->link2),
-    //            'destination' => $this->link2[array_key_first($this->link2)]
-    //        ];
-    //
-    //        $htmlRenderedLink = $this->generateComponent($variables, 'link');
-    //        $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
-    //    }
-    //
-    //    /**
-    //     * @test
-    //     *
-    //     * @group chaski-parsing
-    //     */
-    //    public function Email_includes_link_from_data_Label_hardcoded(): void
-    //    {
-    //        $variables = [
-    //            'label' => $this->layoutHardcodedLabel,
-    //            'destination' => $this->link1[array_key_first($this->link1)]
-    //        ];
-    //        $htmlRenderedLink = $this->generateComponent($variables, 'link');
-    //        $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
-    //    }
-    //
-    //
-    //    /**
-    //     * @test
-    //     *
-    //     * @group chaski-parsing
-    //     */
-    //    public function Email_includes_Label_and_destination_hardcoded(): void
-    //    {
-    //        $variables = [
-    //            'label' => $this->layoutHardcodedLabel,
-    //            'destination' => $this->layoutHardcodedDestination
-    //        ];
-    //        $htmlRenderedLink = $this->generateComponent($variables, 'link');
-    //        $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
-    //    }
 }

@@ -292,8 +292,6 @@ class TestTemplateMailable extends TemplateMailable
         $outerComponent = $matches[0];
         $innerComponent = $matches[1];
         foreach ($innerComponent as $matchIndex => $innerComponent) {
-
-            $innerComponent = str_replace(["\r", "\n"], '', $innerComponent);
             $innerComponent = trim($innerComponent);
 
             $tableLines = explode(';', $innerComponent);

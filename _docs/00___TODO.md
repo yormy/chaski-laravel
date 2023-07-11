@@ -33,8 +33,7 @@ moet in de frontend een lijst met notifications of een lijst met emails of een l
 
 # MAIL CONTENT
 # # Mail Content template:
-- top summary
-- footer copyright statement
+- top summary / email preview
 - footer unsubscribe links. - nicest would be below grey, but that is not controlled by template but by ????? $title
 - delayed notification (als pri qr)
 - mail preview
