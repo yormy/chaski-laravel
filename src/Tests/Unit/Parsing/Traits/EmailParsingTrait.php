@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\App;
 use Yormy\ChaskiLaravel\DataObjects\MailTemplateObject;
 use Yormy\ChaskiLaravel\Models\TranslatableMailTemplate;
 use Yormy\ChaskiLaravel\Notifications\TestTemplateMailable;
+use Yormy\ChaskiLaravel\Notifications\TestTemplateNotification;
 use Yormy\ChaskiLaravel\Notifications\TestTemplateNotificationDTO;
 
 trait EmailParsingTrait
@@ -113,14 +114,19 @@ Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
             .implode('|', $this->tableRowsHardcoded[1]).';
     ]]
 
+    ---
     [[signature]]
+
     [[promo]]
+
+        Click here to unsubscribe {{unsubscribeToken}}
     ';
 
         $textTemplate = 'Hello, {{ name }}!';
 
         $mailTemplateObject = MailTemplateObject::make()
             ->mailable(TestTemplateMailable::class)
+            ->notification(TestTemplateNotification::class)
             ->subject('nl', 'NEDERLANDS')
             ->summary('nl', 'Hoi')
             ->htmlTemplate('nl', '<h1>'.$this->dutch.'{{ name }}!</h1>')

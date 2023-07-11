@@ -37,6 +37,8 @@ class TestTemplateMailable extends TemplateMailable
 
     public string $button_4 = '';
 
+    public string $unsubscribeToken = '';
+
     private array $links;
 
     private array $buttons;
@@ -92,7 +94,11 @@ class TestTemplateMailable extends TemplateMailable
 
         $this->promo = $data->getPromo();
         $this->signature = $data->getSignature();
+
+        $this->resolveTemplateModel();
+        $this->unsubscribeToken = $this->getUnsubscribeToken();
     }
+
 
     public function send($mailer)
     {
@@ -162,13 +168,6 @@ class TestTemplateMailable extends TemplateMailable
         $view['html'] = new HtmlString($result);
 
         return $view;
-    }
-
-    private function getUnsubscribeToken()
-    {
-        $mailableXid = $this->mailTemplate->xid;
-        $id = StringableUser::toString($this->notifiable). "|" . $mailableXid;
-       // dd($id);
     }
 
     private function parseTextComponent(string $org, array $data, $componentName = 'signature'): string
@@ -248,6 +247,14 @@ class TestTemplateMailable extends TemplateMailable
         }
 
         return $result;
+    }
+
+    private function getUnsubscribeToken(): string
+    {
+        $mailableXid = $this->mailTemplate->xid;
+        $token = StringableUser::toString($this->notifiable). "|" . $mailableXid;
+
+        return $token;
     }
 
     private function parseLinkComponent(string $org, string $linkName): string
@@ -340,7 +347,6 @@ class TestTemplateMailable extends TemplateMailable
 
         $result = $this->parseLinkComponent($result, 'link');
 
-        $this->getUnsubscribeToken();
         foreach ($variables as $variableName) {
             //$pattern ="#{!!(\s)*$variableName(\s)*!!}#i";
         }

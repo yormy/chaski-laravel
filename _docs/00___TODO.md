@@ -1,5 +1,13 @@
 # notification subscriptions
 
+mail_preventable => mail_unsubscribable
+unsubscribe link ?
+- in mail :
+- --- mailable-xid
+- --- user-id
+- --- user-type
+
+
 Mark read: email / notificaion
 moet in de frontend een lijst met notifications of een lijst met emails of een lijst met notifcations met de link naar de email?
 
@@ -33,7 +41,6 @@ moet in de frontend een lijst met notifications of een lijst met emails of een l
 
 # MAIL CONTENT
 # # Mail Content template:
-- top summary / email preview
 - footer unsubscribe links. - nicest would be below grey, but that is not controlled by template but by ????? $title
 - delayed notification (als pri qr)
 - mail preview

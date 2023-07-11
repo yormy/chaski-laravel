@@ -33,23 +33,9 @@ class EmailRealSendTest extends TestCase
      */
     public function Email_send_to_mailgun(): void
     {
-        $unsubtoken ='eyJpdiI6InUyd3Fzd3k4djNlNEJjSUJaYWZOR3c9PSIsInZhbHVlIjoiQnBoTjBmalpsblRzTE10Y1hJRzQ1dz09IiwibWFjIjoiMGJkNTVjNGQxOGY2N2Q1NWNlMDRjNjg5NjMwNDk3YmUwMzI0NGIzYTU3ZWQ1MjljYWE0MDc4M2FjZDUzMjIwMiIsInRhZyI6IiJ9|EAZvfYfaR4mA6FcsW3dkAQ186';
+//        $unsubtoken = 'eyJpdiI6InUyd3Fzd3k4djNlNEJjSUJaYWZOR3c9PSIsInZhbHVlIjoiQnBoTjBmalpsblRzTE10Y1hJRzQ1dz09IiwibWFjIjoiMGJkNTVjNGQxOGY2N2Q1NWNlMDRjNjg5NjMwNDk3YmUwMzI0NGIzYTU3ZWQ1MjljYWE0MDc4M2FjZDUzMjIwMiIsInRhZyI6IiJ9|EAZvfYfaR4mA6FcsW3dkAQ186';
+//        $this->unsubscribe($unsubtoken);
 
-        $tokenItems = explode('|', $unsubtoken);
-        $stringableUser = StringableUser::fromString($tokenItems[0]);
-        $mailableXid = $tokenItems[1];
-
-        $userClass = $stringableUser->type;
-        $user = $userClass::where('id', $stringableUser->id)->firstOrFail();
-
-        $mailTemplate = MailTemplate::where('xid', $mailableXid)->firstOrFail();
-        $notificationClass = $mailTemplate->notification;
-
-        $user->unsubscribe($notificationClass);
-        dd();
-        dd($user);
-        dd($stringableUser);
-        dd('dd');
         //Mail::fake(); // uncomment mail:fake to see the mail in your mail catcher
         $this->configMail();
         $this->createTemplate();
@@ -60,5 +46,24 @@ class EmailRealSendTest extends TestCase
         $user->notify(new TestTemplateNotification($data));
 
         $this->assertTrue(true);
+    }
+
+    private function unsubscribe(string $unsubscribeToken)
+    {
+        $tokenItems = explode('|', $unsubscribeToken);
+        $stringableUser = StringableUser::fromString($tokenItems[0]);
+        $mailableXid = $tokenItems[1];
+
+        $userClass = $stringableUser->type;
+        $user = $userClass::where('id', $stringableUser->id)->firstOrFail();
+
+        $mailTemplate = MailTemplate::where('xid', $mailableXid)->firstOrFail();
+
+        if(!$mailTemplate->mail_preventable) {
+            // unsubscribe disabled
+        }
+
+        $notificationClass = $mailTemplate->notification;
+        $user->unsubscribe($notificationClass);
     }
 }
