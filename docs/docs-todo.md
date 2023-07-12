@@ -19,3 +19,6 @@ use HasNotificationSubscriptions;
 
     // ...
 }
+
+# How to create your onw notification, mailable, DTO
+overwrite and what to do

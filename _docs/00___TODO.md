@@ -2,27 +2,53 @@
 is signature/ promo translatable ?
 can promo contain link?
 
+artisan command to send dummy email to x... for testing
+
 ## Unsubscribe link template:
 - Nu moet ik het per taal en per notification instellen, kan het generieker ?
-- 
 
 # Handle unsubscribe link click (additional route)
---- forward to where when unsubscribed (in case of success or failire)
-rename: mail_preventable => mail_unsubscribable
-
-# Mark read: email / notificaion
-moet in de frontend een lijst met notifications of een lijst met emails of een lijst met notifcations met de link naar de email?
+- process unsubscribe
+- forward to where when unsubscribed (in case of success or failire)
 
 # CLEANUP
 - pint
-- ide models
+- ide models (php artisan iets met vendor bin ?)
 - psalm
 
 - 
 # Composer
 - why does xid package include laravel ?
 
-## UI
+
+# MAIL CONTENT
+# # Mail Content template:
+- footer unsubscribe links. - nicest would be below grey, but that is not controlled by template but by ????? $title
+- delayed notification (als pri qr)
+
+
+# Unittest:
+- TestTemplateNotification shouldSend as false;
+
+
+# Refactor 
+naming TestTemplateNotificationDTO etc
+rename: mail_preventable => mail_unsubscribable
+
+
+## MAIL CREATE FRONTEND
+- preview
+- 
+WelcomeMail::getVariables();
+to show what placeholders can be used and how should be used, test if all required parameters are filled in
+$placeholders = [
+'action_title',
+'action_description',
+'signature',
+'marketingsnippit'
+];
+
+## MAILTRACK FRONTEND
 - views from mailtrack ?
 -     /**
     * Where should the admin route be?
@@ -41,38 +67,5 @@ moet in de frontend een lijst met notifications of een lijst met emails of een l
   'section' => 'content',
   ],
 
-# MAIL CONTENT
-# # Mail Content template:
-- footer unsubscribe links. - nicest would be below grey, but that is not controlled by template but by ????? $title
-- delayed notification (als pri qr)
-- mail preview
-
-
-# Unittest:
-- TestTemplateNotification shouldSend as false;
-
-
-# Refactor 
-naming TestTemplateNotificationDTO etc
-
-# Vite press
-
-## Features
-1 test notification (rest in clients, ie users has notifications, bounty has notifications)
-
-# UI
-WelcomeMail::getVariables();
-to show what placeholders can be used and how should be used, test if all required parameters are filled in
-$placeholders = [
-'action_title',
-'action_description',
-'signature',
-'marketingsnippit'
-];
-
-        $plain = [
-            'name' => 'PASSWORD_CHANGED',
-            'mailable' => PasswordChangedMailable::class,
-            'notification' => PasswordChangedNotification::class,
-            'placeholders' => $placeholders,
-        ];
+## MISC FRONTEND - Mark read: email / notificaion
+moet in de frontend een lijst met notifications of een lijst met emails of een lijst met notifcations met de link naar de email?
