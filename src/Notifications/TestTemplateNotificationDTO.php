@@ -85,11 +85,23 @@ class TestTemplateNotificationDTO
 
     public function getSignature(): array
     {
-        return $this->signature;
+        return $this->convertToLines($this->signature);
     }
 
     public function getPromo(): array
     {
-        return $this->promo;
+        return $this->convertToLines($this->promo);
+    }
+
+    private function convertToLines(array $data): array
+    {
+        $new = [];
+
+        foreach ($data as $key => $line) {
+            $key = $key+1;
+            $new["line_$key"] = $line;
+        }
+
+        return $new;
     }
 }

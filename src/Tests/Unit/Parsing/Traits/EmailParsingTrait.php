@@ -119,11 +119,8 @@ Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
 
     [[promo]]
 
-    <span style="font-size:10px;color:darkgrey">If you want to unsubscribe
-        [[link_unsubscribe:unsubbie|{{unsubscribeToken}}]]
-    </span>
+    [[link_unsubscribe]]
     ';
-
         $textTemplate = 'Hello, {{ name }}!';
 
         $mailTemplateObject = MailTemplateObject::make()
@@ -131,7 +128,7 @@ Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
             ->notification(TestTemplateNotification::class)
             ->subject('nl', 'NEDERLANDS')
             ->summary('nl', 'Hoi')
-            ->htmlTemplate('nl', '<h1>'.$this->dutch.'{{ name }}!</h1>')
+            ->htmlTemplate('nl', '<h1>'.$this->dutch.'{{ name }}!</h1> [[link_unsubscribe]]')
             ->textTemplate('nl', 'hoi, {{ name }}!')
             ->subject('en', 'ENGELS')
             ->summary('en', 'Hello')
