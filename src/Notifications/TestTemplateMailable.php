@@ -170,7 +170,7 @@ class TestTemplateMailable extends TemplateMailable
         return $view;
     }
 
-    private function parseTextComponent(string $org, array $data, $componentName = 'signature'): string
+    private function parseTextComponent(string $org, array $variables, $componentName): string
     {
         $result = $org;
 
@@ -179,12 +179,6 @@ class TestTemplateMailable extends TemplateMailable
         preg_match_all($signaturePattern, $org, $matches);
         $outerSignatures = $matches[0];
         foreach ($outerSignatures as $matchIndex => $outerSignature) {
-            $variables = [
-                'line1' => $data[0] ?? '',
-                'line2' => $data[1] ?? '',
-                'line3' => $data[2] ?? '',
-                'line4' => $data[3] ?? '',
-            ];
             $htmlRenderedSignature = view("chaski-laravel::_partials.texts.$componentName", $variables)->render();
 
             $result = str_ireplace($outerSignature, $htmlRenderedSignature, $result);
@@ -266,33 +260,6 @@ class TestTemplateMailable extends TemplateMailable
     {
         return $this->parseButtonLinkComponent($org, $this->buttons, $linkName, 'chaski-laravel::_partials.buttons');
     }
-    //
-    //    private function parseButtonComponent2(string $org, $buttonName = 'button'): string
-    //    {
-    //        $result = $org;
-    //
-    //        $buttonPattern ="#\[\[$buttonName:(.*)\]\]#iUs";
-    //        $matches = [];
-    //        preg_match_all($buttonPattern, $org, $matches);
-    //        $outerButtons = $matches[0];
-    //        $innerButtons = $matches[1];
-    //        foreach ($innerButtons as $matchIndex => $innerButton) {
-    //            $buttonDetails = explode('|', $innerButton);
-    //
-    //            $buttonLabel = $buttonDetails[0];
-    //            $buttonDestination = $buttonDetails[1];
-    //
-    //            $variables = [
-    //                'destination' => $buttonDestination,
-    //                'label' => $buttonLabel
-    //            ];
-    //            $htmlRenderedButton = view("chaski-laravel::$buttonName", $variables)->render();
-    //
-    //            $result = str_ireplace($outerButtons[$matchIndex], $htmlRenderedButton, $result);
-    //        }
-    //
-    //        return $result;
-    //    }
 
     private function parseTableComponent(string $org, $componentName): string
     {
@@ -346,7 +313,9 @@ class TestTemplateMailable extends TemplateMailable
         $result = $this->parseTextComponent($result, $this->promo, 'promo');
 
         $result = $this->parseLinkComponent($result, 'link');
-        $result = $this->parseLinkComponent($result, 'link_unsubscribe');
+
+        $variables['unsubscribeToken'] = $this->unsubscribeToken;
+        $result = $this->parseTextComponent($result, $variables, 'link_unsubscribe', );
 
         foreach ($variables as $variableName) {
             //$pattern ="#{!!(\s)*$variableName(\s)*!!}#i";
