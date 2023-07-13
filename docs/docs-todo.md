@@ -22,3 +22,10 @@ use HasNotificationSubscriptions;
 
 # How to create your onw notification, mailable, DTO
 overwrite and what to do
+
+Promo and signature allows basic html (b, h, links)
+
+# Signature / promo
+Can be set in the code per notification
+can be set hardcoded and translatables
+Can be edited in blade with variables

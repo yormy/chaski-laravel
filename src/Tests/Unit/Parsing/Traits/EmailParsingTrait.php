@@ -29,9 +29,9 @@ trait EmailParsingTrait
 
     private array $button2 = ['Delete' => 'www.delete.com'];
 
-    private array $promo = ['P.S. Did you know:', 'We just released some new features available', 'check out our upgrade plan'];
+    private array $promo = ['P.S. Did you know:', 'We just released some new <a href="www.google.com">features available</a>', 'check <tag>out</tag> our <b>upgrade</b> plan'];
 
-    private array $signature = ['Cheers', 'The team from chaski', 'make each day an epic adventure'];
+    private array $signature = ['Cheers', 'The team from <b>chaski</b>', 'make each day an epic adventure'];
 
     private array $tableHeader = ['col1', 'col2'];
 

@@ -1,6 +1,4 @@
 # notification subscriptions
-is signature/ promo translatable ?
-can promo contain link?
 
 artisan command to send dummy email to x... for testing
 
