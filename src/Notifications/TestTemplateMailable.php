@@ -37,7 +37,7 @@ class TestTemplateMailable extends TemplateMailable
 
     public string $button_4 = '';
 
-    public string $unsubscribeToken = '';
+    public string $unsubscribeLink = '';
 
     private array $links;
 
@@ -96,7 +96,8 @@ class TestTemplateMailable extends TemplateMailable
         $this->signature = $data->getSignature();
 
         $this->resolveTemplateModel();
-        $this->unsubscribeToken = $this->getUnsubscribeToken();
+
+        $this->unsubscribeLink = route('chaski.email.unsubscribe', $this->getUnsubscribeToken());
     }
 
     public function send($mailer)
@@ -245,7 +246,7 @@ class TestTemplateMailable extends TemplateMailable
     private function getUnsubscribeToken(): string
     {
         $mailableXid = $this->mailTemplate->xid;
-        $token = StringableUser::toString($this->notifiable).'|'.$mailableXid;
+        $token = StringableUser::toString($this->notifiable).'-'.$mailableXid;
 
         return $token;
     }
@@ -313,7 +314,7 @@ class TestTemplateMailable extends TemplateMailable
 
         $result = $this->parseLinkComponent($result, 'link');
 
-        $variables['unsubscribeToken'] = $this->unsubscribeToken;
+        $variables['unsubscribeLink'] = $this->unsubscribeLink;
         $result = $this->parseTextComponent($result, $variables, 'link_unsubscribe');
 
         foreach ($variables as $variableName) {

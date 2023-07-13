@@ -11,14 +11,20 @@ class UnsubscribeAction
 {
     public static function execute(string $unsubscribeToken): bool
     {
-        $tokenItems = explode('|', $unsubscribeToken);
+        $tokenItems = explode('-', $unsubscribeToken);
         $stringableUser = StringableUser::fromString($tokenItems[0]);
         $mailableXid = $tokenItems[1];
 
         $userClass = $stringableUser->type;
-        $user = $userClass::where('id', $stringableUser->id)->firstOrFail();
+        $user = $userClass::where('id', $stringableUser->id)->first();
+        if (!$user) {
+            return false;
+        }
 
-        $mailTemplate = MailTemplate::where('xid', $mailableXid)->firstOrFail();
+        $mailTemplate = MailTemplate::where('xid', $mailableXid)->first();
+        if (!$mailTemplate) {
+            return false;
+        }
 
         if (! $mailTemplate->mail_preventable) {
             event(new UnsubscribePrevented($user, $mailTemplate));

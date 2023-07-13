@@ -25,7 +25,6 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapWebRoutes(): void
     {
-        AdminRoutes::register();
         GuestRoutes::register();
     }
 
