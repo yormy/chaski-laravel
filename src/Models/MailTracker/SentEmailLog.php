@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|SentEmailLog newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SentEmailLog newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SentEmailLog query()
+ *
  * @mixin \Eloquent
  */
 class SentEmailLog extends Model

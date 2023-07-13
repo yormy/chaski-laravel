@@ -100,7 +100,7 @@ class TestTemplateNotificationDTO
         $new = [];
 
         foreach ($data as $key => $dirty) {
-            $key = $key+1;
+            $key = $key + 1;
 
             $line = Purifier::cleanHtml($dirty, 'h2');
             $new["line_$key"] = $line;

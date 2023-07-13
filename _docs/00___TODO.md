@@ -10,7 +10,6 @@ artisan command to send dummy email to x... for testing
 
 # CLEANUP
 - pint
-- ide models (php artisan iets met vendor bin ?)
 - psalm
 
 - 

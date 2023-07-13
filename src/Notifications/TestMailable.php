@@ -13,6 +13,7 @@ class TestMailable extends Mailable
     use Queueable, SerializesModels;
 
     public string $title = 'Mailable Title';
+
     public string $msg = 'Mailable message';
 
     /**

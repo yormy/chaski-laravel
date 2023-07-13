@@ -14,9 +14,11 @@ use jdavidbakr\MailTracker\Model\SentEmail as BaseSentEmail;
  * @property-read \jdavidbakr\MailTracker\Model\[type] $smtp_info
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \jdavidbakr\MailTracker\Model\SentEmailUrlClicked> $urlClicks
  * @property-read int|null $url_clicks_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|SentEmail newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SentEmail newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SentEmail query()
+ *
  * @mixin \Eloquent
  */
 class SentEmail extends BaseSentEmail

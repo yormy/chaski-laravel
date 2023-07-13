@@ -61,5 +61,4 @@ class EmailParsingTableTest extends TestCase
 
         $this->assertStringContainsString($htmlRendered, $this->htmlEmailEnglish);
     }
-
 }

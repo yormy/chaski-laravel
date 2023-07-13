@@ -5,7 +5,6 @@ namespace Yormy\ChaskiLaravel\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Mail\Mailable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
 
@@ -36,27 +35,27 @@ class TestNotification extends Notification implements ShouldQueue
             ->to($notifiable->email);
     }
 
-/*    public function toSlack($notifiable)
-    {
-        $domain = request()->getHttpHost();
+    /*    public function toSlack($notifiable)
+        {
+            $domain = request()->getHttpHost();
 
-        $message = __('tripwire::notifications.slack.message', [
-            'domain' => $domain,
-        ]);
+            $message = __('tripwire::notifications.slack.message', [
+                'domain' => $domain,
+            ]);
 
-        $mailSettings = $this->settings;
+            $mailSettings = $this->settings;
 
-        return (new SlackMessage)
-            ->error()
-            ->from($mailSettings['from'], $mailSettings['emoji'])
-            ->to($mailSettings['channel'])
-            ->content($message)
-            ->attachment(function ($attachment) use ($domain) {
-                $attachment->fields([
-                    'IP' => $this->ipAddress,
-                    'User ID' => $this->userId,
-                    'domain' => $domain,
-                ]);
-            });
-    }*/
+            return (new SlackMessage)
+                ->error()
+                ->from($mailSettings['from'], $mailSettings['emoji'])
+                ->to($mailSettings['channel'])
+                ->content($message)
+                ->attachment(function ($attachment) use ($domain) {
+                    $attachment->fields([
+                        'IP' => $this->ipAddress,
+                        'User ID' => $this->userId,
+                        'domain' => $domain,
+                    ]);
+                });
+        }*/
 }

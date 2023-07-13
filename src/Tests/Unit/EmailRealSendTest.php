@@ -34,8 +34,8 @@ class EmailRealSendTest extends TestCase
      */
     public function Email_send_to_mailgun(): void
     {
-//        $unsubtoken = 'eyJpdiI6InUyd3Fzd3k4djNlNEJjSUJaYWZOR3c9PSIsInZhbHVlIjoiQnBoTjBmalpsblRzTE10Y1hJRzQ1dz09IiwibWFjIjoiMGJkNTVjNGQxOGY2N2Q1NWNlMDRjNjg5NjMwNDk3YmUwMzI0NGIzYTU3ZWQ1MjljYWE0MDc4M2FjZDUzMjIwMiIsInRhZyI6IiJ9|EAZvfYfaR4mA6FcsW3dkAQ186';
-//        $this->unsubscribe($unsubtoken);
+        //        $unsubtoken = 'eyJpdiI6InUyd3Fzd3k4djNlNEJjSUJaYWZOR3c9PSIsInZhbHVlIjoiQnBoTjBmalpsblRzTE10Y1hJRzQ1dz09IiwibWFjIjoiMGJkNTVjNGQxOGY2N2Q1NWNlMDRjNjg5NjMwNDk3YmUwMzI0NGIzYTU3ZWQ1MjljYWE0MDc4M2FjZDUzMjIwMiIsInRhZyI6IiJ9|EAZvfYfaR4mA6FcsW3dkAQ186';
+        //        $this->unsubscribe($unsubtoken);
 
         //App::setLocale('nl');
         //Mail::fake(); // uncomment mail:fake to see the mail in your mail catcher
@@ -61,7 +61,7 @@ class EmailRealSendTest extends TestCase
 
         $mailTemplate = MailTemplate::where('xid', $mailableXid)->firstOrFail();
 
-        if(!$mailTemplate->mail_preventable) {
+        if (! $mailTemplate->mail_preventable) {
             // unsubscribe disabled
         }
 
