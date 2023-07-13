@@ -7,6 +7,18 @@ use Spatie\Translatable\HasTranslations;
 use Yormy\ChaskiLaravel\DataObjects\MailTemplateObject;
 use Yormy\Xid\Models\Traits\Xid;
 
+/**
+ * Yormy\ChaskiLaravel\Models\TranslatableMailTemplate
+ *
+ * @property-read array $variables
+ * @method static Builder|MailTemplate forMailable(\Illuminate\Contracts\Mail\Mailable $mailable)
+ * @method static \Illuminate\Database\Eloquent\Builder|TranslatableMailTemplate newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TranslatableMailTemplate newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TranslatableMailTemplate query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TranslatableMailTemplate whereLocale(string $column, string $locale)
+ * @method static \Illuminate\Database\Eloquent\Builder|TranslatableMailTemplate whereLocales(string $column, array $locales)
+ * @mixin \Eloquent
+ */
 class TranslatableMailTemplate extends MailTemplate
 {
     use HasTranslations;

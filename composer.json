@@ -71,7 +71,7 @@
         "psalm-debug": "vendor/bin/psalm --no-cache --debug --debug-by-line",
         "pint": "vendor/bin/pint",
         "---------- IDE-HELPERS ---------- ": "",
-        "ide-helpers": "php vendor/bin/testbench ide-helper:generate",
+        "ide-helpers": "php vendor/bin/testbench clear-compiled && php vendor/bin/testbench ide-helper:generate && php vendor/bin/testbench --write ide-helper:models && php vendor/bin/testbench ide-helper:meta",
 
         "---------- TESTS ---------- ": "",
         "test:all": "vendor/bin/paratest",
