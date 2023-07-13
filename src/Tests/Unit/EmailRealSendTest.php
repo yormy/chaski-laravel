@@ -32,11 +32,8 @@ class EmailRealSendTest extends TestCase
      *
      * @group RealSend
      */
-    public function Email_send_to_mailgun(): void
+    public function Email_send_to_mailgun_English(): void
     {
-        //        $unsubtoken = 'eyJpdiI6InUyd3Fzd3k4djNlNEJjSUJaYWZOR3c9PSIsInZhbHVlIjoiQnBoTjBmalpsblRzTE10Y1hJRzQ1dz09IiwibWFjIjoiMGJkNTVjNGQxOGY2N2Q1NWNlMDRjNjg5NjMwNDk3YmUwMzI0NGIzYTU3ZWQ1MjljYWE0MDc4M2FjZDUzMjIwMiIsInRhZyI6IiJ9|EAZvfYfaR4mA6FcsW3dkAQ186';
-        //        $this->unsubscribe($unsubtoken);
-
         //App::setLocale('nl');
         //Mail::fake(); // uncomment mail:fake to see the mail in your mail catcher
         $this->configMail();
@@ -50,22 +47,24 @@ class EmailRealSendTest extends TestCase
         $this->assertTrue(true);
     }
 
-    private function unsubscribe(string $unsubscribeToken)
+    /**
+     * @test
+     *
+     * @group RealSend
+     */
+    public function Email_send_to_mailgun_Dutch(): void
     {
-        $tokenItems = explode('|', $unsubscribeToken);
-        $stringableUser = StringableUser::fromString($tokenItems[0]);
-        $mailableXid = $tokenItems[1];
+        App::setLocale('nl');
 
-        $userClass = $stringableUser->type;
-        $user = $userClass::where('id', $stringableUser->id)->firstOrFail();
+        $this->configMail();
+        $this->createTemplate();
+        $user = $this->createUser();
 
-        $mailTemplate = MailTemplate::where('xid', $mailableXid)->firstOrFail();
+        $data = $this->createNotificationData();
 
-        if (! $mailTemplate->mail_preventable) {
-            // unsubscribe disabled
-        }
+        $user->notify(new TestTemplateNotification($data));
 
-        $notificationClass = $mailTemplate->notification;
-        $user->unsubscribe($notificationClass);
+        $this->assertTrue(true);
     }
+
 }

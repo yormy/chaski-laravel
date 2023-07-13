@@ -73,6 +73,9 @@
         "---------- IDE-HELPERS ---------- ": "",
         "ide-helpers": "php vendor/bin/testbench clear-compiled && php vendor/bin/testbench ide-helper:generate && php vendor/bin/testbench --write ide-helper:models && php vendor/bin/testbench ide-helper:meta",
 
+        "---------- TEST_MAILS ---------- ": "",
+        "send-test": "vendor/bin/phpunit --group RealSend",
+
         "---------- TESTS ---------- ": "",
         "test:all": "vendor/bin/paratest",
         "t": "vendor/bin/phpunit --group RealSend",

@@ -1,7 +1,3 @@
-# notification subscriptions
-
-artisan command to send dummy email to x... for testing
-
 # Handle unsubscribe link click (additional route)
 - controller 
 - unit test
