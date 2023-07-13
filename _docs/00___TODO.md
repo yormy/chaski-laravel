@@ -2,10 +2,9 @@
 
 artisan command to send dummy email to x... for testing
 
-## Unsubscribe link template:
-- Nu moet ik het per taal en per notification instellen, kan het generieker ?
-
 # Handle unsubscribe link click (additional route)
+- controller 
+- unit test
 - process unsubscribe
 - forward to where when unsubscribed (in case of success or failire)
 

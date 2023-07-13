@@ -14,7 +14,9 @@ class ChaskiServiceProvider extends ServiceProvider
 {
     const CONFIG_FILE = __DIR__.'/../config/chaski.php';
 
-    const CONFIG__MAIL_TRACKER_FILE = __DIR__.'/../config/mail-tracker.php';
+    const CONFIG_MAIL_TRACKER_FILE = __DIR__.'/../config/mail-tracker.php';
+
+    const CONFIG_IDE_HELPER_FILE = __DIR__.'/../config/ide-helper.php';
 
     /**
      * @psalm-suppress MissingReturnType
@@ -47,7 +49,8 @@ class ChaskiServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(static::CONFIG_FILE, 'chaski');
-        $this->mergeConfigFrom(static::CONFIG__MAIL_TRACKER_FILE, 'mail-tracker');
+        $this->mergeConfigFrom(static::CONFIG_MAIL_TRACKER_FILE, 'mail-tracker');
+        $this->mergeConfigFrom(static::CONFIG_IDE_HELPER_FILE, 'ide-helper');
 
         $this->app->register(EventServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
@@ -58,7 +61,7 @@ class ChaskiServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 self::CONFIG_FILE => config_path('chaski.php'),
-                self::CONFIG__MAIL_TRACKER_FILE => config_path('mail-tracker.php'),
+                self::CONFIG_MAIL_TRACKER_FILE => config_path('mail-tracker.php'),
             ], 'config');
 
             $this->publishes([

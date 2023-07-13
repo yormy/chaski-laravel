@@ -70,6 +70,8 @@
         "psalm": "vendor/bin/psalm --no-diff --no-cache --report-show-info=false --report=psalm-report.txt",
         "psalm-debug": "vendor/bin/psalm --no-cache --debug --debug-by-line",
         "pint": "vendor/bin/pint",
+        "---------- IDE-HELPERS ---------- ": "",
+        "ide-helpers": "php vendor/bin/testbench ide-helper:generate",
 
         "---------- TESTS ---------- ": "",
         "test:all": "vendor/bin/paratest",
