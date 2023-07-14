@@ -2,6 +2,7 @@
 
 namespace Yormy\ChaskiLaravel\Tests\Unit\Parsing;
 
+use Yormy\ChaskiLaravel\Services\Purifier;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
 use Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits\EmailParsingTrait;
@@ -27,16 +28,28 @@ class EmailParsingPromoTest extends TestCase
      */
     public function Email_includes_promo_from_data(): void
     {
-        $variables = [
-            'line1' => $this->promo[0] ?? '',
-            'line2' => $this->promo[1] ?? '',
-            'line3' => $this->promo[2] ?? '',
-            'line4' => $this->promo[3] ?? '',
-        ];
+        $variables = $this->convertToLines($this->promo);
 
-        $htmlRenderedLink = $this->generateTextComponent($variables, 'promo');
-        $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
+        $renderedHtml = $this->generateTextComponent($variables, 'promo');
+
+        $this->assertStringContainsString($renderedHtml, $this->htmlEmailEnglish);
     }
+
+
+    private function convertToLines(array $data): array
+    {
+        $new = [];
+
+        foreach ($data as $key => $dirty) {
+            $key = $key + 1;
+
+            $line = Purifier::cleanHtml($dirty, 'h2');
+            $new["line_$key"] = $line;
+        }
+
+        return $new;
+    }
+
 
     private function generateTextComponent($variables, $template): string
     {
@@ -50,14 +63,9 @@ class EmailParsingPromoTest extends TestCase
      */
     public function Email_includes_signature_from_data(): void
     {
-        $variables = [
-            'line1' => $this->signature[0] ?? '',
-            'line2' => $this->signature[1] ?? '',
-            'line3' => $this->signature[2] ?? '',
-            'line4' => $this->signature[3] ?? '',
-        ];
+        $variables = $this->convertToLines($this->signature);
 
-        $htmlRenderedLink = $this->generateTextComponent($variables, 'signature');
-        $this->assertStringContainsString($htmlRenderedLink, $this->htmlEmailEnglish);
+        $renderedHtml = $this->generateTextComponent($variables, 'signature');
+        $this->assertStringContainsString($renderedHtml, $this->htmlEmailEnglish);
     }
 }

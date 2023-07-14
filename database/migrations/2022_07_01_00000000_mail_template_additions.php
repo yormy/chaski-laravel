@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('html_layout')->nullable();
             $table->string('text_layout')->nullable();
 
-            $table->boolean('mail_preventable')->default(true);
-            $table->boolean('slack_preventable')->default(true);
-            $table->boolean('sms_preventable')->default(true);
+            $table->boolean('mail_unsubscribable')->default(true);
+            $table->boolean('slack_unsubscribable')->default(true);
+            $table->boolean('sms_unsubscribable')->default(true);
             $table->boolean('is_hidden')->default(false);
             $table->boolean('cannot_edit')->default(false);
 

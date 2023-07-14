@@ -3,11 +3,14 @@
 namespace Yormy\ChaskiLaravel\Tests;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Route;
 use jdavidbakr\MailTracker\MailTrackerServiceProvider;
+use LiranCo\NotificationSubscriptions\Models\NotificationSubscription;
 use LiranCo\NotificationSubscriptions\NotificationSubscriptionsServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Spatie\LaravelRay\RayServiceProvider;
 use Yormy\ChaskiLaravel\ChaskiServiceProvider;
+use Yormy\ChaskiLaravel\Tests\Models\User;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -41,6 +44,8 @@ abstract class TestCase extends BaseTestCase
 
         config(['app.url' => 'https://hhh.conm']);
         config(['app.url' => 'http://test.test?myNewParam=5']);
+
+        Route::ChaskiUnsubscribeRoutes();
     }
 
     /**

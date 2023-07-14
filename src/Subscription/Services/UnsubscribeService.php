@@ -43,7 +43,7 @@ class UnsubscribeService
             return config('chaski.unsubscribe_view.invalid_token');
         }
 
-        if (! $mailTemplate->mail_preventable) {
+        if (! $mailTemplate->mail_unsubscribable) {
             event(new UnsubscribePrevented($user, $mailTemplate));
             return config('chaski.unsubscribe_view.prevented');
         }

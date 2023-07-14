@@ -30,11 +30,11 @@ class MailTemplateObject
 
     private bool $isHidden = false;
 
-    private bool $slackPreventable = true;
+    private bool $slackUnsubscribable = true;
 
-    private bool $mailPreventable = true;
+    private bool $mailUnsubscribable = true;
 
-    private bool $smsPreventable = true;
+    private bool $smsUnsubscribable = true;
 
     private bool $cannotEdit = false;
 
@@ -136,23 +136,23 @@ class MailTemplateObject
         return $this;
     }
 
-    public function slackPreventable(bool $preventable = true): static
+    public function slackUnsubscribable(bool $unsubscribable = true): static
     {
-        $this->slackPreventable = $preventable;
+        $this->slackUnsubscribable = $unsubscribable;
 
         return $this;
     }
 
-    public function mailPreventable(bool $preventable = true): static
+    public function mailUnsubscribable(bool $unsubscribable = true): static
     {
-        $this->mailPreventable = $preventable;
+        $this->mailUnsubscribable = $unsubscribable;
 
         return $this;
     }
 
-    public function smsPreventable(bool $preventable = true): static
+    public function smsUnsubscribable(bool $unsubscribable = true): static
     {
-        $this->smsPreventable = $preventable;
+        $this->smsUnsubscribable = $unsubscribable;
 
         return $this;
     }
@@ -260,19 +260,19 @@ class MailTemplateObject
         return $this->isHidden;
     }
 
-    public function getSlackPreventable(): bool
+    public function getSlackUnsubscribable(): bool
     {
-        return $this->slackPreventable;
+        return $this->slackUnsubscribable;
     }
 
-    public function getMailPreventable(): bool
+    public function getMailUnsubscribable(): bool
     {
-        return $this->mailPreventable;
+        return $this->mailUnsubscribable;
     }
 
-    public function getSmsPreventable(): bool
+    public function getSmsUnsubscribable(): bool
     {
-        return $this->smsPreventable;
+        return $this->smsUnsubscribable;
     }
 
     public function getCannotEdit(): bool

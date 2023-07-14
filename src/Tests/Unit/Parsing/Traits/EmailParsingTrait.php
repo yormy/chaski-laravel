@@ -145,9 +145,9 @@ Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
             ->notes('some notes')
             ->isHidden(true)
             ->cannotEdit(true)
-            ->slackPreventable(false)
-            ->mailPreventable($data['mail_preventable'] ?? true)
-            ->smsPreventable(false);
+            ->slackUnsubscribable(false)
+            ->mailUnsubscribable($data['mail_unsubscribable'] ?? true)
+            ->smsUnsubscribable(false);
 
         $mail = (new TranslatableMailTemplate())->create($mailTemplateObject);
     }

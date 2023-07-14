@@ -1,19 +1,7 @@
-- Select from address/ name from database
-- Preview template in browser
-- send out for spam score ?
-
-# Handle unsubscribe link click (additional route)
-- Unsubscribe edge cases
-  -  wrong token
-  -  unsubscribable mail = event
-  - redirection
-- forward to where when unsubscribed (in case of success or failire)
-- - taal meegeven in unusb token
-- encrypt whole token
-
 # CLEANUP
 - pint
 - psalm
+- ide-helpers
 
 - 
 # Composer
@@ -32,7 +20,6 @@
 
 # Refactor 
 naming TestTemplateNotificationDTO etc
-rename: mail_preventable => mail_unsubscribable
 
 
 ## MAIL CREATE FRONTEND
@@ -81,3 +68,9 @@ Create a template / delete
 Select template to send to one or more users manually
 Translatables
 Lastigheid hierbij is dat mails een unique mailtemplate class hebben en bij admin created mails is die class niet unique
+
+### UI
+- Select from address/ name from database
+- Preview template in browser
+- send out for spam score ?
+

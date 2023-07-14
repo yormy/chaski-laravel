@@ -58,9 +58,9 @@ class TranslatableMailTemplate extends MailTemplate
         $this->setValue($data, 'text_template', $textTemplates);
 
         $this->is_hidden = $data->getIsHidden();
-        $this->slack_preventable = $data->getSlackPreventable();
-        $this->mail_preventable = $data->getMailPreventable();
-        $this->sms_preventable = $data->getSmsPreventable();
+        $this->slack_unsubscribable = $data->getSlackUnsubscribable();
+        $this->mail_unsubscribable = $data->getMailUnsubscribable();
+        $this->sms_unsubscribable = $data->getSmsUnsubscribable();
         $this->cannot_edit = $data->getCannotEdit();
         $this->notes = $data->getNotes();
 

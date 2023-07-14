@@ -25,6 +25,8 @@ class UnsubscribeTest extends TestCase
         parent::SetUp();
 
         $this->notifiable = $this->createUser();
+
+        NotificationSubscription::truncate();
     }
 
     /**
@@ -99,7 +101,7 @@ class UnsubscribeTest extends TestCase
     {
         $this->configMail();
 
-        $this->createTemplate(['mail_preventable' => false]);
+        $this->createTemplate(['mail_unsubscribable' => false]);
 
         $data = $this->createNotificationData();
 
@@ -131,9 +133,8 @@ class UnsubscribeTest extends TestCase
         if (isset($unsubscribeLinkMatch[0])) {
             $unsubscribeToken = $unsubscribeLinkMatch[0];
         }
-        return urldecode($unsubscribeToken);
 
-        return 'eyJpdiI6Im1pM1UyNC9DYzB3UW81ZFhtaldPdHc9PSIsInZhbHVlIjoiYzliK2xGc0k1WFlSSWZZRjI4WjJadz09IiwibWFjIjoiMzgyYTU1MWJiM2JkMmYzMzg5OThhZWFjNjIyYjJkODRiYWMxNzRhMTQ1NzIzMTI4Y2Y5MmUzZGU2Y2FjNDBiZCIsInRhZyI6IiJ9-VRLtÆpviR9ÆJnHmWTkT3uA364';
+        return urldecode($unsubscribeToken);
     }
 
     private function getTrackables(string $injectedHtml): array
