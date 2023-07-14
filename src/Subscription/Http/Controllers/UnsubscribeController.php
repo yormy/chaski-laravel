@@ -1,14 +1,21 @@
 <?php
-namespace Yormy\ChaskiLaravel\Subscriptions\Http\Controllers;
+namespace Yormy\ChaskiLaravel\Subscription\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Yormy\ChaskiLaravel\Subscription\Actions\UnsubscribeAction;
-
+use Illuminate\Support\Facades\App;
+use Yormy\ChaskiLaravel\Subscription\Services\UnsubscribeService;
+use Illuminate\Contracts\View\View;
 class UnsubscribeController extends Controller
 {
-    public function unsubscribe(string $unsubscribeToken)
+    public function unsubscribe(string $unsubscribeToken): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|View|\Illuminate\Foundation\Application
     {
-        UnsubscribeAction::execute($unsubscribeToken);
+        $unsubscribe = new UnsubscribeService($unsubscribeToken);
+        $returnView = $unsubscribe->execute();
+
+        $language = $unsubscribe->getLanguage();
+        App::setLocale($language);
+
+        return view($returnView);
     }
 
 }

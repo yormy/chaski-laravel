@@ -5,7 +5,8 @@ namespace Yormy\ChaskiLaravel\Tests\Unit\Subscription;
 use Illuminate\Support\Facades\Event;
 use LiranCo\NotificationSubscriptions\Models\NotificationSubscription;
 use Yormy\ChaskiLaravel\Notifications\TestTemplateNotification;
-use Yormy\ChaskiLaravel\Subscription\Actions\UnsubscribeAction;
+use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribeFailed;
+use Yormy\ChaskiLaravel\Subscription\Services\UnsubscribeService;
 use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribeCompleted;
 use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribePrevented;
 use Yormy\ChaskiLaravel\Tests\TestCase;
@@ -23,32 +24,7 @@ class UnsubscribeTest extends TestCase
     {
         parent::SetUp();
 
-        $this->createTemplate();
         $this->notifiable = $this->createUser();
-    }
-
-    /**
-     * @test
-     *
-     * @group chaski-unsubscribe1
-     */
-    public function Email_unsubscribable_sent_Click_unsubscribe_Failed(): void
-    {
-        $this->configMail();
-        $this->createTemplate();
-
-        $data = $this->createNotificationData();
-
-        Event::fake([
-            UnsubscribePrevented::class,
-            UnsubscribeCompleted::class,
-        ]);
-
-        $unsubscribeToken = $this->sendEmailAndGetToken();
-        $result = UnsubscribeAction::execute($unsubscribeToken);
-
-        Event::assertDispatched(UnsubscribePrevented::class);
-        $this->assertTrue($result);
     }
 
     /**
@@ -56,7 +32,7 @@ class UnsubscribeTest extends TestCase
      *
      * @group chaski-unsubscribe
      */
-    public function Email_sent_Click_subscribe_Success(): void
+    public function Email_sent_Click_unsubscribe_Success(): void
     {
         $this->configMail();
 
@@ -69,7 +45,10 @@ class UnsubscribeTest extends TestCase
         ]);
 
         $unsubscribeToken = $this->sendEmailAndGetToken();
-        $result = UnsubscribeAction::execute($unsubscribeToken);
+
+        $unsubscribe = new UnsubscribeService($unsubscribeToken);
+        $view = $unsubscribe->execute();
+        $this->assertEquals(config('chaski.unsubscribe_view.success'), $view);
 
         $lastUnsubscribe = NotificationSubscription::latest()->first();
         $this->assertEquals($lastUnsubscribe->notifiable_type, get_class($this->notifiable));
@@ -78,6 +57,70 @@ class UnsubscribeTest extends TestCase
 
         Event::assertDispatched(UnsubscribeCompleted::class);
     }
+
+    /**
+     * @test
+     *
+     * @group chaski-unsubscribe
+     */
+    public function Email_sent_Click_unsubscribe_invalid_token_Failed(): void
+    {
+        $this->configMail();
+
+        $this->createTemplate();
+
+        $data = $this->createNotificationData();
+
+        Event::fake([
+            UnsubscribeFailed::class,
+        ]);
+
+        $unsubscribeCountStart = NotificationSubscription::count();
+
+        $unsubscribeToken = $this->sendEmailAndGetToken();
+
+        $unsubscribe = new UnsubscribeService('invalid');
+        $view = $unsubscribe->execute();
+        $this->assertEquals(config('chaski.unsubscribe_view.invalid_token'), $view);
+
+        Event::assertDispatched(UnsubscribeFailed::class);
+
+        $unsubscribeCountEnd = NotificationSubscription::count();
+        $this->assertEquals($unsubscribeCountStart, $unsubscribeCountEnd);
+    }
+
+
+    /**
+     * @test
+     *
+     * @group chaski-unsubscribe
+     */
+    public function Email_sent_prevent_unsubscribe_Click_unsubscribe_Prevented(): void
+    {
+        $this->configMail();
+
+        $this->createTemplate(['mail_preventable' => false]);
+
+        $data = $this->createNotificationData();
+
+        Event::fake([
+            UnsubscribePrevented::class,
+        ]);
+
+        $unsubscribeCountStart = NotificationSubscription::count();
+        $unsubscribeToken = $this->sendEmailAndGetToken();
+
+        $unsubscribe = new UnsubscribeService($unsubscribeToken);
+        $view = $unsubscribe->execute();
+
+        $this->assertEquals(config('chaski.unsubscribe_view.unsubscribe_prevented'), $view);
+
+        Event::assertDispatched(UnsubscribePrevented::class);
+
+        $unsubscribeCountEnd = NotificationSubscription::count();
+        $this->assertEquals($unsubscribeCountStart, $unsubscribeCountEnd);
+    }
+
 
     // ---------- HELPERS ----------
     private function sendEmailAndGetToken(): string

@@ -3,7 +3,7 @@
 namespace Yormy\ChaskiLaravel\Observers\Listeners\MailTracker\Traits;
 
 use jdavidbakr\MailTracker\Model\SentEmail;
-use Yormy\ChaskiLaravel\Services\Stringable;
+use Yormy\ChaskiLaravel\Services\Encryption;
 use Yormy\ChaskiLaravel\Services\StringableUser;
 
 trait MailTrackerUserTrait
@@ -12,7 +12,7 @@ trait MailTrackerUserTrait
     {
         $stringedUser = $sentEmail->getHeader('X-UXID');
 
-        $user = StringableUser::fromString($stringedUser);
+        $user = StringableUser::fromString(Encryption::decrypt($stringedUser));
 
         return $user;
     }
@@ -21,7 +21,7 @@ trait MailTrackerUserTrait
     {
         $mailable = $sentEmail->getHeader('X-MX');
 
-        return Stringable::fromString($mailable);
+        return Encryption::decrypt($mailable);
     }
 
     public function isPreventContentStoring(SentEmail $sentEmail): bool

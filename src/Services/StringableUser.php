@@ -17,16 +17,12 @@ class StringableUser
             $notifiableTypeId = 'unknown';
         }
 
-        $string = $notifyable->id.'|'.$notifiableTypeId;
-
-        return Stringable::toString($string);
+        return $notifyable->id.'|'.$notifiableTypeId;
     }
 
     public static function fromString(?string $value): ?\stdClass
     {
-        $decrypted = Stringable::fromString($value);
-
-        $items = explode('|', $decrypted);
+        $items = explode('|', $value);
 
         if (count($items) !== 2) {
             return null;

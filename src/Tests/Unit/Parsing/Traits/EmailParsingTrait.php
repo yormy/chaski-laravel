@@ -3,6 +3,7 @@
 namespace Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits;
 
 use Illuminate\Support\Facades\App;
+use Spatie\MailTemplates\Models\MailTemplate;
 use Yormy\ChaskiLaravel\DataObjects\MailTemplateObject;
 use Yormy\ChaskiLaravel\Models\TranslatableMailTemplate;
 use Yormy\ChaskiLaravel\Notifications\TestTemplateMailable;
@@ -80,8 +81,10 @@ trait EmailParsingTrait
         return view("$viewRoot.$template", $variables)->render();
     }
 
-    private function createTemplate()
+    private function createTemplate(array $data = [])
     {
+        MailTemplate::truncate();
+
         $htmlTemplate = '
     <h1>Hello, '.$this->english.'{{ name }}!</h1>
 <p>The standard Lorem Ipsum passage, used since the 1500s
@@ -143,7 +146,7 @@ Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
             ->isHidden(true)
             ->cannotEdit(true)
             ->slackPreventable(false)
-            ->mailPreventable(false)
+            ->mailPreventable($data['mail_preventable'] ?? true)
             ->smsPreventable(false);
 
         $mail = (new TranslatableMailTemplate())->create($mailTemplateObject);

@@ -3,9 +3,7 @@
 namespace Yormy\ChaskiLaravel\Routes;
 
 use Illuminate\Support\Facades\Route;
-use Yormy\ChaskiLaravel\Http\Controllers\ResetController;
-use Yormy\ChaskiLaravel\Http\Middleware\ValidateSignature;
-use Yormy\ChaskiLaravel\Subscriptions\Http\Controllers\UnsubscribeController;
+use Yormy\ChaskiLaravel\Subscription\Http\Controllers\UnsubscribeController;
 
 class GuestRoutes
 {

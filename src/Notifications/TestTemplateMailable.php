@@ -5,10 +5,11 @@ namespace Yormy\ChaskiLaravel\Notifications;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\HtmlString;
 use Spatie\MailTemplates\TemplateMailable;
 use Yormy\ChaskiLaravel\Models\TranslatableMailTemplate;
-use Yormy\ChaskiLaravel\Services\Stringable;
+use Yormy\ChaskiLaravel\Services\Encryption;
 use Yormy\ChaskiLaravel\Services\StringableUser;
 
 class TestTemplateMailable extends TemplateMailable
@@ -112,13 +113,13 @@ class TestTemplateMailable extends TemplateMailable
         $this->withSymfonyMessage(function ($message) use ($notifiable) {
             $stringedUser = StringableUser::toString($notifiable);
             $message->getHeaders()
-                ->addTextHeader('X-UXID', $stringedUser);
+                ->addTextHeader('X-UXID', Encryption::encrypt($stringedUser));
 
             $message->getHeaders()
-                ->addTextHeader('X-MX', Stringable::toString(static::$templateModelClass));
+                ->addTextHeader('X-MX', Encryption::encrypt(static::$templateModelClass));
 
             $message->getHeaders()
-                ->addTextHeader('X-TX', Stringable::toString(Carbon::now()->toString()));
+                ->addTextHeader('X-TX', Encryption::encrypt(Carbon::now()->toString()));
         });
     }
 
@@ -246,9 +247,9 @@ class TestTemplateMailable extends TemplateMailable
     private function getUnsubscribeToken(): string
     {
         $mailableXid = $this->mailTemplate->xid;
-        $token = StringableUser::toString($this->notifiable).'-'.$mailableXid;
+        $token = StringableUser::toString($this->notifiable).'-'.$mailableXid.'-'.App::getLocale();
 
-        return $token;
+        return Encryption::encrypt($token);
     }
 
     private function parseLinkComponent(string $org, string $linkName): string

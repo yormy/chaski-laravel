@@ -29,3 +29,7 @@ Promo and signature allows basic html (b, h, links)
 Can be set in the code per notification
 can be set hardcoded and translatables
 Can be edited in blade with variables
+
+# Register routes
+Route::ChaskiUnsubscribeRoutes();
+as guest routes to be able to unsubscribe

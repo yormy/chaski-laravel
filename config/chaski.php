@@ -8,6 +8,10 @@ use Yormy\ChaskiLaravel\Tests\Models\User;
 return [
 
     'default_language' => 'en',
+    'languages' => [
+        'en',
+        'nl',
+    ],
 
     'models' => [
         // List here all the models that are notifyables.
@@ -35,4 +39,10 @@ return [
         'html' => 'chaski-laravel::layouts.html.red',
         'text' => 'chaski-laravel::layouts.text.main',
     ],
+
+    'unsubscribe_view' => [
+        'invalid_token' => 'chaski-laravel::unsubscribe.invalid',
+        'success' => 'chaski-laravel::unsubscribe.success',
+        'unsubscribe_prevented' => 'chaski-laravel::unsubscribe.prevented',
+    ]
 ];
