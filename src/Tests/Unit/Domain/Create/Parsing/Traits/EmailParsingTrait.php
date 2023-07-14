@@ -1,6 +1,6 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits;
+namespace Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing\Traits;
 
 use Illuminate\Support\Facades\App;
 use Spatie\MailTemplates\Models\MailTemplate;

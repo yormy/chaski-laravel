@@ -1,6 +1,6 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Tests\Unit\Subscription;
+namespace Yormy\ChaskiLaravel\Tests\Unit\Domain\Subscription;
 
 use Illuminate\Support\Facades\Event;
 use LiranCo\NotificationSubscriptions\Models\NotificationSubscription;
@@ -12,7 +12,7 @@ use Yormy\ChaskiLaravel\Domain\Subscription\Services\UnsubscribeService;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\ConfigMailTrait;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
-use Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits\EmailParsingTrait;
+use Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing\Traits\EmailParsingTrait;
 
 class UnsubscribeTest extends TestCase
 {

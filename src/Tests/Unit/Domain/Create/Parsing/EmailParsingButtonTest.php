@@ -1,10 +1,10 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Tests\Unit\Parsing;
+namespace Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing;
 
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
-use Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits\EmailParsingTrait;
+use Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing\Traits\EmailParsingTrait;
 
 class EmailParsingButtonTest extends TestCase
 {

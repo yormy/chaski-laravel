@@ -8,7 +8,7 @@ use Yormy\ChaskiLaravel\Domain\Create\Notifications\TestNotification;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\ConfigMailTrait;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
-use Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits\EmailParsingTrait;
+use Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing\Traits\EmailParsingTrait;
 
 class SendNotificationTest extends TestCase
 {

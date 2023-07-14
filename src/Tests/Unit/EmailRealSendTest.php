@@ -1,6 +1,6 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Tests\Unit\Parsing;
+namespace Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
@@ -8,7 +8,7 @@ use Yormy\ChaskiLaravel\Domain\Create\Notifications\TestTemplateNotification;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\ConfigMailTrait;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
-use Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits\EmailParsingTrait;
+use Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing\Traits\EmailParsingTrait;
 
 class EmailRealSendTest extends TestCase
 {

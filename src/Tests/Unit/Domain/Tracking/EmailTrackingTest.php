@@ -1,6 +1,6 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Tests\Unit\Tracking;
+namespace Yormy\ChaskiLaravel\Tests\Unit\Domain\Tracking;
 
 use Illuminate\Http\Request;
 use Illuminate\Mail\Events\MessageSending;
@@ -11,7 +11,7 @@ use jdavidbakr\MailTracker\Model\SentEmailUrlClicked;
 use Symfony\Component\Mime\Email;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
-use Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits\EmailParsingTrait;
+use Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing\Traits\EmailParsingTrait;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailLog;
 
 class EmailTrackingTest extends TestCase
