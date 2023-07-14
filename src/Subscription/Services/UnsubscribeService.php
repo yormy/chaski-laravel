@@ -6,15 +6,16 @@ use Spatie\MailTemplates\Models\MailTemplate;
 use Yormy\ChaskiLaravel\Services\Encryption;
 use Yormy\ChaskiLaravel\Services\Locale;
 use Yormy\ChaskiLaravel\Services\StringableUser;
+use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribeCompleted;
 use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribeFailed;
 use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribePrevented;
-use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribeCompleted;
 
 class UnsubscribeService
 {
     private array $unsubscribeTokenItems;
 
-    public function __construct(private readonly string $unsubscribeToken) {
+    public function __construct(private readonly string $unsubscribeToken)
+    {
         // ...
         $unsubscribeToken = Encryption::decrypt($unsubscribeToken);
         $this->unsubscribeTokenItems = explode('-', $unsubscribeToken);
@@ -22,8 +23,9 @@ class UnsubscribeService
 
     public function execute(): string
     {
-        if (sizeof($this->unsubscribeTokenItems) !== 3) {
+        if (count($this->unsubscribeTokenItems) !== 3) {
             event(new UnsubscribeFailed($this->unsubscribeToken));
+
             return config('chaski.unsubscribe_view.invalid_token');
         }
 
@@ -32,19 +34,22 @@ class UnsubscribeService
 
         $userClass = $stringableUser->type;
         $user = $userClass::where('id', $stringableUser->id)->first();
-        if (!$user) {
+        if (! $user) {
             event(new UnsubscribeFailed($this->unsubscribeToken));
+
             return config('chaski.unsubscribe_view.invalid_token');
         }
 
         $mailTemplate = MailTemplate::where('xid', $mailableXid)->first();
-        if (!$mailTemplate) {
+        if (! $mailTemplate) {
             event(new UnsubscribeFailed($this->unsubscribeToken));
+
             return config('chaski.unsubscribe_view.invalid_token');
         }
 
         if (! $mailTemplate->mail_unsubscribable) {
             event(new UnsubscribePrevented($user, $mailTemplate));
+
             return config('chaski.unsubscribe_view.prevented');
         }
 

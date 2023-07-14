@@ -35,7 +35,6 @@ class EmailParsingPromoTest extends TestCase
         $this->assertStringContainsString($renderedHtml, $this->htmlEmailEnglish);
     }
 
-
     private function convertToLines(array $data): array
     {
         $new = [];
@@ -49,7 +48,6 @@ class EmailParsingPromoTest extends TestCase
 
         return $new;
     }
-
 
     private function generateTextComponent($variables, $template): string
     {

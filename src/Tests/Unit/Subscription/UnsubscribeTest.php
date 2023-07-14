@@ -5,10 +5,10 @@ namespace Yormy\ChaskiLaravel\Tests\Unit\Subscription;
 use Illuminate\Support\Facades\Event;
 use LiranCo\NotificationSubscriptions\Models\NotificationSubscription;
 use Yormy\ChaskiLaravel\Notifications\TestTemplateNotification;
-use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribeFailed;
-use Yormy\ChaskiLaravel\Subscription\Services\UnsubscribeService;
 use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribeCompleted;
+use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribeFailed;
 use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribePrevented;
+use Yormy\ChaskiLaravel\Subscription\Services\UnsubscribeService;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\ConfigMailTrait;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
@@ -91,7 +91,6 @@ class UnsubscribeTest extends TestCase
         $this->assertEquals($unsubscribeCountStart, $unsubscribeCountEnd);
     }
 
-
     /**
      * @test
      *
@@ -123,7 +122,6 @@ class UnsubscribeTest extends TestCase
         $this->assertEquals($unsubscribeCountStart, $unsubscribeCountEnd);
     }
 
-
     // ---------- HELPERS ----------
     private function sendEmailAndGetToken(): string
     {
@@ -145,6 +143,4 @@ class UnsubscribeTest extends TestCase
 
         return $matches[1];
     }
-
 }
-

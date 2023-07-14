@@ -3,7 +3,6 @@
 namespace Yormy\ChaskiLaravel\ServiceProviders;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Yormy\ChaskiLaravel\Routes\AdminRoutes;
 use Yormy\ChaskiLaravel\Routes\GuestRoutes;
 
 class RouteServiceProvider extends ServiceProvider

@@ -1,10 +1,12 @@
 <?php
+
 namespace Yormy\ChaskiLaravel\Subscription\Http\Controllers;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\App;
 use Yormy\ChaskiLaravel\Subscription\Services\UnsubscribeService;
-use Illuminate\Contracts\View\View;
+
 class UnsubscribeController extends Controller
 {
     public function unsubscribe(string $unsubscribeToken): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|View|\Illuminate\Foundation\Application
@@ -17,5 +19,4 @@ class UnsubscribeController extends Controller
 
         return view($returnView);
     }
-
 }

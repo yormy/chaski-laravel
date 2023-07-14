@@ -4,9 +4,7 @@ namespace Yormy\ChaskiLaravel\Tests\Unit\Parsing;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
-use Spatie\MailTemplates\Models\MailTemplate;
 use Yormy\ChaskiLaravel\Notifications\TestTemplateNotification;
-use Yormy\ChaskiLaravel\Services\StringableUser;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\ConfigMailTrait;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
@@ -66,5 +64,4 @@ class EmailRealSendTest extends TestCase
 
         $this->assertTrue(true);
     }
-
 }

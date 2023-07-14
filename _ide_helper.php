@@ -14389,6 +14389,17 @@
                         /** @var \Illuminate\Routing\Router $instance */
                         return $instance->macroCall($method, $parameters);
         }
+                    /**
+         * 
+         *
+         * @see \Yormy\ChaskiLaravel\Routes\GuestRoutes::register()
+         * @param string $prefix
+         * @static 
+         */ 
+        public static function ChaskiUnsubscribeRoutes($prefix = '')
+        {
+                        return \Illuminate\Routing\Router::ChaskiUnsubscribeRoutes($prefix);
+        }
          
     }
             /**
@@ -18995,6 +19006,29 @@
         public static function ray()
         {
                         return \Illuminate\Database\Query\Builder::ray();
+        }
+         
+    }
+     
+}
+
+    namespace Illuminate\Routing { 
+            /**
+     * 
+     *
+     * @mixin \Illuminate\Routing\RouteRegistrar
+     */ 
+        class Router {
+                    /**
+         * 
+         *
+         * @see \Yormy\ChaskiLaravel\Routes\GuestRoutes::register()
+         * @param string $prefix
+         * @static 
+         */ 
+        public static function ChaskiUnsubscribeRoutes($prefix = '')
+        {
+                        return \Illuminate\Routing\Router::ChaskiUnsubscribeRoutes($prefix);
         }
          
     }
