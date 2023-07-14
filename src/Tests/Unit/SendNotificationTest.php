@@ -3,8 +3,8 @@
 namespace Yormy\ChaskiLaravel\Tests\Unit;
 
 use Illuminate\Support\Facades\Notification;
-use Yormy\ChaskiLaravel\Notifications\TestMailable;
-use Yormy\ChaskiLaravel\Notifications\TestNotification;
+use Yormy\ChaskiLaravel\Domain\Create\Notifications\TestMailable;
+use Yormy\ChaskiLaravel\Domain\Create\Notifications\TestNotification;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\ConfigMailTrait;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;

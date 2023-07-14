@@ -5,7 +5,7 @@ namespace Yormy\ChaskiLaravel\Tests\Unit\Subscription;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Notification;
 use LiranCo\NotificationSubscriptions\Events\NotificationSuppressed;
-use Yormy\ChaskiLaravel\Notifications\TestTemplateNotification;
+use Yormy\ChaskiLaravel\Domain\Create\Notifications\TestTemplateNotification;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\ConfigMailTrait;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;

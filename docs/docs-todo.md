@@ -11,7 +11,7 @@ There you can handle the encryption
 Add the HasNotificationSubscriptions  trait to your User model:
 
 use Illuminate\Database\Eloquent\Model;
-use Yormy\ChaskiLaravel\Subscription\Traits\HasNotificationSubscriptions;
+use Yormy\ChaskiLaravel\Domain\Subscription\Traits\HasNotificationSubscriptions;
 
 class User extends Model
 {

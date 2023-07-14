@@ -4,7 +4,7 @@ There are a few helper services that Chaski uses that you can overwrite with you
 ## IpAddress
 This service simply returns the IP address of the user. This IP is used for logging and blocking. If you need to get the IP address in a different way do the following
 
-* Create a new class (ie ```MyIp```) and extend from ```Yormy\ChaskiLaravel\Shared\Services\IpAddress```
+* Create a new class (ie ```MyIp```) and extend from ```Yormy\ChaskiLaravel\Domain\Shared\Services\IpAddress```
 * Overwrite the functions you need to change
 
 Specify to use this n your config ```chaski.php``` 
@@ -19,7 +19,7 @@ Specify to use this n your config ```chaski.php```
 ## RequestSource
 This service has a few helpers to determine the device where request came from
 
-* Create a new class (ie ```MySource```) and extend from ```Yormy\ChaskiLaravel\Shared\Services\RequestSource```
+* Create a new class (ie ```MySource```) and extend from ```Yormy\ChaskiLaravel\Domain\Shared\Services\RequestSource```
 * Overwrite the functions you need to change
 
 Specify to use this in your config ```chaski.php```
@@ -34,7 +34,7 @@ Specify to use this in your config ```chaski.php```
 ## User
 This service has a few helpers to get the userId and userType (for polymorphic relations)
 
-* Create a new class (ie ```MyUser```) and extend from ```Yormy\ChaskiLaravel\Shared\Services\User```
+* Create a new class (ie ```MyUser```) and extend from ```Yormy\ChaskiLaravel\Domain\Shared\Services\User```
 * Overwrite the functions you need to change
 * 
 Specify to use this n your config ```chaski.php```

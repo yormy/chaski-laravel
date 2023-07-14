@@ -4,11 +4,11 @@ namespace Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits;
 
 use Illuminate\Support\Facades\App;
 use Spatie\MailTemplates\Models\MailTemplate;
-use Yormy\ChaskiLaravel\Shared\DataObjects\MailTemplateObject;
-use Yormy\ChaskiLaravel\Models\TranslatableMailTemplate;
-use Yormy\ChaskiLaravel\Notifications\TestTemplateMailable;
-use Yormy\ChaskiLaravel\Notifications\TestTemplateNotification;
-use Yormy\ChaskiLaravel\Notifications\TestTemplateNotificationDTO;
+use Yormy\ChaskiLaravel\Domain\Shared\DataObjects\MailTemplateObject;
+use Yormy\ChaskiLaravel\Domain\Create\Models\TranslatableMailTemplate;
+use Yormy\ChaskiLaravel\Domain\Create\Notifications\TestTemplateMailable;
+use Yormy\ChaskiLaravel\Domain\Create\Notifications\TestTemplateNotification;
+use Yormy\ChaskiLaravel\Domain\Create\Notifications\TestTemplateNotificationDTO;
 
 trait EmailParsingTrait
 {

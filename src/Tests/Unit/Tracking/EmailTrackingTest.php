@@ -12,7 +12,7 @@ use Symfony\Component\Mime\Email;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
 use Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits\EmailParsingTrait;
-use Yormy\ChaskiLaravel\Tracking\Models\SentEmailLog;
+use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailLog;
 
 class EmailTrackingTest extends TestCase
 {

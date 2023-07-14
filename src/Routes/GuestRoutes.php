@@ -3,7 +3,7 @@
 namespace Yormy\ChaskiLaravel\Routes;
 
 use Illuminate\Support\Facades\Route;
-use Yormy\ChaskiLaravel\Subscription\Http\Controllers\UnsubscribeController;
+use Yormy\ChaskiLaravel\Domain\Subscription\Http\Controllers\UnsubscribeController;
 
 class GuestRoutes
 {

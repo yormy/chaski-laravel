@@ -2,7 +2,7 @@
 
 namespace Yormy\ChaskiLaravel\Tests\Unit\Parsing;
 
-use Yormy\ChaskiLaravel\Shared\Services\Purifier;
+use Yormy\ChaskiLaravel\Domain\Shared\Services\Purifier;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
 use Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits\EmailParsingTrait;
