@@ -5,8 +5,6 @@ namespace Yormy\ChaskiLaravel;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use jdavidbakr\MailTracker\MailTracker;
-use Yormy\ChaskiLaravel\Console\Commands\GenerateAccepts;
-use Yormy\ChaskiLaravel\Http\Middleware\Honeypot;
 use Yormy\ChaskiLaravel\ServiceProviders\EventServiceProvider;
 use Yormy\ChaskiLaravel\ServiceProviders\RouteServiceProvider;
 
@@ -82,14 +80,12 @@ class ChaskiServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                GenerateAccepts::class,
             ]);
         }
     }
 
     public function registerMiddleware(Router $router): void
     {
-        $router->aliasMiddleware('tripwire.honeypotwire', Honeypot::class);
     }
 
     public function registerListeners(): void
