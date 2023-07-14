@@ -1,9 +1,9 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Observers\Listeners\MailTracker;
+namespace Yormy\ChaskiLaravel\Tracking\Observers\Listeners;
 
 use jdavidbakr\MailTracker\Events\PermanentBouncedMessageEvent;
-use Yormy\ChaskiLaravel\Observers\Listeners\MailTracker\Traits\MailTrackerUserTrait;
+use Yormy\ChaskiLaravel\Tracking\Observers\Listeners\Traits\MailTrackerUserTrait;
 
 class EmailPermanentBouncedListener
 {

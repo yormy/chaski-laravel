@@ -1,6 +1,6 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Observers\Listeners\MailTracker\Traits;
+namespace Yormy\ChaskiLaravel\Tracking\Observers\Listeners\Traits;
 
 use jdavidbakr\MailTracker\Model\SentEmail;
 use Yormy\ChaskiLaravel\Services\Encryption;

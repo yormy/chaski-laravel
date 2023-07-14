@@ -1,11 +1,10 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Observers\Listeners\MailTracker;
+namespace Yormy\ChaskiLaravel\Tracking\Observers\Listeners;
 
 use jdavidbakr\MailTracker\Events\EmailSentEvent;
-
-use Yormy\ChaskiLaravel\Models\MailTracker\SentEmail;
-use Yormy\ChaskiLaravel\Observers\Listeners\MailTracker\Traits\MailTrackerUserTrait;
+use Yormy\ChaskiLaravel\Tracking\Models\SentEmail;
+use Yormy\ChaskiLaravel\Tracking\Observers\Listeners\Traits\MailTrackerUserTrait;
 
 /**
  * @psalm-suppress UndefinedMagicPropertyAssignment

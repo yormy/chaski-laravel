@@ -1,9 +1,9 @@
 <?php
 
-use Yormy\ChaskiLaravel\Models\MailTracker\SentEmail;
-use Yormy\ChaskiLaravel\Models\MailTracker\SentEmailLog;
 use Yormy\ChaskiLaravel\Models\TranslatableMailTemplate;
 use Yormy\ChaskiLaravel\Tests\Models\User;
+use Yormy\ChaskiLaravel\Tracking\Models\SentEmail;
+use Yormy\ChaskiLaravel\Tracking\Models\SentEmailLog;
 
 return [
 

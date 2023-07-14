@@ -1,11 +1,11 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Models\MailTracker;
+namespace Yormy\ChaskiLaravel\Tracking\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Yormy\ChaskiLaravel\Models\MailTracker\SentEmailLog
+ * Yormy\ChaskiLaravel\Tracking\Models\SentEmailLog
  *
  * @method static \Illuminate\Database\Eloquent\Builder|SentEmailLog newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SentEmailLog newQuery()

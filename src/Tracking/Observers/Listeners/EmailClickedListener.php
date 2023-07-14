@@ -1,20 +1,20 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Observers\Listeners\MailTracker;
+namespace Yormy\ChaskiLaravel\Tracking\Observers\Listeners;
 
-use jdavidbakr\MailTracker\Events\ViewEmailEvent;
+use jdavidbakr\MailTracker\Events\LinkClickedEvent;
 use Yormy\ChaskiLaravel\Services\IpAddress;
 
-class EmailViewedListener
+class EmailClickedListener
 {
-    public function handle(ViewEmailEvent $event): void
+    public function handle(LinkClickedEvent $event): void
     {
         $tracker = $event->sent_email;
 
         $sentEmailLogclass = config('chaski.models.sent_email_log');
         $sentEmailLog = new $sentEmailLogclass();
         $sentEmailLog->sent_email_id = $tracker->id;
-        $sentEmailLog->type = 'OPEN';
+        $sentEmailLog->type = 'CLICK';
         $sentEmailLog->ip_address = IpAddress::get();
 
         if (isset($_SERVER['HTTP_USER_AGENT'])) {

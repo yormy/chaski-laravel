@@ -1,11 +1,11 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Models\MailTracker;
+namespace Yormy\ChaskiLaravel\Tracking\Models;
 
 use jdavidbakr\MailTracker\Model\SentEmail as BaseSentEmail;
 
 /**
- * Yormy\ChaskiLaravel\Models\MailTracker\SentEmail
+ * Yormy\ChaskiLaravel\Models\Yormy\ChaskiLaravel\Models\MailTracker\SentEmail
  *
  * @property-read string|null $content
  * @property-read mixed $recipient

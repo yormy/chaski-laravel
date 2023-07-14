@@ -9,10 +9,10 @@ use jdavidbakr\MailTracker\MailTrackerController;
 use jdavidbakr\MailTracker\Model\SentEmail;
 use jdavidbakr\MailTracker\Model\SentEmailUrlClicked;
 use Symfony\Component\Mime\Email;
-use Yormy\ChaskiLaravel\Models\MailTracker\SentEmailLog;
 use Yormy\ChaskiLaravel\Tests\TestCase;
 use Yormy\ChaskiLaravel\Tests\Traits\UserTrait;
 use Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits\EmailParsingTrait;
+use Yormy\ChaskiLaravel\Tracking\Models\SentEmailLog;
 
 class EmailTrackingTest extends TestCase
 {
