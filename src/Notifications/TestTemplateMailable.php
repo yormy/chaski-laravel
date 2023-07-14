@@ -108,7 +108,7 @@ class TestTemplateMailable extends TemplateMailable
         parent::send($mailer);
     }
 
-    public function addHeaders($notifiable)
+    public function addHeaders($notifiable): void
     {
         $this->withSymfonyMessage(function ($message) use ($notifiable) {
             $stringedUser = StringableUser::toString($notifiable);
@@ -171,7 +171,10 @@ class TestTemplateMailable extends TemplateMailable
         return $view;
     }
 
-    private function parseTextComponent(string $org, array $variables, $componentName): string
+    /**
+     * @psalm-param 'link_unsubscribe'|'promo'|'signature' $componentName
+     */
+    private function parseTextComponent(string $org, array $variables, string $componentName): string
     {
         $result = $org;
 
@@ -221,7 +224,7 @@ class TestTemplateMailable extends TemplateMailable
         return $variables;
     }
 
-    private function parseButtonLinkComponent(string $org, array $data, $linkName, string $viewRoot): string
+    private function parseButtonLinkComponent(string $org, array $data, string $linkName, string $viewRoot): string
     {
         $result = $org;
 
@@ -244,7 +247,7 @@ class TestTemplateMailable extends TemplateMailable
         return $result;
     }
 
-    private function getUnsubscribeToken(): string
+    private function getUnsubscribeToken(): string|null
     {
         $mailableXid = $this->mailTemplate->xid;
         $token = StringableUser::toString($this->notifiable).'-'.$mailableXid.'-'.App::getLocale();
@@ -262,7 +265,10 @@ class TestTemplateMailable extends TemplateMailable
         return $this->parseButtonLinkComponent($org, $this->buttons, $linkName, 'chaski-laravel::_partials.buttons');
     }
 
-    private function parseTableComponent(string $org, $componentName): string
+    /**
+     * @psalm-param 'table' $componentName
+     */
+    private function parseTableComponent(string $org, string $componentName): string
     {
         $result = $org;
 

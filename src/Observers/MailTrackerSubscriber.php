@@ -21,7 +21,7 @@ class MailTrackerSubscriber
     /**
      * Binding of SettingsChanged Events
      */
-    public function subscribe(Dispatcher $events)
+    public function subscribe(Dispatcher $events): void
     {
         $events->listen(
             EmailSentEvent::class,

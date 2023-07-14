@@ -102,7 +102,7 @@ class ChaskiServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'chaski');
     }
 
-    private function morphMaps()
+    private function morphMaps(): void
     {
         //        $logModelpath = config('chaski.models.log');
         //        $sections = explode('\\', $logModelpath);

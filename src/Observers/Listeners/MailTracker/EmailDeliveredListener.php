@@ -13,7 +13,7 @@ class EmailDeliveredListener
     /**
      * @psalm-suppress UndefinedClass
      */
-    public function handle(EmailDeliveredEvent $event)
+    public function handle(EmailDeliveredEvent $event): void
     {
         $user = $this->getUser($event->sent_email);
 

@@ -76,13 +76,12 @@ class TranslatableMailTemplate extends MailTemplate
         return $this;
     }
 
-    private function setValue(MailTemplateObject $data, string $field, array $translations)
+    private function setValue(MailTemplateObject $data, string $field, array $translations): void
     {
         $languages = $data->getLanguages();
         $defaultLanguage = $data->getDefaultLanguge();
 
         foreach ($languages as $language) {
-            $value = '';
             if (isset($translations[$language])) {
                 $value = $translations[$language];
             } else {

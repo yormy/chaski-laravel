@@ -12,7 +12,7 @@ class LogEvent extends BaseListener
      */
     public function handle($event)
     {
-        $meta = LogRequestService::getMeta($this->request);
+        LogRequestService::getMeta($this->request);
 
         AddLogJob::dispatch(
             event: $event,

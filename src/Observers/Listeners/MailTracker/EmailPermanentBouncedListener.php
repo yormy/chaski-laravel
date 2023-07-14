@@ -12,7 +12,7 @@ class EmailPermanentBouncedListener
     /**
      * @psalm-suppress UndefinedClass
      */
-    public function handle(PermanentBouncedMessageEvent $event)
+    public function handle(PermanentBouncedMessageEvent $event): void
     {
         $user = $this->getUser($event->sent_email);
 

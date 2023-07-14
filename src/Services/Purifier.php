@@ -7,7 +7,7 @@ use HTMLPurifier_Config;
 
 class Purifier
 {
-    public static function stripHtml(string $dirtyHtml)
+    public static function stripHtml(string $dirtyHtml): string
     {
         return htmlspecialchars($dirtyHtml);
     }
@@ -40,7 +40,7 @@ class Purifier
         return $purifier->purify($dirtyHtml);
     }
 
-    private static function makeCache(string $cacheDirectory)
+    private static function makeCache(string $cacheDirectory): void
     {
         if (! file_exists($cacheDirectory)) {
             mkdir($cacheDirectory, 0666, true);

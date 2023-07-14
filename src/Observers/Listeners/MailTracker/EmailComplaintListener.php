@@ -12,7 +12,7 @@ class EmailComplaintListener
     /**
      * @psalm-suppress UndefinedClass
      */
-    public function handle(ComplaintMessageEvent $event)
+    public function handle(ComplaintMessageEvent $event): void
     {
         $user = $this->getUser($event->sent_email);
 

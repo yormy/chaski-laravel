@@ -13,12 +13,12 @@ class EmailSentListener
     /**
      * @psalm-suppress UndefinedClass
      */
-    public function handle(EmailSentEvent $event)
+    public function handle(EmailSentEvent $event): void
     {
-        $tracker = $this->updateTrackingData($event);
+        $this->updateTrackingData($event);
     }
 
-    private function updateTrackingData(EmailSentEvent $event)
+    private function updateTrackingData(EmailSentEvent $event): SentEmail
     {
         $userItems = $this->getUser($event->sent_email);
 

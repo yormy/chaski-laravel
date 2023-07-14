@@ -7,7 +7,7 @@ use Yormy\ChaskiLaravel\Services\IpAddress;
 
 class EmailViewedListener
 {
-    public function handle(ViewEmailEvent $event)
+    public function handle(ViewEmailEvent $event): void
     {
         $tracker = $event->sent_email;
 
