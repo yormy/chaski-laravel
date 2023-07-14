@@ -100,6 +100,7 @@ class TestTemplateNotificationDTO
         $new = [];
 
         foreach ($data as $key => $dirty) {
+            /** @psalm-suppress InvalidOperand */
             $key = $key + 1;
 
             $line = Purifier::cleanHtml($dirty, 'h2');

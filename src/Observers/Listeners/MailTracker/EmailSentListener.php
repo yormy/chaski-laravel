@@ -3,9 +3,13 @@
 namespace Yormy\ChaskiLaravel\Observers\Listeners\MailTracker;
 
 use jdavidbakr\MailTracker\Events\EmailSentEvent;
-use jdavidbakr\MailTracker\Model\SentEmail;
+
+use Yormy\ChaskiLaravel\Models\MailTracker\SentEmail;
 use Yormy\ChaskiLaravel\Observers\Listeners\MailTracker\Traits\MailTrackerUserTrait;
 
+/**
+ * @psalm-suppress UndefinedMagicPropertyAssignment
+ */
 class EmailSentListener
 {
     use MailTrackerUserTrait;

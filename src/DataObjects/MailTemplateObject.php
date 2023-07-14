@@ -212,6 +212,9 @@ class MailTemplateObject
         return $this->htmlLayout;
     }
 
+    /**
+     * @psalm-suppress RedundantPropertyInitializationCheck
+     */
     public function getName(): string
     {
         if (! isset($this->name)) {
@@ -248,10 +251,6 @@ class MailTemplateObject
 
     public function getNotes(): string
     {
-        if (! isset($this->notes)) {
-            return '';
-        }
-
         return $this->notes;
     }
 
