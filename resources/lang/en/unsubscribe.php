@@ -8,7 +8,7 @@ return [
         'description' => 'You are successfully unsubscribed',
     ],
 
-    'unsubscribe_prevented' => [
+    'prevented' => [
         'title' => 'Cannot unsubscribe',
         'description_line1' => 'You cannot unsubscribe to these types of messages.',
         'description_line2' => 'This is due to legal or security requirements',

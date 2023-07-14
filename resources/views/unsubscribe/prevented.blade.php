@@ -54,9 +54,9 @@
             </g>
         </svg>
     </div>
-    <h1>{{__('chaski::unsubscribe.unsubscribe_prevented.title')}}</h1>
-    <p>{{__('chaski::unsubscribe.unsubscribe_prevented.description_line1')}}</p>
-    <p>{{__('chaski::unsubscribe.unsubscribe_prevented.description_line2')}}</p>
+    <h1>{{__('chaski::unsubscribe.prevented.title')}}</h1>
+    <p>{{__('chaski::unsubscribe.prevented.description_line1')}}</p>
+    <p>{{__('chaski::unsubscribe.prevented.description_line2')}}</p>
 </div>
 </body>
 </html>

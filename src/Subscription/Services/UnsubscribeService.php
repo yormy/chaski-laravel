@@ -45,7 +45,7 @@ class UnsubscribeService
 
         if (! $mailTemplate->mail_preventable) {
             event(new UnsubscribePrevented($user, $mailTemplate));
-            return config('chaski.unsubscribe_view.unsubscribe_prevented');
+            return config('chaski.unsubscribe_view.prevented');
         }
 
         $notificationClass = $mailTemplate->notification;

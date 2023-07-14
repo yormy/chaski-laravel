@@ -43,6 +43,6 @@ return [
     'unsubscribe_view' => [
         'invalid_token' => 'chaski-laravel::unsubscribe.invalid',
         'success' => 'chaski-laravel::unsubscribe.success',
-        'unsubscribe_prevented' => 'chaski-laravel::unsubscribe.prevented',
+        'prevented' => 'chaski-laravel::unsubscribe.prevented',
     ]
 ];

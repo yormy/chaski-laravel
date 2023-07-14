@@ -1,8 +1,15 @@
+- Select from address/ name from database
+- Preview template in browser
+- send out for spam score ?
+
 # Handle unsubscribe link click (additional route)
-- controller 
-- unit test
-- process unsubscribe
+- Unsubscribe edge cases
+  -  wrong token
+  -  unsubscribable mail = event
+  - redirection
 - forward to where when unsubscribed (in case of success or failire)
+- - taal meegeven in unusb token
+- encrypt whole token
 
 # CLEANUP
 - pint
@@ -61,3 +68,16 @@ $placeholders = [
 
 ## MISC FRONTEND - Mark read: email / notificaion
 moet in de frontend een lijst met notifications of een lijst met emails of een lijst met notifcations met de link naar de email?
+
+# Mail Creation Extension
+### Create one of mails
+Ability to send a mail and enter a existing user 
+or select a list of users
+Lastigheid hierbij is dat mails een unique mailtemplate class hebben en bij admin created mails is die class niet unique
+custom mailables zijn niet unsubscribable omdat die manual zijn
+
+### Create manual templates
+Create a template / delete
+Select template to send to one or more users manually
+Translatables
+Lastigheid hierbij is dat mails een unique mailtemplate class hebben en bij admin created mails is die class niet unique

@@ -113,7 +113,7 @@ class UnsubscribeTest extends TestCase
         $unsubscribe = new UnsubscribeService($unsubscribeToken);
         $view = $unsubscribe->execute();
 
-        $this->assertEquals(config('chaski.unsubscribe_view.unsubscribe_prevented'), $view);
+        $this->assertEquals(config('chaski.unsubscribe_view.prevented'), $view);
 
         Event::assertDispatched(UnsubscribePrevented::class);
 
