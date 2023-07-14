@@ -3,7 +3,7 @@
 namespace Yormy\ChaskiLaravel\Tracking\Observers\Listeners;
 
 use jdavidbakr\MailTracker\Events\LinkClickedEvent;
-use Yormy\ChaskiLaravel\Services\IpAddress;
+use Yormy\ChaskiLaravel\Shared\Services\IpAddress;
 
 class EmailClickedListener
 {

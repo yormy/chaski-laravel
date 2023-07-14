@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\HtmlString;
 use Spatie\MailTemplates\TemplateMailable;
 use Yormy\ChaskiLaravel\Models\TranslatableMailTemplate;
-use Yormy\ChaskiLaravel\Services\Encryption;
-use Yormy\ChaskiLaravel\Services\StringableUser;
+use Yormy\ChaskiLaravel\Shared\Services\Encryption;
+use Yormy\ChaskiLaravel\Shared\Services\StringableUser;
 
 class TestTemplateMailable extends TemplateMailable
 {

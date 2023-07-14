@@ -2,7 +2,7 @@
 
 namespace Yormy\ChaskiLaravel\Notifications;
 
-use Yormy\ChaskiLaravel\Services\Purifier;
+use Yormy\ChaskiLaravel\Shared\Services\Purifier;
 
 class TestTemplateNotificationDTO
 {

@@ -4,7 +4,7 @@ namespace Yormy\ChaskiLaravel\Models;
 
 use Spatie\MailTemplates\Models\MailTemplate;
 use Spatie\Translatable\HasTranslations;
-use Yormy\ChaskiLaravel\DataObjects\MailTemplateObject;
+use Yormy\ChaskiLaravel\Shared\DataObjects\MailTemplateObject;
 use Yormy\Xid\Models\Traits\Xid;
 
 /**

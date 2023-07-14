@@ -4,7 +4,7 @@ namespace Yormy\ChaskiLaravel\Tests\Unit\Parsing\Traits;
 
 use Illuminate\Support\Facades\App;
 use Spatie\MailTemplates\Models\MailTemplate;
-use Yormy\ChaskiLaravel\DataObjects\MailTemplateObject;
+use Yormy\ChaskiLaravel\Shared\DataObjects\MailTemplateObject;
 use Yormy\ChaskiLaravel\Models\TranslatableMailTemplate;
 use Yormy\ChaskiLaravel\Notifications\TestTemplateMailable;
 use Yormy\ChaskiLaravel\Notifications\TestTemplateNotification;

@@ -3,9 +3,9 @@
 namespace Yormy\ChaskiLaravel\Subscription\Services;
 
 use Spatie\MailTemplates\Models\MailTemplate;
-use Yormy\ChaskiLaravel\Services\Encryption;
-use Yormy\ChaskiLaravel\Services\Locale;
-use Yormy\ChaskiLaravel\Services\StringableUser;
+use Yormy\ChaskiLaravel\Shared\Services\Encryption;
+use Yormy\ChaskiLaravel\Shared\Services\Locale;
+use Yormy\ChaskiLaravel\Shared\Services\StringableUser;
 use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribeCompleted;
 use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribeFailed;
 use Yormy\ChaskiLaravel\Subscription\Observers\Events\UnsubscribePrevented;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Services;
+namespace Yormy\ChaskiLaravel\Shared\Services;
 
 use Illuminate\Http\Request;
 

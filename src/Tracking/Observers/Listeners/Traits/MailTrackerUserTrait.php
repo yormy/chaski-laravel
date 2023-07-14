@@ -3,8 +3,8 @@
 namespace Yormy\ChaskiLaravel\Tracking\Observers\Listeners\Traits;
 
 use jdavidbakr\MailTracker\Model\SentEmail;
-use Yormy\ChaskiLaravel\Services\Encryption;
-use Yormy\ChaskiLaravel\Services\StringableUser;
+use Yormy\ChaskiLaravel\Shared\Services\Encryption;
+use Yormy\ChaskiLaravel\Shared\Services\StringableUser;
 
 trait MailTrackerUserTrait
 {

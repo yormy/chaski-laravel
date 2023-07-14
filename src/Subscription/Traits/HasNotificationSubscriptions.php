@@ -1,6 +1,6 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Traits\Subscriptions;
+namespace Yormy\ChaskiLaravel\Subscription\Traits;
 
 use LiranCo\NotificationSubscriptions\Traits\HasNotificationSubscriptions as BaseHasNotificationSubscriptions;
 

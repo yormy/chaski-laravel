@@ -1,6 +1,6 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\DataObjects;
+namespace Yormy\ChaskiLaravel\Shared\DataObjects;
 
 use Illuminate\Support\Str;
 

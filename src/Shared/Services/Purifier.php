@@ -1,6 +1,6 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Services;
+namespace Yormy\ChaskiLaravel\Shared\Services;
 
 use HTMLPurifier;
 use HTMLPurifier_Config;

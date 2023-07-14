@@ -5,7 +5,7 @@ namespace Yormy\ChaskiLaravel\Tests\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
-use Yormy\ChaskiLaravel\Traits\Subscriptions\HasNotificationSubscriptions;
+use Yormy\ChaskiLaravel\Subscription\Traits\HasNotificationSubscriptions;
 
 class User extends Authenticatable
 {
