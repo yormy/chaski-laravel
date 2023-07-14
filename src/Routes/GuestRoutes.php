@@ -10,7 +10,7 @@ class GuestRoutes
     public static function register(): void
     {
         Route::macro('ChaskiUnsubscribeRoutes', function (string $prefix = '') {
-            Route::prefix('')
+            Route::prefix($prefix)
                 ->name('chaski.')
                 ->group(function () {
 

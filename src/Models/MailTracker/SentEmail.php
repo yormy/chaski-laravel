@@ -21,6 +21,10 @@ use jdavidbakr\MailTracker\Model\SentEmail as BaseSentEmail;
  *
  * @mixin \Eloquent
  */
+
+/**
+ * @psalm-suppress MethodSignatureMustProvideReturnType
+ */
 class SentEmail extends BaseSentEmail
 {
 }

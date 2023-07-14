@@ -21,6 +21,10 @@ use Yormy\Xid\Models\Traits\Xid;
  *
  * @mixin \Eloquent
  */
+
+/**
+ * @psalm-suppress MethodSignatureMustProvideReturnType
+ */
 class TranslatableMailTemplate extends MailTemplate
 {
     use HasTranslations;

@@ -182,7 +182,7 @@ class TestTemplateMailable extends TemplateMailable
         $matches = [];
         preg_match_all($signaturePattern, $org, $matches);
         $outerSignatures = $matches[0];
-        foreach ($outerSignatures as $matchIndex => $outerSignature) {
+        foreach ($outerSignatures as $outerSignature) {
             $htmlRenderedSignature = view("chaski-laravel::_partials.texts.$componentName", $variables)->render();
 
             $result = str_ireplace($outerSignature, $htmlRenderedSignature, $result);
@@ -324,9 +324,9 @@ class TestTemplateMailable extends TemplateMailable
         $variables['unsubscribeLink'] = $this->unsubscribeLink;
         $result = $this->parseTextComponent($result, $variables, 'link_unsubscribe');
 
-        foreach ($variables as $variableName) {
-            //$pattern ="#{!!(\s)*$variableName(\s)*!!}#i";
-        }
+//        foreach ($variables as $variableName) {
+//            // $pattern ="#{!!(\s)*$variableName(\s)*!!}#i";
+//        }
 
         return $result;
     }

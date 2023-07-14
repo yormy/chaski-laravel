@@ -31,6 +31,6 @@ class User extends Authenticatable
         return $this->email;
 
         // Return email address and name...
-        return [$this->email_address => $this->name];
+        // return [$this->email_address => $this->name];
     }
 }
