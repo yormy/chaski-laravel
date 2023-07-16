@@ -6,10 +6,7 @@ use Illuminate\Support\Facades\Crypt;
 
 class Encryption
 {
-    /**
-     * @param null|string $mailable
-     */
-    public static function encrypt(string|null $mailable): ?string
+    public static function encrypt(?string $mailable): ?string
     {
         return Crypt::encryptString($mailable);
     }

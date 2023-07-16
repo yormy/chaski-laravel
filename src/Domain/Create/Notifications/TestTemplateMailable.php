@@ -247,7 +247,7 @@ class TestTemplateMailable extends TemplateMailable
         return $result;
     }
 
-    private function getUnsubscribeToken(): string|null
+    private function getUnsubscribeToken(): ?string
     {
         $mailableXid = $this->mailTemplate->xid;
         $token = StringableUser::toString($this->notifiable).'-'.$mailableXid.'-'.App::getLocale();
@@ -324,9 +324,9 @@ class TestTemplateMailable extends TemplateMailable
         $variables['unsubscribeLink'] = $this->unsubscribeLink;
         $result = $this->parseTextComponent($result, $variables, 'link_unsubscribe');
 
-//        foreach ($variables as $variableName) {
-//            // $pattern ="#{!!(\s)*$variableName(\s)*!!}#i";
-//        }
+        //        foreach ($variables as $variableName) {
+        //            // $pattern ="#{!!(\s)*$variableName(\s)*!!}#i";
+        //        }
 
         return $result;
     }
