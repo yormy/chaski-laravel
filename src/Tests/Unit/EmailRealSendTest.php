@@ -1,6 +1,6 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing;
+namespace Yormy\ChaskiLaravel\Tests\Unit;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
