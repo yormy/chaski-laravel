@@ -8,7 +8,7 @@ hero:
   tagline: A messaging package
   image:
       src: /chaski.png
-      alt: Chaski laravel - Web application firewall
+      alt: Chaski laravel - Customizable Messaging
   actions:
     - theme: brand
       text: Get Started

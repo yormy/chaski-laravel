@@ -19,4 +19,5 @@ Select template to send to one or more users manually
 Translatables
 Lastigheid hierbij is dat mails een unique mailtemplate class hebben en bij admin created mails is die class niet unique
 
-
+# Resend failed mail
+Warning if undelivered, offer resend what has been sent?
