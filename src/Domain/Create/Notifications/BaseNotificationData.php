@@ -6,7 +6,7 @@ use Yormy\ChaskiLaravel\Domain\Shared\Services\Purifier;
 
 abstract class BaseNotificationData
 {
-    private string $name;
+    private string $userName;
 
     private string $buttonLink;
 
@@ -25,9 +25,9 @@ abstract class BaseNotificationData
         return new static();
     }
 
-    public function name(string $name): static
+    public function userName(string $userName): static
     {
-        $this->name = $name; // name of what ?
+        $this->userName = $userName; // name of what ?
 
         return $this;
     }
@@ -74,9 +74,9 @@ abstract class BaseNotificationData
         return $this;
     }
 
-    public function getName(): string
+    public function getUserName(): string
     {
-        return $this->name;
+        return $this->userName;
     }
 
     public function getTitle(): ?string

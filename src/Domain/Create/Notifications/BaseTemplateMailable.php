@@ -18,7 +18,7 @@ class BaseTemplateMailable extends TemplateMailable
 
     protected static $templateModelClass = TranslatableMailTemplate::class;
 
-    public string $name;
+    public string $userName;
 
     public ?string $title;
 
@@ -59,7 +59,7 @@ class BaseTemplateMailable extends TemplateMailable
     {
         $this->notifiable = $notifiable;
 
-        $this->name = $data->getName();
+        $this->userName = $data->getUserName();
         $this->title = $data->getTitle() ?? null;
 
         $this->links = $data->getLinks();
