@@ -36,8 +36,8 @@ return [
     'prevented_content_logging' => '*** CONTENT NOT STORED FOR SECURITY ***',
 
     'default_layout' => [
-        'html' => 'chaski-laravel::layouts.html.red',
-        'text' => 'chaski-laravel::layouts.text.main',
+        'html' => 'chaski-laravel::layouts.html.default',
+        'text' => 'chaski-laravel::layouts.text.default',
     ],
 
     'unsubscribe_view' => [
