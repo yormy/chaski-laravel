@@ -22,7 +22,16 @@ abstract class BaseNotificationData
 
     public static function make(): static
     {
-        return new static();
+        $newObject =  new static();
+
+        $defaultSignature = config('chaski.default_signature');
+        if (!empty($defaultSignature)) {
+            foreach ($defaultSignature as $translatable) {
+                $newObject->signature[] = __($translatable);
+            }
+        }
+
+        return $newObject;
     }
 
     public function userName(string $userName): static
@@ -56,6 +65,13 @@ abstract class BaseNotificationData
     public function signature(array $signature): static
     {
         $this->signature = $signature;
+
+        return $this;
+    }
+
+    public function noSignature(): static
+    {
+        $this->signature = [];
 
         return $this;
     }
@@ -95,21 +111,36 @@ abstract class BaseNotificationData
 
     public function getLinks(): array
     {
+        if (!isset($this->links)) {
+            return [];
+        }
         return $this->links;
     }
 
     public function getButtons(): array
     {
+        if (!isset($this->buttons)) {
+            return [];
+        }
+
         return $this->buttons;
     }
 
     public function getSignature(): array
     {
+        if (!isset($this->signature)) {
+            return [];
+        }
+
         return $this->convertToLines($this->signature);
     }
 
     public function getPromo(): array
     {
+        if (!isset($this->promo)) {
+            return [];
+        }
+
         return $this->convertToLines($this->promo);
     }
 

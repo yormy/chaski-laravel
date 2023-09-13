@@ -45,4 +45,9 @@ return [
         'success' => 'chaski-laravel::unsubscribe.success',
         'prevented' => 'chaski-laravel::unsubscribe.prevented',
     ],
+
+    'default_signature' => [
+        'chaski::mail.signature.line_1',
+        'chaski::mail.signature.line_2',
+    ],
 ];
