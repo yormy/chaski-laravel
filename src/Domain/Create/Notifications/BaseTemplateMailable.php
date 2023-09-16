@@ -20,6 +20,10 @@ class BaseTemplateMailable extends TemplateMailable
 
     public string $userName;
 
+    public string $appName;
+
+    public string $appAbbreviation;
+
     public ?string $title;
 
     public string $link_1 = '';
@@ -49,6 +53,8 @@ class BaseTemplateMailable extends TemplateMailable
     private array $signature;
 
     private $notifiable;
+
+
 
     /**
      * Create a new message instance.
@@ -95,6 +101,9 @@ class BaseTemplateMailable extends TemplateMailable
 
         $this->promo = $data->getPromo();
         $this->signature = $data->getSignature();
+
+        $this->appName = $data->getAppName();
+        $this->appAbbreviation = $data->getAppAbbreviation();
 
         $this->resolveTemplateModel();
 

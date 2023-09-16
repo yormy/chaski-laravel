@@ -50,4 +50,9 @@ return [
         'chaski::mail.signature.line_1',
         'chaski::mail.signature.line_2',
     ],
+
+    'branding' => [
+        'app_name' => 'Your App Name',
+        'app_abbreviation' => 'YA', // keep it short, 2 or 3 letters
+    ]
 ];

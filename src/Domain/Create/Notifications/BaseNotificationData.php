@@ -20,6 +20,10 @@ abstract class BaseNotificationData
 
     private string $title;
 
+    private string $appName;
+
+    private string $appAbbreviation;
+
     public static function make(): static
     {
         $newObject =  new static();
@@ -30,6 +34,9 @@ abstract class BaseNotificationData
                 $newObject->signature[] = __($translatable);
             }
         }
+
+        $newObject->appName = config('chaski.branding.app_name');
+        $newObject->appAbbreviation = config('chaski.branding.app_abbreviation');
 
         return $newObject;
     }
@@ -133,6 +140,16 @@ abstract class BaseNotificationData
         }
 
         return $this->convertToLines($this->signature);
+    }
+
+    public function getAppName(): string
+    {
+        return $this->appName;
+    }
+
+    public function getAppAbbreviation(): string
+    {
+        return $this->appAbbreviation;
     }
 
     public function getPromo(): array
