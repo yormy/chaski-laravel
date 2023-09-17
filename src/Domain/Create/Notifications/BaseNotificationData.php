@@ -24,26 +24,36 @@ abstract class BaseNotificationData
 
     private string $appAbbreviation;
 
-    public static function make(): static
+    public static function make($user = null): static
     {
         $newObject =  new static();
+        $newObject->setDefaults();
 
-        $defaultSignature = config('chaski.default_signature');
-        if (!empty($defaultSignature)) {
-            foreach ($defaultSignature as $translatable) {
-                $newObject->signature[] = __($translatable);
-            }
-        }
-
-        $newObject->appName = config('chaski.branding.app_name');
-        $newObject->appAbbreviation = config('chaski.branding.app_abbreviation');
 
         return $newObject;
     }
 
-    public function userName(string $userName): static
+    private function setDefaults()
     {
-        $this->userName = $userName; // name of what ?
+        $defaultSignature = config('chaski.default_signature');
+        if (!empty($defaultSignature)) {
+            foreach ($defaultSignature as $translatable) {
+                $this->signature[] = __($translatable);
+            }
+        }
+
+        $this->appName = config('chaski.branding.app_name');
+        $this->appAbbreviation = config('chaski.branding.app_abbreviation');
+        $this->title = '{{mailSubject}}';
+    }
+
+    public function userName(?string $userName): static
+    {
+        $this->userName= '';
+        
+        if ($userName) {
+            $this->userName = $userName;
+        }
 
         return $this;
     }
