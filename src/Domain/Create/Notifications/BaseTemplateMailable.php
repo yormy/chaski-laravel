@@ -22,6 +22,8 @@ class BaseTemplateMailable extends TemplateMailable
 
     public string $appName;
 
+    public string $mailSubject;
+
     public string $appAbbreviation;
 
     public ?string $title;
@@ -105,7 +107,12 @@ class BaseTemplateMailable extends TemplateMailable
         $this->appName = $data->getAppName();
         $this->appAbbreviation = $data->getAppAbbreviation();
 
-        $this->resolveTemplateModel();
+        $templateModel = $this->resolveTemplateModel();
+
+        $this->mailSubject = ''; // pre-initialize
+        $this->mailSubject = $this
+            ->getMailTemplateRenderer()
+            ->renderSubject($this->buildViewData());
 
         $this->unsubscribeLink = route('chaski.email.unsubscribe', $this->getUnsubscribeToken());
     }
