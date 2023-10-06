@@ -56,7 +56,7 @@ class BaseTemplateMailable extends TemplateMailable
 
     private $notifiable;
 
-
+    public array $custom = [];
 
     /**
      * Create a new message instance.
@@ -106,6 +106,8 @@ class BaseTemplateMailable extends TemplateMailable
 
         $this->appName = $data->getAppName();
         $this->appAbbreviation = $data->getAppAbbreviation();
+
+        $this->custom = $data->getCustom();
 
         $templateModel = $this->resolveTemplateModel();
 

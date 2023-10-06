@@ -24,11 +24,12 @@ abstract class BaseNotificationData
 
     private string $appAbbreviation;
 
+    private array $custom = [];
+
     public static function make($user = null): static
     {
         $newObject =  new static();
         $newObject->setDefaults();
-
 
         return $newObject;
     }
@@ -47,10 +48,15 @@ abstract class BaseNotificationData
         $this->title = '{{mailSubject}}';
     }
 
+    public function custom(array $custom)
+    {
+        $this->custom = $custom;
+    }
+
     public function userName(?string $userName): static
     {
         $this->userName= '';
-        
+
         if ($userName) {
             $this->userName = $userName;
         }
@@ -133,6 +139,12 @@ abstract class BaseNotificationData
         }
         return $this->links;
     }
+
+    public function getCustom(): array
+    {
+        return $this->custom;
+    }
+
 
     public function getButtons(): array
     {
