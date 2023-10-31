@@ -242,6 +242,28 @@ class BaseTemplateMailable extends TemplateMailable
         return $variables;
     }
 
+
+    private function parseTextSectionComponent(string $org, array $customVariables, string $linkName, string $viewRoot ='chaski-laravel::_partials.texts'): string
+    {
+        $result = $org;
+
+        $pattern = "#\[\[$linkName:(.*)\]\]#iUs";
+
+        $matches = [];
+        preg_match_all($pattern, $org, $matches);
+        $outer = $matches[0];
+        $inner = $matches[1];
+
+        foreach ($inner as $matchIndex => $item) {
+
+            $htmlRenderedButton = view($viewRoot.'.'.$linkName, $customVariables)->render();
+
+            $result = str_ireplace($outer[$matchIndex], $htmlRenderedButton, $result);
+        }
+
+        return $result;
+    }
+
     private function parseButtonLinkComponent(string $org, array $data, string $linkName, string $viewRoot): string
     {
         $result = $org;
@@ -329,6 +351,7 @@ class BaseTemplateMailable extends TemplateMailable
         $variables = self::getVariables();
         $result = $org;
 
+        $result = $this->parseTextSectionComponent($result, $this->custom, 'code');
         $result = $this->parseTableComponent($result, 'table');
 
         $result = $this->parseButtonComponent($result, 'button_danger');
