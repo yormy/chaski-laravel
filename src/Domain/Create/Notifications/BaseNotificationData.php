@@ -8,32 +8,32 @@ abstract class BaseNotificationData
 {
     public string $uuid;
 
-    private string $userName = '';
+    public string $userName = '';
 
-    private string $userEmail = '';
+    public string $userEmail = '';
+
+    /**
+     * Call to action link to on device app
+     */
+    public string $appCta ='';
+
+    public array $signature;
+
+    public array $promo;
+
+    public string $title;
+
+    public string $appName;
+
+    public string $appAbbreviation;
+
+    public array $custom = [];
 
     private string $buttonLink;
 
     private array $links;
 
     private array $buttons;
-
-    /**
-     * Call to action link to on device app
-     */
-    private string $appCta ='';
-
-    private array $signature;
-
-    private array $promo;
-
-    private string $title;
-
-    private string $appName;
-
-    private string $appAbbreviation;
-
-    private array $custom = [];
 
     public function toArray(): array
     {
