@@ -7,7 +7,7 @@ use Yormy\ChaskiLaravel\Domain\Shared\Services\Purifier;
 abstract class BaseNotificationData
 {
     public string $uuid;
-    
+
     private string $userName = '';
 
     private string $userEmail = '';
@@ -17,6 +17,11 @@ abstract class BaseNotificationData
     private array $links;
 
     private array $buttons;
+
+    /**
+     * Call to action link to on device app
+     */
+    private string $appCta ='';
 
     private array $signature;
 
@@ -102,6 +107,19 @@ abstract class BaseNotificationData
 
         return $this;
     }
+
+    public function appCta(string $appCta): static
+    {
+        $this->appCta = $appCta;
+
+        return $this;
+    }
+
+    public function getAppCta(): string
+    {
+        return $this->appCta;
+    }
+
 
     public function signature(array $signature): static
     {
