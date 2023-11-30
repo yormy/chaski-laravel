@@ -38,6 +38,7 @@ class TranslatableMailTemplate extends MailTemplate
         'html_template',
         'text_template',
         'notification_title',
+        'notification_content',
     ];
 
     protected $casts = [
@@ -77,6 +78,10 @@ class TranslatableMailTemplate extends MailTemplate
         $this->notification = $data->getNotification();
 
         $this->notification_title = $data->getNotificationTitle();
+
+        if($data->getNotificationContent()) {
+            $this->notification_content = $data->getNotificationContent();
+        }
 
         $this->save();
 

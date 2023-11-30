@@ -30,6 +30,8 @@ class MailTemplateObject
 
     private array $notificationTitle;
 
+    private array $notificationContent;
+
     private bool $isHidden = false;
 
     private bool $slackUnsubscribable = true;
@@ -131,6 +133,13 @@ class MailTemplateObject
         return $this;
     }
 
+    public function notificationContent(string $language, string $notificationContent): static
+    {
+        $this->notificationContent[$language] = $notificationContent;
+
+        return $this;
+    }
+
     public function notes(string $notes): static
     {
         $this->notes = $notes;
@@ -190,8 +199,9 @@ class MailTemplateObject
         $htmlTemplates = array_keys($this->htmlTemplate);
         $textTemplates = array_keys($this->textTemplate);
         $notificationTitle = array_keys($this->notificationTitle);
+        $notificationContent = array_keys($this->notificationContent);
 
-        return array_unique(array_merge($languages, $summary, $subjects, $htmlTemplates, $textTemplates, $notificationTitle));
+        return array_unique(array_merge($languages, $summary, $subjects, $htmlTemplates, $textTemplates, $notificationTitle, $notificationContent));
     }
 
     public function getMailable(): string
@@ -262,6 +272,11 @@ class MailTemplateObject
     public function getNotificationTitle(): array
     {
         return $this->notificationTitle;
+    }
+
+    public function getNotificationContent(): array
+    {
+        return $this->notificationContent;
     }
 
     public function getNotes(): string
