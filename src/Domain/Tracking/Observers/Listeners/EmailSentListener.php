@@ -46,7 +46,7 @@ class EmailSentListener
 
         $notificationUuid = $this->getNotificationUuid($event->sent_email);
 
-        $tracker->sent_mail_id = $notificationUuid;
+        $tracker->sent_email_id = $notificationUuid;
 
         $tracker->save();
 

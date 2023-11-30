@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('status_delivered')->nullable()->after('status_bounced');
 
             $table->string('mailable_type')->nullable()->after('status_delivered');
-            $table->string('sent_mail_id')->nullable()->after('message_id');
+            $table->string('sent_email_id')->nullable()->after('message_id');
         });
     }
 
