@@ -15,10 +15,14 @@ use Yormy\ChaskiLaravel\Domain\Shared\Services\StringableUser;
 class BaseTemplateMailable extends TemplateMailable
 {
     use Queueable, SerializesModels;
+    
+    CONST ALLOW_CONTENT_LOGGING = true;
 
     protected static $templateModelClass = TranslatableMailTemplate::class;
 
     public string $userName;
+
+    public string $userEmail;
 
     public string $appName;
 
@@ -68,6 +72,8 @@ class BaseTemplateMailable extends TemplateMailable
         $this->notifiable = $notifiable;
 
         $this->userName = $data->getUserName();
+        $this->userEmail = $data->getUserEmail();
+
         $this->title = $data->getTitle() ?? null;
 
         $this->links = $data->getLinks();
@@ -133,8 +139,9 @@ class BaseTemplateMailable extends TemplateMailable
             $message->getHeaders()
                 ->addTextHeader('X-UXID', Encryption::encrypt($stringedUser));
 
+            $mailableClass = get_class($this);
             $message->getHeaders()
-                ->addTextHeader('X-MX', Encryption::encrypt(static::$templateModelClass));
+                ->addTextHeader('X-MX', Encryption::encrypt($mailableClass));
 
             $message->getHeaders()
                 ->addTextHeader('X-TX', Encryption::encrypt(Carbon::now()->toString()));

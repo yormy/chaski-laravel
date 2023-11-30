@@ -31,6 +31,6 @@ can be set hardcoded and translatables
 Can be edited in blade with variables
 
 # Register routes
-Route::ChaskiUnsubscribeRoutes();
+Route::Chaski Unsubscribe Routes();
 as guest routes to be able to unsubscribe
 

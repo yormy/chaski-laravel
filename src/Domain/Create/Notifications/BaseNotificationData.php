@@ -6,7 +6,9 @@ use Yormy\ChaskiLaravel\Domain\Shared\Services\Purifier;
 
 abstract class BaseNotificationData
 {
-    private string $userName;
+    private string $userName = '';
+
+    private string $userEmail = '';
 
     private string $buttonLink;
 
@@ -53,12 +55,19 @@ abstract class BaseNotificationData
         $this->custom = $custom;
     }
 
-    public function userName(?string $userName): static
+    public function userName(string $userName): static
     {
-        $this->userName= '';
-
         if ($userName) {
             $this->userName = $userName;
+        }
+
+        return $this;
+    }
+
+    public function userEmail(string $userEmail): static
+    {
+        if ($userEmail) {
+            $this->userEmail = $userEmail;
         }
 
         return $this;
@@ -116,6 +125,11 @@ abstract class BaseNotificationData
     public function getUserName(): string
     {
         return $this->userName;
+    }
+
+    public function getUserEmail(): string
+    {
+        return $this->userEmail;
     }
 
     public function getTitle(): ?string
