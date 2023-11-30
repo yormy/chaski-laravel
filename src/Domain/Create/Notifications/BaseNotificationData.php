@@ -6,6 +6,8 @@ use Yormy\ChaskiLaravel\Domain\Shared\Services\Purifier;
 
 abstract class BaseNotificationData
 {
+    public string $uuid;
+    
     private string $userName = '';
 
     private string $userEmail = '';
@@ -27,6 +29,13 @@ abstract class BaseNotificationData
     private string $appAbbreviation;
 
     private array $custom = [];
+
+    public function toArray(): array
+    {
+        return [
+            'custom' => $this->custom,
+        ];
+    }
 
     public static function make($user = null): static
     {

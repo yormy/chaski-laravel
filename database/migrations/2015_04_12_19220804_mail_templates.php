@@ -15,6 +15,8 @@ return new class extends Migration
             $table->json('summary')->nullable();
             $table->json('html_template');
             $table->json('text_template')->nullable();
+            $table->json('notification_title');
+            $table->json('notification_content')->nullable();
             $table->timestamps();
         });
     }

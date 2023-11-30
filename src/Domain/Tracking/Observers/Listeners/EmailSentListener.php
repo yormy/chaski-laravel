@@ -44,6 +44,10 @@ class EmailSentListener
             $tracker->content = config('chaski.prevented_content_logging');
         }
 
+        $notificationUuid = $this->getNotificationUuid($event->sent_email);
+
+        $tracker->sent_mail_id = $notificationUuid;
+
         $tracker->save();
 
         return $tracker;

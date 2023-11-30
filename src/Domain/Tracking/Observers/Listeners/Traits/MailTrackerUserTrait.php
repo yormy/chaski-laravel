@@ -24,6 +24,13 @@ trait MailTrackerUserTrait
         return Encryption::decrypt($mailable);
     }
 
+    public function getNotificationUuid(SentEmail $sentEmail): ?string
+    {
+        $notificationUuid = $sentEmail->getHeader('X-NX');
+
+        return Encryption::decrypt($notificationUuid);
+    }
+
     public function isPreventContentStoring(SentEmail $sentEmail): bool
     {
         $mailTemplateName = $this->getMailable($sentEmail);

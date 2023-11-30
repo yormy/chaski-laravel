@@ -15,8 +15,8 @@ use Yormy\ChaskiLaravel\Domain\Shared\Services\StringableUser;
 class BaseTemplateMailable extends TemplateMailable
 {
     use Queueable, SerializesModels;
-    
-    CONST ALLOW_CONTENT_LOGGING = true;
+
+    const ALLOW_CONTENT_LOGGING = true;
 
     protected static $templateModelClass = TranslatableMailTemplate::class;
 
@@ -61,6 +61,8 @@ class BaseTemplateMailable extends TemplateMailable
     private $notifiable;
 
     public array $custom = [];
+
+    private string $uuid;
 
     /**
      * Create a new message instance.
@@ -123,6 +125,8 @@ class BaseTemplateMailable extends TemplateMailable
             ->renderSubject($this->buildViewData());
 
         $this->unsubscribeLink = route('chaski.email.unsubscribe', $this->getUnsubscribeToken());
+
+        $this->uuid = $data->uuid;
     }
 
     public function send($mailer)
@@ -145,6 +149,9 @@ class BaseTemplateMailable extends TemplateMailable
 
             $message->getHeaders()
                 ->addTextHeader('X-TX', Encryption::encrypt(Carbon::now()->toString()));
+
+            $message->getHeaders()
+                ->addTextHeader('X-NX', Encryption::encrypt($this->uuid));
         });
     }
 
