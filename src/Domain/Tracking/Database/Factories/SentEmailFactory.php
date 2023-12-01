@@ -37,7 +37,7 @@ class SentEmailFactory extends Factory
             'opened_at' => $this->faker->dateTime(),
             'clicked_at' => $this->faker->dateTime(),
             'message_id' => '6a2da8674a9962c89118a84efe767308@example.com',
-            'sent_email_id' => 'e97eea04-d55f-4ffa-bab6-e746a762cc51',
+            'sent_email_id' => $this->faker->uuid,
             'meta' => '?'
         ];
     }
