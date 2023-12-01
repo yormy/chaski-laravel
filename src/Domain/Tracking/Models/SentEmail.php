@@ -3,6 +3,7 @@
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Models;
 
 use jdavidbakr\MailTracker\Model\SentEmail as BaseSentEmail;
+use Yormy\CoreToolsLaravel\Traits\Factories\PackageFactoryTrait;
 
 /**
  * Yormy\ChaskiLaravel\Domain\Create\Models\Yormy\ChaskiLaravel\Domain\Create\Models\MailTracker\SentEmail
@@ -27,4 +28,5 @@ use jdavidbakr\MailTracker\Model\SentEmail as BaseSentEmail;
  */
 class SentEmail extends BaseSentEmail
 {
+    use PackageFactoryTrait;
 }
