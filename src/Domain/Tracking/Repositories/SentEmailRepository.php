@@ -72,6 +72,15 @@ class SentEmailRepository
             ->firstOrFail();
     }
 
+    public function getSentEmailForUserByUuid(Admin| Member $user, string $uuid): SentEmail
+    {
+        /**
+         * @var SentEmail
+         */
+        return $this->queryForUser($user)
+            ->where('sent_email_id', $uuid)
+            ->firstOrFail();
+    }
 
     private function queryForUser(Admin| Member $user): Builder
     {
