@@ -11,7 +11,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('sent_emails', function (Blueprint $table) {
-            $table->bigInteger('user_id')->unsigned()->nullable()->after('id');
+            $table->string('xid')->unique()->after('id');
+            $table->bigInteger('user_id')->unsigned()->nullable()->after('xid');
             $table->string('user_type')->nullable()->after('user_id');
 
             $table->datetime('status_delivered_at')->nullable()->after('clicks');

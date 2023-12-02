@@ -5,6 +5,7 @@ namespace Yormy\ChaskiLaravel\Domain\Tracking\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmail;
+use Mexion\BedrockUsersv2\Domain\User\Models\Member;
 
 class SentEmailFactory extends Factory
 {
@@ -14,7 +15,7 @@ class SentEmailFactory extends Factory
     {
         return [
             'id' => rand(1,99999),
-            'user_type' => '-',
+            'user_type' => Member::class,
             'user_id' => 1,
             'hash'=> md5(Str::random(20)),
             'headers' => $this->getHeader(),
