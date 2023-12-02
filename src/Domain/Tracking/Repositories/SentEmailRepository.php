@@ -26,7 +26,18 @@ class SentEmailRepository
 
     public function getAllForUser(Admin| Member $user): Collection
     {
-        return $this->queryForUser($user)
+        return  $this->queryForUser($user)
+            ->select([
+                'xid',
+                'sender_name',
+                'recipient_name',
+                'recipient_email',
+                'subject',
+                'content',
+                'opens',
+                'opened_at',
+                'created_at',
+            ])
             ->orderByRaw('(ISNULL(opened_at)) desc, created_at DESC')
             ->get();
     }

@@ -14,7 +14,6 @@ class SentEmailFactory extends Factory
     public function definition()
     {
         return [
-            'id' => rand(1,99999),
             'user_type' => Member::class,
             'user_id' => 1,
             'hash'=> md5(Str::random(20)),
@@ -35,8 +34,8 @@ class SentEmailFactory extends Factory
 
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime(),
-            'opened_at' => $this->faker->dateTime(),
-            'clicked_at' => $this->faker->dateTime(),
+            'opened_at' => $this->faker->boolean ? $this->faker->dateTime() : null,
+            'clicked_at' => $this->faker->boolean ? $this->faker->dateTime() : null,
             'message_id' => '6a2da8674a9962c89118a84efe767308@example.com',
             'sent_email_id' => $this->faker->uuid,
             'meta' => '?'
