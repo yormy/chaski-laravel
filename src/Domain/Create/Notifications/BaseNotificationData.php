@@ -35,6 +35,10 @@ abstract class BaseNotificationData
 
     private array $buttons;
 
+    private string $imageName;
+
+    private string $imageFile;
+
     public function toArray(): array
     {
         return [
@@ -62,6 +66,9 @@ abstract class BaseNotificationData
         $this->appName = config('chaski.branding.app_name');
         $this->appAbbreviation = config('chaski.branding.app_abbreviation');
         $this->title = '{{mailSubject}}';
+
+        $this->imageName = 'system';
+        $this->imageFile = '/img/avatar/system.png';
     }
 
     public function custom(array $custom)
@@ -186,6 +193,15 @@ abstract class BaseNotificationData
         return $this->custom;
     }
 
+    public function getImageName(): string
+    {
+        return $this->imageName;
+    }
+
+    public function getImageFile(): string
+    {
+        return $this->imageFile;
+    }
 
     public function getButtons(): array
     {
