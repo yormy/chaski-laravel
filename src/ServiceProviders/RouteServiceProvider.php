@@ -4,6 +4,7 @@ namespace Yormy\ChaskiLaravel\ServiceProviders;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Yormy\ChaskiLaravel\Routes\GuestRoutes;
+use Yormy\ChaskiLaravel\Routes\Api\SentEmailRoutes;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -29,5 +30,6 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapApiRoutes(): void
     {
+        SentEmailRoutes::register();
     }
 }
