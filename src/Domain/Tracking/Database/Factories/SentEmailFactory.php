@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Database\Factories;
 
@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmail;
 use Mexion\BedrockUsersv2\Domain\User\Models\Member;
+use Mexion\BedrockUsersv2\Domain\User\Models\Admin;
 
 class SentEmailFactory extends Factory
 {
@@ -40,6 +41,15 @@ class SentEmailFactory extends Factory
             'sent_email_id' => $this->faker->uuid,
             'meta' => '?'
         ];
+    }
+
+    public function forAdmin(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'user_type' => Admin::class,
+            ];
+        });
     }
 
     private function getHeader(): string
