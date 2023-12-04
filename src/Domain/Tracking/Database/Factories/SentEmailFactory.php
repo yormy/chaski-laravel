@@ -48,6 +48,7 @@ class SentEmailFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 'user_type' => Admin::class,
+                'subject'=> '(admin) '. $this->faker->sentence,
             ];
         });
     }
