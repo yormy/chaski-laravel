@@ -12,7 +12,7 @@ use Yormy\ChaskiLaravel\Domain\Shared\Services\IpAddress;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmail;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailLog;
 
-class SentEmailRepository
+class EmailsSentRepository
 {
     public function __construct(?SentEmail $model = null)
     {

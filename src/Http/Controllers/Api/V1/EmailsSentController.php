@@ -4,22 +4,22 @@ namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1;
 
 use Illuminate\Http\Request;
 use Yormy\Apiresponse\Facades\ApiResponse;
-use Yormy\ChaskiLaravel\Domain\Tracking\Repositories\SentEmailRepository;
+use Yormy\ChaskiLaravel\Domain\Tracking\Repositories\EmailsSentRepository;
 use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentCollection;
 use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentResource;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowUuidRequest;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowXidRequest;
-use Yormy\ChaskiLaravel\Http\Requests\MarkEmailOpenedRequest;
+use Yormy\ChaskiLaravel\Http\Requests\EmailMarkOpenedRequest;
 
-class SentEmailController extends BaseController
+class EmailsSentController extends BaseController
 {
-    private SentEmailRepository $sentEmailRepository;
+    private EmailsSentRepository $sentEmailRepository;
 
     public function __construct(Request $request)
     {
         parent::__construct($request);
 
-        $this->sentEmailRepository = new SentEmailRepository();
+        $this->sentEmailRepository = new EmailsSentRepository();
 
     }
 
@@ -56,9 +56,9 @@ class SentEmailController extends BaseController
             ->successResponse();
     }
 
-    public function markOpened(MarkEmailOpenedRequest $request, string $xid)
+    public function markOpened(EmailMarkOpenedRequest $request, string $xid)
     {
-        $sentEmailRepository = new SentEmailRepository();
+        $sentEmailRepository = new EmailsSentRepository();
         $email = $sentEmailRepository->markOpenedForUser($this->user, $xid);
         $email = (new EmailSentResource($email))->toArray($request);
 
