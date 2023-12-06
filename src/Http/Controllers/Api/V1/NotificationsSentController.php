@@ -9,7 +9,7 @@ use Yormy\ChaskiLaravel\Domain\Tracking\Resources\NotificationSentCollection;
 use Yormy\ChaskiLaravel\Domain\Tracking\Resources\NotificationSentResource;
 use Yormy\ChaskiLaravel\Http\Requests\MarkNotificationOpenedRequest;
 
-class SentNotificationsController extends BaseController
+class NotificationsSentController extends BaseController
 {
     public function index(Request $request)
     {

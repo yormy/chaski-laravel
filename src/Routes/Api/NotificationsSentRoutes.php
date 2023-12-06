@@ -4,7 +4,7 @@ namespace Yormy\ChaskiLaravel\Routes\Api;
 
 use Illuminate\Support\Facades\Route;
 use Mexion\BedrockUsersv2\Domain\User\Http\Controllers\Api\V1\User\UserNotificationsController;
-use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\SentNotificationsController;
+use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\NotificationsSentController;
 
 class NotificationsSentRoutes
 {
@@ -18,9 +18,9 @@ class NotificationsSentRoutes
                     Route::prefix('notifications')
                         ->name('notifications.')
                         ->group(function () {
-                            Route::get('/', [SentNotificationsController::class, 'index'])->name('index');
-                            Route::get('/attention', [SentNotificationsController::class, 'attention'])->name('attention'); // user
-                            Route::put('/mark-opened/{id}', [SentNotificationsController::class, 'markOpened'])->name('mark-opened');
+                            Route::get('/', [NotificationsSentController::class, 'index'])->name('index');
+                            Route::get('/attention', [NotificationsSentController::class, 'attention'])->name('attention'); // user
+                            Route::put('/mark-opened/{id}', [NotificationsSentController::class, 'markOpened'])->name('mark-opened');
                         });
 
                 });
