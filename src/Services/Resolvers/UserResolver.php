@@ -3,11 +3,12 @@
 namespace Yormy\ChaskiLaravel\Services\Resolvers;
 
 use Illuminate\Support\Facades\Auth;
-use Mexion\BedrockUsersv2\Domain\User\Models\User;
+use Mexion\BedrockUsersv2\Domain\User\Models\Admin;
+use Mexion\BedrockUsersv2\Domain\User\Models\Member;
 
 class UserResolver
 {
-    public static function getCurrent() : ?User
+    public static function getCurrent() : Admin | Member | null
     {
         /**
          * @var User $user
