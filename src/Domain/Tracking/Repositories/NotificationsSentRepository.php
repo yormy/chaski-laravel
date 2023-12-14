@@ -87,15 +87,7 @@ class NotificationsSentRepository
             return $this->model::where('notifiable_id', -1); // always empty
         }
 
-        $notifiableMorphType = '';
-        if ($user instanceof Admin) {
-            $notifiableMorphType = 'users-admin';
-        }
-        if ($user instanceof Member) {
-            $notifiableMorphType = 'users-member';
-        }
-
         return $this->model::where('notifiable_id', $user->id)
-            ->where('notifiable_type', $notifiableMorphType);
+            ->where('notifiable_type', get_class($user));
     }
 }

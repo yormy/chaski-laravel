@@ -15,8 +15,6 @@ class SentEmailFactory extends Factory
     public function definition()
     {
         return [
-            'user_type' => Member::class,
-            'user_id' => 1,
             'hash'=> md5(Str::random(20)),
             'headers' => $this->getHeader(),
             'sender_name'=> 'MyApp Name',
@@ -32,7 +30,6 @@ class SentEmailFactory extends Factory
             'status_bounced' => '-',
             'status_delivered' => '-',
             'mailable_type' => 'Mexion\\TestappCore\\Domain\\User\\Notifications\\EmailOTP\\EmailOTPMailable',
-
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime(),
             'opened_at' => $this->faker->boolean ? $this->faker->dateTime() : null,
@@ -43,12 +40,26 @@ class SentEmailFactory extends Factory
         ];
     }
 
-    public function forAdmin(): Factory
+    public function forMember($user): Factory
     {
-        return $this->state(function (array $attributes) {
+        return $this->state(function (array $attributes) use ($user){
+            $prefix = "(member $user->id)";
             return [
-                'user_type' => Admin::class,
-                'subject'=> '(admin) '. $this->faker->sentence,
+                'user_type' => get_class($user),
+                'user_id' => $user->id,
+                'subject'=> $prefix. ' '. $this->faker->sentence,
+            ];
+        });
+    }
+
+    public function forAdmin($user): Factory
+    {
+        return $this->state(function (array $attributes) use ($user){
+            $prefix = "(admin $user->id)";
+            return [
+                'user_type' => get_class($user),
+                'user_id' => $user->id,
+                'subject'=> $prefix. ' '. $this->faker->sentence,
             ];
         });
     }
