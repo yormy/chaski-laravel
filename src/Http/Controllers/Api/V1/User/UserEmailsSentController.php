@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\Member;
+namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\User;
 
 use Illuminate\Http\Request;
 use Yormy\Apiresponse\Facades\ApiResponse;
@@ -8,12 +8,15 @@ use Yormy\ChaskiLaravel\Domain\Tracking\Repositories\EmailsSentRepository;
 use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentCollection;
 use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentResource;
 use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\BaseController;
+use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\Traits\EmailsSentDecoratorTrait;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowUuidRequest;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowXidRequest;
 use Yormy\ChaskiLaravel\Http\Requests\EmailMarkOpenedRequest;
 
-class EmailsSentController extends BaseController
+class UserEmailsSentController extends BaseController
 {
+    use EmailsSentDecoratorTrait;
+
     private EmailsSentRepository $sentEmailRepository;
 
     public function __construct(Request $request)
@@ -21,7 +24,6 @@ class EmailsSentController extends BaseController
         parent::__construct($request);
 
         $this->sentEmailRepository = new EmailsSentRepository();
-
     }
 
     public function index(Request $request)
@@ -67,23 +69,6 @@ class EmailsSentController extends BaseController
             ->successResponse();
     }
 
-    private function decorateWithStatus($emails): array
-    {
-        foreach ($emails as $index => $data) {
-            if (array_key_exists('opened_at',$data) && $data['opened_at']) {
-                continue;
-            }
 
-            $status = [
-                'key' => 'unread',
-                'nature' => 'danger',
-                'text' => __('bedrock-usersv2::status.new'),
-            ];
-
-            $emails[$index]['status'] = $status;
-        }
-
-        return $emails;
-    }
 }
 

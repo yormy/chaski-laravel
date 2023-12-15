@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Routes\Api\Member;
 
 use Illuminate\Support\Facades\Route;
-use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\Member\NotificationsSentController;
+use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\User\UserNotificationsSentController;
 
 class NotificationsSentRoutes
 {
@@ -17,8 +17,8 @@ class NotificationsSentRoutes
                     Route::prefix('notifications')
                         ->name('notifications.')
                         ->group(function () {
-                            Route::get('/', [NotificationsSentController::class, 'index'])->name('index');
-                            Route::put('/mark-opened/{id}', [NotificationsSentController::class, 'markOpened'])->name('mark-opened');
+                            Route::get('/', [UserNotificationsSentController::class, 'index'])->name('index');
+                            Route::put('/mark-opened/{id}', [UserNotificationsSentController::class, 'markOpened'])->name('mark-opened');
                         });
 
                 });
@@ -34,7 +34,7 @@ class NotificationsSentRoutes
                     Route::prefix('notifications')
                         ->name('notifications.')
                         ->group(function () {
-                            Route::get('/attention', [NotificationsSentController::class, 'attention'])->name('attention');
+                            Route::get('/attention', [UserNotificationsSentController::class, 'attention'])->name('attention');
                         });
 
                 });

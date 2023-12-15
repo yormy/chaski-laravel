@@ -3,7 +3,7 @@
 namespace Yormy\ChaskiLaravel\Routes\Api\Admin;
 
 use Illuminate\Support\Facades\Route;
-use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\Admin\AdminUserNotificationsSentController;
+use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\UserManagement\AdminUserNotificationsSentController;
 
 class AdminUserNotificationsSentRoutes
 {
