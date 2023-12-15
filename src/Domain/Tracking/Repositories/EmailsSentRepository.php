@@ -82,6 +82,26 @@ class EmailsSentRepository
             ->firstOrFail();
     }
 
+    public function getSentEmailByUuid(string $uuid): SentEmail
+    {
+        /**
+         * @var SentEmail
+         */
+        return $this->model
+            ->where('sent_email_id', $uuid)
+            ->firstOrFail();
+    }
+
+    public function getSentEmailByXid(string $xid): SentEmail
+    {
+        /**
+         * @var SentEmail
+         */
+        return $this->model
+            ->where('xid', $xid)
+            ->firstOrFail();
+    }
+
     private function queryForUser(Admin| Member $user): Builder
     {
         return $this->model::where('user_id', $user->id)
