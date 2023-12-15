@@ -1,12 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1;
+namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\Member;
 
 use Illuminate\Http\Request;
 use Yormy\Apiresponse\Facades\ApiResponse;
 use Yormy\ChaskiLaravel\Domain\Tracking\Repositories\NotificationsSentRepository;
 use Yormy\ChaskiLaravel\Domain\Tracking\Resources\NotificationSentCollection;
 use Yormy\ChaskiLaravel\Domain\Tracking\Resources\NotificationSentResource;
+use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\BaseController;
 use Yormy\ChaskiLaravel\Http\Requests\MarkNotificationOpenedRequest;
 
 class NotificationsSentController extends BaseController

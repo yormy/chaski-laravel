@@ -1,10 +1,9 @@
 <?php
 
-namespace Yormy\ChaskiLaravel\Routes\Api;
+namespace Yormy\ChaskiLaravel\Routes\Api\Member;
 
 use Illuminate\Support\Facades\Route;
-use Mexion\BedrockUsersv2\Domain\User\Http\Controllers\Api\V1\User\UserNotificationsController;
-use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\EmailsSentController;
+use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\Member\EmailsSentController;
 
 class EmailsSentRoutes
 {

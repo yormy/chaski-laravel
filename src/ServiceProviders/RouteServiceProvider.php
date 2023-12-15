@@ -3,8 +3,10 @@
 namespace Yormy\ChaskiLaravel\ServiceProviders;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Yormy\ChaskiLaravel\Routes\Api\EmailsSentRoutes;
-use Yormy\ChaskiLaravel\Routes\Api\NotificationsSentRoutes;
+use Yormy\ChaskiLaravel\Routes\Api\Admin\AdminUserNotificationsSentRoutes;
+use Yormy\ChaskiLaravel\Routes\Api\Admin\AdminUserEmailsSentRoutes;
+use Yormy\ChaskiLaravel\Routes\Api\Member\EmailsSentRoutes;
+use Yormy\ChaskiLaravel\Routes\Api\Member\NotificationsSentRoutes;
 use Yormy\ChaskiLaravel\Routes\GuestRoutes;
 
 class RouteServiceProvider extends ServiceProvider
@@ -33,5 +35,8 @@ class RouteServiceProvider extends ServiceProvider
     {
         EmailsSentRoutes::register();
         NotificationsSentRoutes::register();
+
+        AdminUserEmailsSentRoutes::register();
+        AdminUserNotificationsSentRoutes::register();
     }
 }

@@ -1,17 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1;
+namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\Admin;
 
 use Illuminate\Http\Request;
 use Yormy\Apiresponse\Facades\ApiResponse;
 use Yormy\ChaskiLaravel\Domain\Tracking\Repositories\EmailsSentRepository;
 use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentCollection;
-use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentResource;
+use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\BaseController;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowUuidRequest;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowXidRequest;
-use Yormy\ChaskiLaravel\Http\Requests\EmailMarkOpenedRequest;
+use Yormy\ChaskiLaravel\Services\Resolvers\UserResolver;
 
-class EmailsSentController extends BaseController
+class AdminUserEmailsSentController extends BaseController
 {
     private EmailsSentRepository $sentEmailRepository;
 
@@ -23,9 +23,10 @@ class EmailsSentController extends BaseController
 
     }
 
-    public function index(Request $request)
+    public function index(Request $request, $member_xid)
     {
-        $emails = $this->sentEmailRepository->getAllForUser($this->user);
+        $member = UserResolver::getMemberOnXId($member_xid);
+        $emails = $this->sentEmailRepository->getAllForUser($member);
 
         $emails = (new EmailSentCollection($emails))->toArray($request);
         $emails = $this->decorateWithStatus($emails);
@@ -53,16 +54,6 @@ class EmailsSentController extends BaseController
         $this->sentEmailRepository->markOpenedForUser($this->user, $email->xid);
 
         return ApiResponse::withData(['html_content' => $email->content])
-            ->successResponse();
-    }
-
-    public function markOpened(EmailMarkOpenedRequest $request, string $xid)
-    {
-        $sentEmailRepository = new EmailsSentRepository();
-        $email = $sentEmailRepository->markOpenedForUser($this->user, $xid);
-        $email = (new EmailSentResource($email))->toArray($request);
-
-        return ApiResponse::withData($email)
             ->successResponse();
     }
 
