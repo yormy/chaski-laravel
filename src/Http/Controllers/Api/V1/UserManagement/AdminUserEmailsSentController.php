@@ -23,7 +23,7 @@ class AdminUserEmailsSentController
 
     public function index(Request $request, $member_xid)
     {
-        $member = UserResolver::getMemberOnXId($member_xid);
+        $member = UserResolver::getMemberById($member_xid);
         $emails = $this->sentEmailRepository->getAllForUser($member);
 
         $emails = (new EmailSentCollection($emails))->toArray($request);

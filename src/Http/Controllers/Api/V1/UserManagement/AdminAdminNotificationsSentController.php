@@ -4,10 +4,10 @@ namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\UserManagement;
 
 use Yormy\ChaskiLaravel\Services\Resolvers\UserResolver;
 
-class AdminUserNotificationsSentController extends BaseAdminUserNotificationsSentController
+class AdminAdminNotificationsSentController extends BaseAdminUserNotificationsSentController
 {
     public function getUser($xid)
     {
-        return UserResolver::getMemberById($xid);
+        return UserResolver::getAdminById($xid);
     }
 }

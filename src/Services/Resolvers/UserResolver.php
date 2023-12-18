@@ -18,8 +18,13 @@ class UserResolver
         return $user;
     }
 
-    public static function getMemberOnXId(string $xid): ?Member
+    public static function getMemberById($id)
     {
-        return Member::where('xid', $xid)->first();
+        return Member::where('xid', $id)->first();
+    }
+
+    public static function getAdminById($id)
+    {
+        return Admin::where('xid', $id)->first();
     }
 }
