@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\UserManagement;
+namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\UserManagement\Base;
 
 use Illuminate\Http\Request;
 use Yormy\Apiresponse\Facades\ApiResponse;
@@ -9,9 +9,8 @@ use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentCollection;
 use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\Traits\EmailsSentDecoratorTrait;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowUuidRequest;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowXidRequest;
-use Yormy\ChaskiLaravel\Services\Resolvers\UserResolver;
 
-class AdminUserEmailsSentController
+class BaseAdminUserEmailsSentController
 {
     use EmailsSentDecoratorTrait;
     private EmailsSentRepository $sentEmailRepository;
@@ -23,8 +22,8 @@ class AdminUserEmailsSentController
 
     public function index(Request $request, $member_xid)
     {
-        $member = UserResolver::getMemberById($member_xid);
-        $emails = $this->sentEmailRepository->getAllForUser($member);
+        $user = $this->getUser($member_xid);
+        $emails = $this->sentEmailRepository->getAllForUser($user);
 
         $emails = (new EmailSentCollection($emails))->toArray($request);
         $emails = $this->decorateWithStatus($emails);
