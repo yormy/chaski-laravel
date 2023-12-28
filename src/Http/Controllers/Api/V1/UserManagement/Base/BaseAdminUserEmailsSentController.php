@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Yormy\Apiresponse\Facades\ApiResponse;
 use Yormy\ChaskiLaravel\Domain\Tracking\Repositories\EmailsSentRepository;
 use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentCollection;
+use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentLogCollection;
+use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentUrlClickCollection;
 use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\Traits\EmailsSentDecoratorTrait;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowUuidRequest;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowXidRequest;
@@ -26,10 +28,31 @@ class BaseAdminUserEmailsSentController
         $emails = $this->sentEmailRepository->getAllForUser($user);
 
         $emails = (new EmailSentCollection($emails))->toArray($request);
-        $emails = $this->decorateWithStatus($emails);
+        $emails = $this->addRelations($request, $emails);
 
         return ApiResponse::withData($emails)
             ->successResponse();
+    }
+
+    private function addRelations(Request $request, array $emails): array
+    {
+        foreach ($emails as $index => $email) {
+            $sentEmailId = $email['id'];
+            $sentEmail = $this->sentEmailRepository->findSentEmailByIdOrFail($sentEmailId);
+            $sentEmail->load(['logs', 'urlClicks']);
+
+            $logs = (new EmailSentLogCollection($sentEmail->logs))->toArray($request);
+            if ($logs) {
+                $emails[$index]['logs'] = $logs;
+            }
+
+            $clicks = (new EmailSentUrlClickCollection($sentEmail->urlClicks))->toArray($request);
+            if ($clicks) {
+                $emails[$index]['clicks'] = $clicks;
+            }
+        }
+
+        return $emails;
     }
 
     public function getEmailContentsByUuid(EmailShowUuidRequest $request, string $uuid)

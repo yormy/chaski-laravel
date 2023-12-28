@@ -9,6 +9,7 @@ class EmailSentResource extends JsonResource
     public function toArray($request)
     {
         $data = [
+            'id' => $this->id,
             'xid' => $this->xid,
             'sender_name' => $this->sender_name,
             'recipient' => $this->recipient_email,

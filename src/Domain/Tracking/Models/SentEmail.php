@@ -13,11 +13,11 @@ class SentEmail extends BaseSentEmail
 
     public function urlsClicked()
     {
-        return $this->hasMany(SentEmailUrlClicked::class, 'sent_email_id');
+        return $this->hasMany(SentEmailUrlClicked::class, 'sent_email_id')->orderBy('created_at', 'desc');
     }
 
     public function logs()
     {
-        return $this->hasMany(SentEmailLog::class, 'sent_email_id');
+        return $this->hasMany(SentEmailLog::class, 'sent_email_id')->orderBy('created_at', 'desc');
     }
 }

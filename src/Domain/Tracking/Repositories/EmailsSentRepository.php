@@ -28,6 +28,7 @@ class EmailsSentRepository
     {
         return  $this->queryForUser($user)
             ->select([
+                'id',
                 'xid',
                 'sender_name',
                 'recipient_name',
@@ -99,6 +100,16 @@ class EmailsSentRepository
          */
         return $this->model
             ->where('xid', $xid)
+            ->firstOrFail();
+    }
+
+    public function findSentEmailByIdOrFail($id): SentEmail
+    {
+        /**
+         * @var SentEmail
+         */
+        return $this->model
+            ->where('id', $id)
             ->firstOrFail();
     }
 
