@@ -20,7 +20,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->foreign('sent_email_id')->references('id')->on('sent_emails');
+            $table->foreign('sent_email_id')->references('id')->on('sent_emails')->cascadeOnDelete();
         });
     }
 
