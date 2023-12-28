@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('ip_address')->nullable();
             $table->string('user_agent')->nullable();
             $table->string('type');
+            $table->string('url')->nullable();
 
             $table->timestamps();
 

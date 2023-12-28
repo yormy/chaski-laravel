@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmail;
 use Mexion\BedrockUsersv2\Domain\User\Models\Member;
 use Mexion\BedrockUsersv2\Domain\User\Models\Admin;
+use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailUrlClicked;
 
 class SentEmailFactory extends Factory
 {
@@ -14,7 +15,11 @@ class SentEmailFactory extends Factory
 
     public function definition()
     {
+        $emailId = rand(0,99999);
+       // SentEmailUrlClicked::factory(3)->forEmail($emailId)->create();
+
         return [
+         //   'id' => $emailId,
             'hash'=> md5(Str::random(20)),
             'headers' => $this->getHeader(),
             'sender_name'=> 'MyApp Name',

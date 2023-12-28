@@ -3,6 +3,7 @@
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Yormy\CoreToolsLaravel\Traits\Factories\PackageFactoryTrait;
 
 /**
  * Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailLog
@@ -15,6 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SentEmailLog extends Model
 {
+    use PackageFactoryTrait;
+
     protected $table = 'sent_emails_log';
 
     protected $fillable = [
@@ -22,5 +25,6 @@ class SentEmailLog extends Model
         'ip_address',
         'user_agent',
         'type',
+        'url'
     ];
 }

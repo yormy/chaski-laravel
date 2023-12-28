@@ -4,6 +4,8 @@ namespace Yormy\ChaskiLaravel\Domain\Tracking\Observers\Listeners;
 
 use jdavidbakr\MailTracker\Events\LinkClickedEvent;
 use Yormy\ChaskiLaravel\Domain\Shared\Services\IpAddress;
+use Yormy\ChaskiLaravel\Services\Resolvers\IpResolver;
+use Yormy\ChaskiLaravel\Services\Resolvers\UserAgentResolver;
 
 class EmailClickedListener
 {
@@ -15,11 +17,9 @@ class EmailClickedListener
         $sentEmailLog = new $sentEmailLogclass();
         $sentEmailLog->sent_email_id = $tracker->id;
         $sentEmailLog->type = 'CLICK';
-        $sentEmailLog->ip_address = IpAddress::get();
-
-        if (isset($_SERVER['HTTP_USER_AGENT'])) {
-            $sentEmailLog->user_agent = $_SERVER['HTTP_USER_AGENT'];
-        }
+        $sentEmailLog->ip_address = IpResolver::get();
+        $sentEmailLog->user_agent = UserAgentResolver::getFullAgent();
+        $sentEmailLog->link_url = $event->link_url;
 
         $sentEmailLog->save();
     }
