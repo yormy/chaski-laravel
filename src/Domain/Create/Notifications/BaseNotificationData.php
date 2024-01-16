@@ -76,7 +76,7 @@ abstract class BaseNotificationData
         $this->custom = $custom;
     }
 
-    public function userName(string $userName): static
+    public function userName(?string $userName): static
     {
         if ($userName) {
             $this->userName = $userName;
@@ -158,7 +158,7 @@ abstract class BaseNotificationData
 
     public function getUserName(): string
     {
-        return $this->userName;
+        return $this->userName ?? $this->userEmail;
     }
 
     public function getUserEmail(): string
