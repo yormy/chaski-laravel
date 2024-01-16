@@ -17,7 +17,12 @@ class StringableUser
             $notifiableTypeId = 'unknown';
         }
 
-        return $notifyable->id.'|'.$notifiableTypeId;
+        try {
+            return $notifyable->id.'|'.$notifiableTypeId;
+        } catch (\Throwable $e) {
+            // handle anonymous notification
+            return '';
+        }
     }
 
     public static function fromString(?string $value): ?\stdClass
