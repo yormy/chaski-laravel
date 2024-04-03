@@ -20,11 +20,11 @@
         }
     ],
     "require": {
-        "php": "^8.1|^8.2",
+        "php": "^8",
         "ezyang/htmlpurifier": "^4.16",
         "jdavidbakr/mail-tracker": "^7",
         "jenssegers/agent": "^2.6",
-        "laravel/framework": "^9|^10",
+        "laravel/framework": "^9|^10|^11",
         "liran-co/laravel-notification-subscriptions": "^1.7",
         "spatie/laravel-database-mail-templates": "^3.5.1",
         "spatie/laravel-translatable": "^6.5",
