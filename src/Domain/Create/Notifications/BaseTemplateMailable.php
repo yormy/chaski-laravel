@@ -371,6 +371,7 @@ class BaseTemplateMailable extends TemplateMailable
         $result = $this->parseLinkComponent($result, 'link');
 
         $variables['unsubscribeLink'] = $this->unsubscribeLink;
+
         return $this->parseTextComponent($result, $variables, 'link_unsubscribe');
 
         //        foreach ($variables as $variableName) {
