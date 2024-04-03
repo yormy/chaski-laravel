@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Create\Models;
 
 use Spatie\MailTemplates\Models\MailTemplate;
@@ -30,8 +32,6 @@ class TranslatableMailTemplate extends MailTemplate
     use HasTranslations;
     use Xid;
 
-    protected $table = 'mail_templates';
-
     public $translatable = [
         'subject',
         'summary',
@@ -40,6 +40,8 @@ class TranslatableMailTemplate extends MailTemplate
         'notification_title',
         'notification_content',
     ];
+
+    protected $table = 'mail_templates';
 
     protected $casts = [
         'tags' => 'array',

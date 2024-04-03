@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Create\Notifications;
 
 use Illuminate\Bus\Queueable;
@@ -23,15 +25,12 @@ class TestMailable extends Mailable
      */
     public function __construct()
     {
-        //
     }
 
     /**
      * Get the message envelope.
-     *
-     * @return \Illuminate\Mail\Mailables\Envelope
      */
-    public function envelope()
+    public function envelope(): \Illuminate\Mail\Mailables\Envelope
     {
         return new Envelope(
             subject: 'Test MAilable',
@@ -40,10 +39,8 @@ class TestMailable extends Mailable
 
     /**
      * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
      */
-    public function content()
+    public function content(): \Illuminate\Mail\Mailables\Content
     {
         return new Content(
             html: 'chaski-laravel::email',
@@ -53,10 +50,8 @@ class TestMailable extends Mailable
 
     /**
      * Get the attachments for the message.
-     *
-     * @return array
      */
-    public function attachments()
+    public function attachments(): array
     {
         return [];
     }

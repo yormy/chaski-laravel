@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Subscription\Services;
 
 use Spatie\MailTemplates\Models\MailTemplate;

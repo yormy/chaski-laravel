@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel;
 
 use Illuminate\Routing\Router;
@@ -10,16 +12,16 @@ use Yormy\ChaskiLaravel\ServiceProviders\RouteServiceProvider;
 
 class ChaskiServiceProvider extends ServiceProvider
 {
-    const CONFIG_FILE = __DIR__.'/../config/chaski.php';
+    public const CONFIG_FILE = __DIR__.'/../config/chaski.php';
 
-    const CONFIG_MAIL_TRACKER_FILE = __DIR__.'/../config/mail-tracker.php';
+    public const CONFIG_MAIL_TRACKER_FILE = __DIR__.'/../config/mail-tracker.php';
 
-    const CONFIG_IDE_HELPER_FILE = __DIR__.'/../config/ide-helper.php';
+    public const CONFIG_IDE_HELPER_FILE = __DIR__.'/../config/ide-helper.php';
 
     /**
      * @psalm-suppress MissingReturnType
      */
-    public function boot(Router $router)
+    public function boot(Router $router): void
     {
         $this->publish();
 
@@ -44,7 +46,7 @@ class ChaskiServiceProvider extends ServiceProvider
     /**
      * @psalm-suppress MixedArgument
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(static::CONFIG_FILE, 'chaski');
         $this->mergeConfigFrom(static::CONFIG_MAIL_TRACKER_FILE, 'mail-tracker');
@@ -52,6 +54,20 @@ class ChaskiServiceProvider extends ServiceProvider
 
         $this->app->register(EventServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
+    }
+
+    public function registerMiddleware(Router $router): void
+    {
+    }
+
+    public function registerListeners(): void
+    {
+        //        $this->app['events']->listen(TripwireBlockedEvent::class, NotifyAdmin::class);
+    }
+
+    public function registerTranslations(): void
+    {
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'chaski');
     }
 
     private function publish(): void
@@ -82,20 +98,6 @@ class ChaskiServiceProvider extends ServiceProvider
             $this->commands([
             ]);
         }
-    }
-
-    public function registerMiddleware(Router $router): void
-    {
-    }
-
-    public function registerListeners(): void
-    {
-        //        $this->app['events']->listen(TripwireBlockedEvent::class, NotifyAdmin::class);
-    }
-
-    public function registerTranslations(): void
-    {
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'chaski');
     }
 
     private function morphMaps(): void

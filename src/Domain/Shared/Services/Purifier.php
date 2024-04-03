@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Shared\Services;
 
 use HTMLPurifier;
@@ -14,7 +16,6 @@ class Purifier
 
     public static function cleanHtml(string $dirtyHtml, ?string $allowedHtml = null): string
     {
-
         $cacheDirectory = storage_path('htmlpurifier_cache');
         self::makeCache($cacheDirectory);
 
@@ -25,7 +26,6 @@ class Purifier
         if (! $allowedHtml) {
             $config->set('HTML.Allowed', 'b,i,u,p,em,strong,cite,blockquote,code,ul,ol,li,dl,dt,dd,p,br,h1,h2,h3,h4,h5,h6');
         } else {
-
             $config->set('HTML.Allowed', $allowedHtml);
         }
 

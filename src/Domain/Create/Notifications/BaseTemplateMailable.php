@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Create\Notifications;
 
 use Carbon\Carbon;
@@ -16,9 +18,7 @@ class BaseTemplateMailable extends TemplateMailable
 {
     use Queueable, SerializesModels;
 
-    const ALLOW_CONTENT_LOGGING = true;
-
-    protected static $templateModelClass = TranslatableMailTemplate::class;
+    public const ALLOW_CONTENT_LOGGING = true;
 
     public string $userName;
 
@@ -50,6 +50,10 @@ class BaseTemplateMailable extends TemplateMailable
 
     public string $unsubscribeLink = '';
 
+    public array $custom = [];
+
+    protected static $templateModelClass = TranslatableMailTemplate::class;
+
     private array $links;
 
     private array $buttons;
@@ -59,8 +63,6 @@ class BaseTemplateMailable extends TemplateMailable
     private array $signature;
 
     private $notifiable;
-
-    public array $custom = [];
 
     private string $uuid;
 
@@ -129,7 +131,7 @@ class BaseTemplateMailable extends TemplateMailable
         $this->uuid = $data->uuid;
     }
 
-    public function send($mailer)
+    public function send($mailer): void
     {
         $this->addHeaders($this->notifiable);
 
@@ -138,12 +140,12 @@ class BaseTemplateMailable extends TemplateMailable
 
     public function addHeaders($notifiable): void
     {
-        $this->withSymfonyMessage(function ($message) use ($notifiable) {
+        $this->withSymfonyMessage(function ($message) use ($notifiable): void {
             $stringedUser = StringableUser::toString($notifiable);
             $message->getHeaders()
                 ->addTextHeader('X-UXID', Encryption::encrypt($stringedUser));
 
-            $mailableClass = get_class($this);
+            $mailableClass = static::class;
             $message->getHeaders()
                 ->addTextHeader('X-MX', Encryption::encrypt($mailableClass));
 
@@ -175,9 +177,7 @@ class BaseTemplateMailable extends TemplateMailable
             $layout = config('chaski.default_layout.html');
         }
 
-        $view = view($layout, $variables)->render(); // returns the layout with {{{body
-
-        return $view;
+        return view($layout, $variables)->render();
     }
 
     public function getTextLayout(): string
@@ -210,12 +210,12 @@ class BaseTemplateMailable extends TemplateMailable
     {
         $result = $org;
 
-        $signaturePattern = "#\[\[$componentName\]\]#iUs";
+        $signaturePattern = "#\[\[{$componentName}\]\]#iUs";
         $matches = [];
         preg_match_all($signaturePattern, $org, $matches);
         $outerSignatures = $matches[0];
         foreach ($outerSignatures as $outerSignature) {
-            $htmlRenderedSignature = view("chaski-laravel::_partials.texts.$componentName", $variables)->render();
+            $htmlRenderedSignature = view("chaski-laravel::_partials.texts.{$componentName}", $variables)->render();
 
             $result = str_ireplace($outerSignature, $htmlRenderedSignature, $result);
         }
@@ -248,19 +248,17 @@ class BaseTemplateMailable extends TemplateMailable
         $buttonLabel = $buttonDetails[0];
         $buttonDestination = $buttonDetails[1];
 
-        $variables = [
+        return [
             'destination' => $buttonDestination,
             'label' => $buttonLabel,
         ];
-
-        return $variables;
     }
 
     private function parseTextSectionComponent(string $org, array $customVariables, string $linkName, string $viewRoot = 'chaski-laravel::_partials.texts'): string
     {
         $result = $org;
 
-        $pattern = "#\[\[$linkName:(.*)\]\]#iUs";
+        $pattern = "#\[\[{$linkName}:(.*)\]\]#iUs";
 
         $matches = [];
         preg_match_all($pattern, $org, $matches);
@@ -268,7 +266,6 @@ class BaseTemplateMailable extends TemplateMailable
         $inner = $matches[1];
 
         foreach ($inner as $matchIndex => $item) {
-
             $htmlRenderedButton = view($viewRoot.'.'.$linkName, $customVariables)->render();
 
             $result = str_ireplace($outer[$matchIndex], $htmlRenderedButton, $result);
@@ -281,7 +278,7 @@ class BaseTemplateMailable extends TemplateMailable
     {
         $result = $org;
 
-        $pattern = "#\[\[$linkName:(.*)\]\]#iUs";
+        $pattern = "#\[\[{$linkName}:(.*)\]\]#iUs";
 
         $matches = [];
         preg_match_all($pattern, $org, $matches);
@@ -289,7 +286,6 @@ class BaseTemplateMailable extends TemplateMailable
         $inner = $matches[1];
 
         foreach ($inner as $matchIndex => $item) {
-
             $variables = $this->linkDetailsDetermine($data, $item);
 
             $htmlRenderedButton = view($viewRoot.'.'.$linkName, $variables)->render();
@@ -325,7 +321,7 @@ class BaseTemplateMailable extends TemplateMailable
     {
         $result = $org;
 
-        $componentPattern = "#\[\[$componentName:(.*)\]\]#iUs";
+        $componentPattern = "#\[\[{$componentName}:(.*)\]\]#iUs";
         $matches = [];
         preg_match_all($componentPattern, $org, $matches);
         $outerComponent = $matches[0];
@@ -350,13 +346,12 @@ class BaseTemplateMailable extends TemplateMailable
                 'rows' => $allRows,
             ];
 
-            $htmlRenderedComponent = view("chaski-laravel::_partials.tables.$componentName", $data)->render();
+            $htmlRenderedComponent = view("chaski-laravel::_partials.tables.{$componentName}", $data)->render();
 
             $result = str_ireplace($outerComponent[$matchIndex], $htmlRenderedComponent, $result);
         }
 
         return $result;
-
     }
 
     private function parseHtmlInjectables(string $org): string
@@ -376,13 +371,11 @@ class BaseTemplateMailable extends TemplateMailable
         $result = $this->parseLinkComponent($result, 'link');
 
         $variables['unsubscribeLink'] = $this->unsubscribeLink;
-        $result = $this->parseTextComponent($result, $variables, 'link_unsubscribe');
+        return $this->parseTextComponent($result, $variables, 'link_unsubscribe');
 
         //        foreach ($variables as $variableName) {
         //            // $pattern ="#{!!(\s)*$variableName(\s)*!!}#i";
         //        }
-
-        return $result;
     }
 
     private function createVariablesArray(): array

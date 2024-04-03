@@ -37,6 +37,22 @@ class BaseAdminUserEmailsSentController
             ->successResponse();
     }
 
+    public function getEmailContentsByUuid(EmailShowUuidRequest $request, string $uuid)
+    {
+        $email = $this->sentEmailRepository->getSentEmailByUuid($uuid);
+
+        return ApiResponse::withData(['html_content' => $email->content])
+            ->successResponse();
+    }
+
+    public function getEmailContentsByXid(EmailShowXidRequest $request, string $xid)
+    {
+        $email = $this->sentEmailRepository->getSentEmailByXid($xid);
+
+        return ApiResponse::withData(['html_content' => $email->content])
+            ->successResponse();
+    }
+
     private function addRelations(Request $request, array $emails): array
     {
         foreach ($emails as $index => $email) {
@@ -56,21 +72,5 @@ class BaseAdminUserEmailsSentController
         }
 
         return $emails;
-    }
-
-    public function getEmailContentsByUuid(EmailShowUuidRequest $request, string $uuid)
-    {
-        $email = $this->sentEmailRepository->getSentEmailByUuid($uuid);
-
-        return ApiResponse::withData(['html_content' => $email->content])
-            ->successResponse();
-    }
-
-    public function getEmailContentsByXid(EmailShowXidRequest $request, string $xid)
-    {
-        $email = $this->sentEmailRepository->getSentEmailByXid($xid);
-
-        return ApiResponse::withData(['html_content' => $email->content])
-            ->successResponse();
     }
 }

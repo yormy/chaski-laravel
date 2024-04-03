@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Routes\Api\Admin;
 
 use Illuminate\Support\Facades\Route;
@@ -10,31 +12,27 @@ class AdminUserNotificationsSentRoutes
 {
     public static function register(): void
     {
-        Route::macro('ChaskiAdminUserNotificationsSentApiRoutes', function (string $prefix = '') {
+        Route::macro('ChaskiAdminUserNotificationsSentApiRoutes', function (string $prefix = ''): void {
             Route::prefix($prefix)
                 ->name('chaski.')
-                ->group(function () {
-
+                ->group(function (): void {
                     Route::prefix('notifications')
                         ->name('notifications.')
-                        ->group(function () {
+                        ->group(function (): void {
                             Route::get('/{member_xid}', [AdminUserNotificationsSentController::class, 'index'])->name('index');
                         });
-
                 });
         });
 
-        Route::macro('ChaskiAdminAdminNotificationsSentApiRoutes', function (string $prefix = '') {
+        Route::macro('ChaskiAdminAdminNotificationsSentApiRoutes', function (string $prefix = ''): void {
             Route::prefix($prefix)
                 ->name('chaski.')
-                ->group(function () {
-
+                ->group(function (): void {
                     Route::prefix('notifications')
                         ->name('notifications.')
-                        ->group(function () {
+                        ->group(function (): void {
                             Route::get('/{admin_xid}', [AdminAdminNotificationsSentController::class, 'index'])->name('index');
                         });
-
                 });
         });
     }

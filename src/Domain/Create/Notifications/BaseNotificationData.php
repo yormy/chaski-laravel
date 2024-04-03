@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Create\Notifications;
 
 use Yormy\ChaskiLaravel\Domain\Shared\Services\Purifier;
@@ -54,24 +56,7 @@ abstract class BaseNotificationData
         return $newObject;
     }
 
-    private function setDefaults()
-    {
-        $defaultSignature = config('chaski.default_signature');
-        if (! empty($defaultSignature)) {
-            foreach ($defaultSignature as $translatable) {
-                $this->signature[] = __($translatable);
-            }
-        }
-
-        $this->appName = config('chaski.branding.app_name');
-        $this->appAbbreviation = config('chaski.branding.app_abbreviation');
-        $this->title = '{{mailSubject}}';
-
-        $this->imageName = 'system';
-        $this->imageFile = '/img/avatar/system.png';
-    }
-
-    public function custom(array $custom)
+    public function custom(array $custom): void
     {
         $this->custom = $custom;
     }
@@ -240,16 +225,33 @@ abstract class BaseNotificationData
         return $this->convertToLines($this->promo);
     }
 
+    private function setDefaults(): void
+    {
+        $defaultSignature = config('chaski.default_signature');
+        if (! empty($defaultSignature)) {
+            foreach ($defaultSignature as $translatable) {
+                $this->signature[] = __($translatable);
+            }
+        }
+
+        $this->appName = config('chaski.branding.app_name');
+        $this->appAbbreviation = config('chaski.branding.app_abbreviation');
+        $this->title = '{{mailSubject}}';
+
+        $this->imageName = 'system';
+        $this->imageFile = '/img/avatar/system.png';
+    }
+
     private function convertToLines(array $data): array
     {
         $new = [];
 
         foreach ($data as $key => $dirty) {
             /** @psalm-suppress InvalidOperand */
-            $key = $key + 1;
+            $key += 1;
 
             $line = Purifier::cleanHtml($dirty, 'h2');
-            $new["line_$key"] = $line;
+            $new["line_{$key}"] = $line;
         }
 
         return $new;

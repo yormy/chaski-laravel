@@ -53,14 +53,6 @@ class UserEmailsSentController extends BaseController
         return $this->returnEmailContent($email);
     }
 
-    private function returnEmailContent($email)
-    {
-        $this->sentEmailRepository->markOpenedForUser($this->user, $email->xid);
-
-        return ApiResponse::withData(['html_content' => $email->content])
-            ->successResponse();
-    }
-
     public function markOpened(EmailMarkOpenedRequest $request, string $xid)
     {
         $sentEmailRepository = new EmailsSentRepository();
@@ -68,6 +60,14 @@ class UserEmailsSentController extends BaseController
         $email = (new EmailSentResource($email))->toArray($request);
 
         return ApiResponse::withData($email)
+            ->successResponse();
+    }
+
+    private function returnEmailContent($email)
+    {
+        $this->sentEmailRepository->markOpenedForUser($this->user, $email->xid);
+
+        return ApiResponse::withData(['html_content' => $email->content])
             ->successResponse();
     }
 }

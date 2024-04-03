@@ -90,6 +90,6 @@ class NotificationsSentRepository
         }
 
         return $this->model::where('notifiable_id', $user->id)
-            ->where('notifiable_type', get_class($user));
+            ->where('notifiable_type', $user::class);
     }
 }

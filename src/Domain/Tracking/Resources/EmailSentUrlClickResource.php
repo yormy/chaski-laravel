@@ -10,12 +10,10 @@ class EmailSentUrlClickResource extends JsonResource
 {
     public function toArray($request)
     {
-        $data = [
+        return [
             'url' => $this->url,
             'clicks' => $this->clicks,
             'created_at' => $this->created_at,
         ];
-
-        return $data;
     }
 }

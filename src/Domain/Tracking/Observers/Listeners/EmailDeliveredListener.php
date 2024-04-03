@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Observers\Listeners;
 
 use Carbon\Carbon;
@@ -20,7 +22,7 @@ class EmailDeliveredListener
         if ($user) {
             $tracker = $event->sent_email;
             $tracker->user_id = $user->id;
-            $tracker->user_type = get_class($user);
+            $tracker->user_type = $user::class;
             $tracker->status_delivered = Carbon::now();
             $tracker->save();
         }

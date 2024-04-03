@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Create\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Mail\Mailable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
 
 class TestTemplateNotification extends Notification implements ShouldQueue
@@ -21,9 +22,7 @@ class TestTemplateNotification extends Notification implements ShouldQueue
      */
     public function via($notifiable): array
     {
-        $channels = ['mail'];
-
-        return $channels;
+        return ['mail'];
     }
 
     public function shouldSend(object $notifiable, string $channel): bool

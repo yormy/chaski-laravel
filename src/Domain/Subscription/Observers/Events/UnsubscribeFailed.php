@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Subscription\Observers\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;

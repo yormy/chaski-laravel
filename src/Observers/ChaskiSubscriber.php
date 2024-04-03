@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Observers;
 
 use Illuminate\Events\Dispatcher;
-use Yormy\ChaskiLaravel\Observers\Interfaces\LoggableEventInterface;
-use Yormy\ChaskiLaravel\Observers\Listeners\LogEvent;
 
 class ChaskiSubscriber
 {

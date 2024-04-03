@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Shared\Services;
 
 class StringableUser
@@ -12,7 +14,7 @@ class StringableUser
             return null;
         }
 
-        $notifiableTypeId = array_search(get_class($notifyable), $notifiables);
+        $notifiableTypeId = array_search($notifyable::class, $notifiables);
         if ($notifiableTypeId === false) {
             $notifiableTypeId = 'unknown';
         }

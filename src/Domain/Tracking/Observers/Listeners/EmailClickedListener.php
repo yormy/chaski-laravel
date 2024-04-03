@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Observers\Listeners;
 
 use jdavidbakr\MailTracker\Events\LinkClickedEvent;

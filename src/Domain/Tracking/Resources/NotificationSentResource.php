@@ -56,7 +56,6 @@ class NotificationSentResource extends JsonResource
     {
         $locale = self::$locale;
         if (array_key_exists($field, $this->dataAsArray)) {
-
             $translations = $this->dataAsArray[$field];
             if (! array_key_exists($locale, $translations)) {
                 $locale = 'en';

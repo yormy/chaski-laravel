@@ -11,14 +11,13 @@ class EmailsSentRoutes
 {
     public static function register(): void
     {
-        Route::macro('ChaskiEmailsSentApiRoutes', function (string $prefix = '') {
+        Route::macro('ChaskiEmailsSentApiRoutes', function (string $prefix = ''): void {
             Route::prefix($prefix)
                 ->name('chaski.')
-                ->group(function () {
-
+                ->group(function (): void {
                     Route::prefix('emails')
                         ->name('emails.')
-                        ->group(function () {
+                        ->group(function (): void {
                             Route::get('/', [UserEmailsSentController::class, 'index'])->name('sent.index');
                             Route::put('/mark-opened/{xid}', [UserEmailsSentController::class, 'markOpened'])->name('mark-opened');
 

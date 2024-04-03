@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Observers\Listeners\Traits;
 
 use jdavidbakr\MailTracker\Model\SentEmail;
@@ -12,9 +14,7 @@ trait MailTrackerUserTrait
     {
         $stringedUser = $sentEmail->getHeader('X-UXID');
 
-        $user = StringableUser::fromString(Encryption::decrypt($stringedUser));
-
-        return $user;
+        return StringableUser::fromString(Encryption::decrypt($stringedUser));
     }
 
     public function getMailable(SentEmail $sentEmail): ?string

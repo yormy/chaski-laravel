@@ -10,7 +10,7 @@ class EmailSentResource extends JsonResource
 {
     public function toArray($request)
     {
-        $data = [
+        return [
             'id' => $this->id,
             'xid' => $this->xid,
             'sender_name' => $this->sender_name,
@@ -21,7 +21,5 @@ class EmailSentResource extends JsonResource
             'opened_at' => $this->opened_at,
             'created_at' => $this->created_at,
         ];
-
-        return $data;
     }
 }

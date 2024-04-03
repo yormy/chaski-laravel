@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -11,13 +13,13 @@ use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailUrlClicked;
 
 class SentEmailSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
         $this->memberEmailSeeder();
         $this->adminEmailSeeder();
     }
 
-    private function memberEmailSeeder()
+    private function memberEmailSeeder(): void
     {
         $member = Member::where('id', 1)->first();
         SentEmail::factory()
@@ -34,7 +36,7 @@ class SentEmailSeeder extends Seeder
             ->create();
     }
 
-    private function adminEmailSeeder()
+    private function adminEmailSeeder(): void
     {
         $admin = Admin::where('id', 1)->first();
         SentEmail::factory()
@@ -49,6 +51,5 @@ class SentEmailSeeder extends Seeder
             ->has(SentEmailUrlClicked::factory()->count(rand(1, 5)), 'urlsClicked')
             ->has(SentEmailLog::factory()->count(rand(1, 5)), 'logs')
             ->create();
-
     }
 }

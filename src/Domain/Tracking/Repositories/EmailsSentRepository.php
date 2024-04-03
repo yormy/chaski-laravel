@@ -118,6 +118,6 @@ class EmailsSentRepository
     private function queryForUser(Admin|Member $user): Builder
     {
         return $this->model::where('user_id', $user->id)
-            ->where('user_type', get_class($user));
+            ->where('user_type', $user::class);
     }
 }

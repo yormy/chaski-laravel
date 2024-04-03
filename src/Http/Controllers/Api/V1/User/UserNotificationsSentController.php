@@ -42,6 +42,16 @@ class UserNotificationsSentController extends BaseController
             ->successResponse();
     }
 
+    public function markOpened(MarkNotificationOpenedRequest $request, string $id)
+    {
+        $notificationsSentRepository = new NotificationsSentRepository();
+        $notification = $notificationsSentRepository->markReadForUser($this->user, $id);
+        $notification = (new NotificationSentResource($notification))->toArray($request);
+
+        return ApiResponse::withData($notification)
+            ->successResponse();
+    }
+
     private function buildMenuData(array $notifications): array
     {
         $button = [
@@ -80,15 +90,5 @@ class UserNotificationsSentController extends BaseController
             'web_cta' => array_key_exists('web_cta', $item) ? $item['web_cta'] : null,
             'sent_email_id' => array_key_exists('sent_email_id', $item) ? $item['sent_email_id'] : null,
         ];
-    }
-
-    public function markOpened(MarkNotificationOpenedRequest $request, string $id)
-    {
-        $notificationsSentRepository = new NotificationsSentRepository();
-        $notification = $notificationsSentRepository->markReadForUser($this->user, $id);
-        $notification = (new NotificationSentResource($notification))->toArray($request);
-
-        return ApiResponse::withData($notification)
-            ->successResponse();
     }
 }

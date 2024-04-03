@@ -16,8 +16,6 @@ class EmailShowUuidRequest extends FormRouteRequest
     {
         $rules['uuid'] = ['required', 'exists:sent_emails,sent_email_id'];
 
-        $rules = [];
-
-        return $rules;
+        return [];
     }
 }

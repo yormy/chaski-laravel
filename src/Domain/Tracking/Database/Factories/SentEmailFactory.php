@@ -7,7 +7,6 @@ namespace Yormy\ChaskiLaravel\Domain\Tracking\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmail;
-use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailUrlClicked;
 
 class SentEmailFactory extends Factory
 {
@@ -48,10 +47,10 @@ class SentEmailFactory extends Factory
     public function forMember($user): Factory
     {
         return $this->state(function (array $attributes) use ($user) {
-            $prefix = "(member $user->id)";
+            $prefix = "(member {$user->id})";
 
             return [
-                'user_type' => get_class($user),
+                'user_type' => $user::class,
                 'user_id' => $user->id,
                 'subject' => $prefix.' '.$this->faker->sentence,
             ];
@@ -61,27 +60,14 @@ class SentEmailFactory extends Factory
     public function forAdmin($user): Factory
     {
         return $this->state(function (array $attributes) use ($user) {
-            $prefix = "(admin $user->id)";
+            $prefix = "(admin {$user->id})";
 
             return [
-                'user_type' => get_class($user),
+                'user_type' => $user::class,
                 'user_id' => $user->id,
                 'subject' => $prefix.' '.$this->faker->sentence,
             ];
         });
-    }
-
-    private function getHeader(): string
-    {
-        return 'From: MyApp Name <hello@example.com>
-To: joe@bounty.com
-Subject: Your App Name: Email Code
-X-UXID: eyJpdiI6Ii9KZ0dPbzJSVTBjN2dQRExtQld2bHc9PSIsInZhbHVlIjoianFHVUhkbS9Dc2I1cnhHZW9XQnYwZz09IiwibWFjIjoiNDc4YTllN2IyMDllODllZjU5OTQ3NGJhZmYzNDdhZjNmZDAwNDdjZmFmM2EwMzY3NGFmMTc3YzNlN2I4ZTIwYSIsInRhZyI6IiJ9
-X-MX: eyJpdiI6IkhlNW1hUEdkVm8xRFJRaDEvR2ovVEE9PSIsInZhbHVlIjoiMzlRbGNwKzVEbC9GejlWekJsbjNpRS81QjhMM2dpZkF5dzEzb1ZWZWsrYzB5TUlpbkorbGRNaDRQNGdGRHdPc2MxRFFTVGd3QXRKTEZsWVdNZnIrVjhOUEdTQzhjSXRYc2pqbFFkZmxVdjQ9IiwibWFjIjoiMGVlNmNhZjQyOGYzYjcxZTc4MzM5MjczNWUxNzk1OTk4N2JhMzFhMDEzMDk1MTY4Y2Q1MTg3YmM4MjdhY2RkNiIsInRhZyI6IiJ9
-X-TX: eyJpdiI6Ijl0anhmM1VCSWNvVGlPc1hYUWw0enc9PSIsInZhbHVlIjoiYzVqWS9Gck9La0NkajQwdFB3N3JrTHRuNUt2K1dVWThRT3plQkV6R3hDNGlTK2hqd2w0WFI3anR4YnFMbExITiIsIm1hYyI6IjZiY2I0MTc1MmVlOGFhMzFjMGUxNTNjNGI1MjFkNWQwNzQ5MzA5MmEyNTAxZDhiNjQ0ZjhmYmNmOWVhM2U0OWQiLCJ0YWciOiIifQ==
-X-NX: eyJpdiI6Ik9nL3Nudmg2QW1qaFRVczZ0clpoY2c9PSIsInZhbHVlIjoiQWdCSE93UW9JTHFMaElpSTZjanE1TTVTb3V3aFZXTzU5QW5zeSs3SHVoM2Erd1oyV1BPa3NDckNJT1NhSjN4bSIsIm1hYyI6ImZkYjBiNjU1NmM0Yzc2MDhjYjk5NjA5NmYyYWM3YWRmMjAxMjAyOWZkYzgyYWExNDgyOWI4YjQ3NzkyNjBkMzAiLCJ0YWciOiIifQ==
-X-Mailer-Hash: 2usaKtndrOqsTtpjBrm1meHN1TkVytn9
-';
     }
 
     public function generateData(): string
@@ -112,6 +98,19 @@ X-Mailer-Hash: 2usaKtndrOqsTtpjBrm1meHN1TkVytn9
                 'read_at' => null,
             ];
         });
+    }
+
+    private function getHeader(): string
+    {
+        return 'From: MyApp Name <hello@example.com>
+To: joe@bounty.com
+Subject: Your App Name: Email Code
+X-UXID: eyJpdiI6Ii9KZ0dPbzJSVTBjN2dQRExtQld2bHc9PSIsInZhbHVlIjoianFHVUhkbS9Dc2I1cnhHZW9XQnYwZz09IiwibWFjIjoiNDc4YTllN2IyMDllODllZjU5OTQ3NGJhZmYzNDdhZjNmZDAwNDdjZmFmM2EwMzY3NGFmMTc3YzNlN2I4ZTIwYSIsInRhZyI6IiJ9
+X-MX: eyJpdiI6IkhlNW1hUEdkVm8xRFJRaDEvR2ovVEE9PSIsInZhbHVlIjoiMzlRbGNwKzVEbC9GejlWekJsbjNpRS81QjhMM2dpZkF5dzEzb1ZWZWsrYzB5TUlpbkorbGRNaDRQNGdGRHdPc2MxRFFTVGd3QXRKTEZsWVdNZnIrVjhOUEdTQzhjSXRYc2pqbFFkZmxVdjQ9IiwibWFjIjoiMGVlNmNhZjQyOGYzYjcxZTc4MzM5MjczNWUxNzk1OTk4N2JhMzFhMDEzMDk1MTY4Y2Q1MTg3YmM4MjdhY2RkNiIsInRhZyI6IiJ9
+X-TX: eyJpdiI6Ijl0anhmM1VCSWNvVGlPc1hYUWw0enc9PSIsInZhbHVlIjoiYzVqWS9Gck9La0NkajQwdFB3N3JrTHRuNUt2K1dVWThRT3plQkV6R3hDNGlTK2hqd2w0WFI3anR4YnFMbExITiIsIm1hYyI6IjZiY2I0MTc1MmVlOGFhMzFjMGUxNTNjNGI1MjFkNWQwNzQ5MzA5MmEyNTAxZDhiNjQ0ZjhmYmNmOWVhM2U0OWQiLCJ0YWciOiIifQ==
+X-NX: eyJpdiI6Ik9nL3Nudmg2QW1qaFRVczZ0clpoY2c9PSIsInZhbHVlIjoiQWdCSE93UW9JTHFMaElpSTZjanE1TTVTb3V3aFZXTzU5QW5zeSs3SHVoM2Erd1oyV1BPa3NDckNJT1NhSjN4bSIsIm1hYyI6ImZkYjBiNjU1NmM0Yzc2MDhjYjk5NjA5NmYyYWM3YWRmMjAxMjAyOWZkYzgyYWExNDgyOWI4YjQ3NzkyNjBkMzAiLCJ0YWciOiIifQ==
+X-Mailer-Hash: 2usaKtndrOqsTtpjBrm1meHN1TkVytn9
+';
     }
 
     private function getEmailContent(): string
