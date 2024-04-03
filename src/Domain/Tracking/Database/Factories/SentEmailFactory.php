@@ -1,12 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmail;
-use Mexion\BedrockUsersv2\Domain\User\Models\Member;
-use Mexion\BedrockUsersv2\Domain\User\Models\Admin;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailUrlClicked;
 
 class SentEmailFactory extends Factory
@@ -15,19 +15,19 @@ class SentEmailFactory extends Factory
 
     public function definition()
     {
-        $emailId = rand(0,99999);
-       // SentEmailUrlClicked::factory(3)->forEmail($emailId)->create();
+        $emailId = rand(0, 99999);
+        // SentEmailUrlClicked::factory(3)->forEmail($emailId)->create();
 
         return [
-         //   'id' => $emailId,
-            'hash'=> md5(Str::random(20)),
+            //   'id' => $emailId,
+            'hash' => md5(Str::random(20)),
             'headers' => $this->getHeader(),
-            'sender_name'=> 'MyApp Name',
-            'sender_email'=> 'hello@example.com',
-            'recipient_name'=> 'name',
-            'recipient_email'=> 'recipient@email.com',
-            'subject'=> $this->faker->sentence,
-            'content'=> $this->getEmailContent(),
+            'sender_name' => 'MyApp Name',
+            'sender_email' => 'hello@example.com',
+            'recipient_name' => 'name',
+            'recipient_email' => 'recipient@email.com',
+            'subject' => $this->faker->sentence,
+            'content' => $this->getEmailContent(),
             'opens' => $this->faker->randomDigit(),
             'clicks' => $this->faker->randomDigit(),
             'status_delivered_at' => $this->faker->dateTime,
@@ -41,30 +41,32 @@ class SentEmailFactory extends Factory
             'clicked_at' => $this->faker->boolean ? $this->faker->dateTime() : null,
             'message_id' => '6a2da8674a9962c89118a84efe767308@example.com',
             'sent_email_id' => $this->faker->uuid,
-            'meta' => '?'
+            'meta' => '?',
         ];
     }
 
     public function forMember($user): Factory
     {
-        return $this->state(function (array $attributes) use ($user){
+        return $this->state(function (array $attributes) use ($user) {
             $prefix = "(member $user->id)";
+
             return [
                 'user_type' => get_class($user),
                 'user_id' => $user->id,
-                'subject'=> $prefix. ' '. $this->faker->sentence,
+                'subject' => $prefix.' '.$this->faker->sentence,
             ];
         });
     }
 
     public function forAdmin($user): Factory
     {
-        return $this->state(function (array $attributes) use ($user){
+        return $this->state(function (array $attributes) use ($user) {
             $prefix = "(admin $user->id)";
+
             return [
                 'user_type' => get_class($user),
                 'user_id' => $user->id,
-                'subject'=> $prefix. ' '. $this->faker->sentence,
+                'subject' => $prefix.' '.$this->faker->sentence,
             ];
         });
     }

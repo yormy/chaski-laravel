@@ -15,7 +15,7 @@ abstract class BaseNotificationData
     /**
      * Call to action link to on device app
      */
-    public string $appCta ='';
+    public string $appCta = '';
 
     public array $signature;
 
@@ -48,7 +48,7 @@ abstract class BaseNotificationData
 
     public static function make($user = null): static
     {
-        $newObject =  new static();
+        $newObject = new static();
         $newObject->setDefaults();
 
         return $newObject;
@@ -57,7 +57,7 @@ abstract class BaseNotificationData
     private function setDefaults()
     {
         $defaultSignature = config('chaski.default_signature');
-        if (!empty($defaultSignature)) {
+        if (! empty($defaultSignature)) {
             foreach ($defaultSignature as $translatable) {
                 $this->signature[] = __($translatable);
             }
@@ -127,7 +127,6 @@ abstract class BaseNotificationData
         return $this->appCta;
     }
 
-
     public function signature(array $signature): static
     {
         $this->signature = $signature;
@@ -168,7 +167,7 @@ abstract class BaseNotificationData
 
     public function getTitle(): ?string
     {
-        if (!isset($this->title)) {
+        if (! isset($this->title)) {
             return null;
         }
 
@@ -182,9 +181,10 @@ abstract class BaseNotificationData
 
     public function getLinks(): array
     {
-        if (!isset($this->links)) {
+        if (! isset($this->links)) {
             return [];
         }
+
         return $this->links;
     }
 
@@ -205,7 +205,7 @@ abstract class BaseNotificationData
 
     public function getButtons(): array
     {
-        if (!isset($this->buttons)) {
+        if (! isset($this->buttons)) {
             return [];
         }
 
@@ -214,7 +214,7 @@ abstract class BaseNotificationData
 
     public function getSignature(): array
     {
-        if (!isset($this->signature)) {
+        if (! isset($this->signature)) {
             return [];
         }
 
@@ -233,7 +233,7 @@ abstract class BaseNotificationData
 
     public function getPromo(): array
     {
-        if (!isset($this->promo)) {
+        if (! isset($this->promo)) {
             return [];
         }
 

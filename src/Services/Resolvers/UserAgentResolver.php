@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Services\Resolvers;
 
@@ -11,21 +13,20 @@ class UserAgentResolver
     {
         $agent = new Agent();
         $platform = $agent->platform();
-        $userAgent = $platform . " ". $agent->version($platform);
+        $userAgent = $platform.' '.$agent->version($platform);
 
         $browser = $agent->browser();
-        $userAgent .= $browser ." " . $agent->version($browser);
+        $userAgent .= $browser.' '.$agent->version($browser);
+
         return $userAgent;
     }
 
-    public static function getFullAgent(Request $request = null): string
+    public static function getFullAgent(?Request $request = null): string
     {
-        if (!$request) {
+        if (! $request) {
             return $_SERVER['HTTP_USER_AGENT'];
         }
 
         return $request->server('HTTP_USER_AGENT');
     }
-
-
 }

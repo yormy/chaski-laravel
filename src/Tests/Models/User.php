@@ -9,8 +9,8 @@ use Yormy\ChaskiLaravel\Domain\Subscription\Traits\HasNotificationSubscriptions;
 
 class User extends Authenticatable
 {
-    use Notifiable;
     use HasNotificationSubscriptions;
+    use Notifiable;
 
     protected $table = 'test_users';
 
@@ -23,7 +23,7 @@ class User extends Authenticatable
     /**
      * Route notifications for the mail channel.
      *
-     * @return  array<string, string>|string
+     * @return array<string, string>|string
      */
     public function routeNotificationForMail(Notification $notification): array|string
     {

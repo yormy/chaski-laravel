@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Services\Resolvers;
 
@@ -35,5 +37,4 @@ class IpResolver
 
         return false;
     }
-
 }

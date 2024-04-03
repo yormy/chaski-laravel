@@ -17,8 +17,8 @@ use Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing\Traits\EmailParsingTrai
 class UnsubscribeTest extends TestCase
 {
     use ConfigMailTrait;
-    use UserTrait;
     use EmailParsingTrait;
+    use UserTrait;
 
     public function SetUp(): void
     {

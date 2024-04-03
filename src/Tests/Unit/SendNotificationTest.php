@@ -13,8 +13,8 @@ use Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing\Traits\EmailParsingTrai
 class SendNotificationTest extends TestCase
 {
     use ConfigMailTrait;
-    use UserTrait;
     use EmailParsingTrait;
+    use UserTrait;
 
     /**
      * @test

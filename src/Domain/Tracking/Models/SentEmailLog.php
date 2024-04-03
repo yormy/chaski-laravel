@@ -25,6 +25,6 @@ class SentEmailLog extends Model
         'ip_address',
         'user_agent',
         'type',
-        'url'
+        'url',
     ];
 }

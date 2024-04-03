@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Resources;
 
@@ -18,7 +20,7 @@ class NotificationSentResource extends JsonResource
     {
         $this->dataAsArray = json_decode($this->data, true);
 
-        if (!self::$locale) {
+        if (! self::$locale) {
             self::$locale = App::getLocale();
         }
 
@@ -33,7 +35,6 @@ class NotificationSentResource extends JsonResource
             'image_file' => $this->extractData('image_file'),
             'sent_email_id' => $this->extractData('sent_email_id'),
         ];
-
 
         $dates = $this->getDates([
             'created_at',
@@ -57,9 +58,10 @@ class NotificationSentResource extends JsonResource
         if (array_key_exists($field, $this->dataAsArray)) {
 
             $translations = $this->dataAsArray[$field];
-            if (!array_key_exists($locale, $translations)) {
+            if (! array_key_exists($locale, $translations)) {
                 $locale = 'en';
             }
+
             return $translations[$locale];
         }
 

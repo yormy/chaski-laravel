@@ -8,8 +8,8 @@ use Yormy\Xid\Models\Traits\Xid;
 
 class SentEmail extends BaseSentEmail
 {
-    use Xid;
     use PackageFactoryTrait;
+    use Xid;
 
     public function urlsClicked()
     {

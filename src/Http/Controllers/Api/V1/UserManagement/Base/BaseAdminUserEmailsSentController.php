@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\UserManagement\Base;
 
@@ -15,6 +17,7 @@ use Yormy\ChaskiLaravel\Http\Requests\EmailShowXidRequest;
 class BaseAdminUserEmailsSentController
 {
     use EmailsSentDecoratorTrait;
+
     private EmailsSentRepository $sentEmailRepository;
 
     public function __construct(Request $request)
@@ -71,4 +74,3 @@ class BaseAdminUserEmailsSentController
             ->successResponse();
     }
 }
-

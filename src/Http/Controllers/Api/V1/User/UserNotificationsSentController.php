@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\User;
 
@@ -44,12 +46,12 @@ class UserNotificationsSentController extends BaseController
     {
         $button = [
             'type' => 'danger',
-            'content' => sizeof($notifications),
+            'content' => count($notifications),
             'icon' => 'y-icon icon icon-notification',
         ];
 
         $header = [
-            "title" => __('bedrock-usersv2::menu.top.notifications.title', ['count' => sizeof($notifications)]),
+            'title' => __('bedrock-usersv2::menu.top.notifications.title', ['count' => count($notifications)]),
         ];
 
         $items = [];
@@ -67,16 +69,16 @@ class UserNotificationsSentController extends BaseController
     private function buildMenuItem(array $item): array
     {
         return [
-            "id" => $item['id'],
+            'id' => $item['id'],
             'image' => [
-                "file" => array_key_exists('image_file', $item) ? $item['image_file'] : null,
-                "name" => array_key_exists('image_name', $item) ? $item['image_name'] : null,
+                'file' => array_key_exists('image_file', $item) ? $item['image_file'] : null,
+                'name' => array_key_exists('image_name', $item) ? $item['image_name'] : null,
             ],
-            "title" => $item['title'],
-            "subtitle" => $item['content'],
-            "date" => $item['created_at_human'],
-            "web_cta" => array_key_exists('web_cta', $item) ? $item['web_cta'] : null,
-            "sent_email_id" => array_key_exists('sent_email_id', $item) ? $item['sent_email_id'] : null,
+            'title' => $item['title'],
+            'subtitle' => $item['content'],
+            'date' => $item['created_at_human'],
+            'web_cta' => array_key_exists('web_cta', $item) ? $item['web_cta'] : null,
+            'sent_email_id' => array_key_exists('sent_email_id', $item) ? $item['sent_email_id'] : null,
         ];
     }
 

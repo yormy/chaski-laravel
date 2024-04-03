@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Http\Requests;
 
@@ -7,7 +9,7 @@ use Yormy\ValidationLaravel\Http\Requests\FormRouteRequest;
 class EmailMarkOpenedRequest extends FormRouteRequest
 {
     protected $routeParamsToValidate = [
-        'xid' => 'xid'
+        'xid' => 'xid',
     ];
 
     public function rules(): array

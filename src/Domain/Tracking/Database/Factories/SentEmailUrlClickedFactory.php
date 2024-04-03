@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Database\Factories;
 
@@ -13,9 +15,9 @@ class SentEmailUrlClickedFactory extends Factory
     public function definition()
     {
         return [
-            'hash'=> md5(Str::random(20)),
+            'hash' => md5(Str::random(20)),
             'url' => $this->faker->url,
-            'clicks'=> 1,
+            'clicks' => 1,
         ];
     }
 }

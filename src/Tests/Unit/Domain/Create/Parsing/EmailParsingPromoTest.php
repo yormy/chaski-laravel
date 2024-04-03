@@ -9,8 +9,8 @@ use Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing\Traits\EmailParsingTrai
 
 class EmailParsingPromoTest extends TestCase
 {
-    use UserTrait;
     use EmailParsingTrait;
+    use UserTrait;
 
     public function SetUp(): void
     {

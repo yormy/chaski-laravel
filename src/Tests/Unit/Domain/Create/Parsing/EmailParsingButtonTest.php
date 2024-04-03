@@ -8,8 +8,8 @@ use Yormy\ChaskiLaravel\Tests\Unit\Domain\Create\Parsing\Traits\EmailParsingTrai
 
 class EmailParsingButtonTest extends TestCase
 {
-    use UserTrait;
     use EmailParsingTrait;
+    use UserTrait;
 
     public function SetUp(): void
     {

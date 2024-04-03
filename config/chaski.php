@@ -54,5 +54,5 @@ return [
     'branding' => [
         'app_name' => 'Your App Name',
         'app_abbreviation' => 'YA', // keep it short, 2 or 3 letters
-    ]
+    ],
 ];

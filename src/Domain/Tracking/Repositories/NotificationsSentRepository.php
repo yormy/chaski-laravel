@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Repositories;
 
@@ -16,12 +18,12 @@ class NotificationsSentRepository
 {
     public function __construct(private ?NotificationSent $model = null)
     {
-        if (!$model) {
+        if (! $model) {
             $this->model = new NotificationSent();
         }
     }
 
-    public function markReadForUser(Admin| Member | Null $user, string $notificationId): NotificationSent
+    public function markReadForUser(Admin|Member|null $user, string $notificationId): NotificationSent
     {
         $notification = $this->getNotificationForUser($user, $notificationId);
 
@@ -32,7 +34,7 @@ class NotificationsSentRepository
             'opened_at' => Carbon::now(),
         ]);
 
-        if (!$notification->read_at) {
+        if (! $notification->read_at) {
             $notification->read_at = Carbon::now();
             $notification->save();
         }
@@ -40,7 +42,7 @@ class NotificationsSentRepository
         return $notification;
     }
 
-    public function getAllForUser(Admin| Member | Null $user): Collection
+    public function getAllForUser(Admin|Member|null $user): Collection
     {
         return $this->queryForUser($user)
             ->select([
@@ -55,7 +57,7 @@ class NotificationsSentRepository
             ->get();
     }
 
-    public function getAllNewForUser(Admin| Member| Null $user): Collection
+    public function getAllNewForUser(Admin|Member|null $user): Collection
     {
         return $this->queryForUser($user)
             ->select([
@@ -71,7 +73,7 @@ class NotificationsSentRepository
             ->get();
     }
 
-    public function getNotificationForUser(Admin| Member| Null $user, string $notificationId): NotificationSent
+    public function getNotificationForUser(Admin|Member|null $user, string $notificationId): NotificationSent
     {
         /**
          * @var NotificationSent
@@ -81,9 +83,9 @@ class NotificationsSentRepository
             ->firstOrFail();
     }
 
-    private function queryForUser(Admin| Member | Null $user): Builder
+    private function queryForUser(Admin|Member|null $user): Builder
     {
-        if (!$user) {
+        if (! $user) {
             return $this->model::where('notifiable_id', -1); // always empty
         }
 

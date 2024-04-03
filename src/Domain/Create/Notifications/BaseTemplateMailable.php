@@ -256,8 +256,7 @@ class BaseTemplateMailable extends TemplateMailable
         return $variables;
     }
 
-
-    private function parseTextSectionComponent(string $org, array $customVariables, string $linkName, string $viewRoot ='chaski-laravel::_partials.texts'): string
+    private function parseTextSectionComponent(string $org, array $customVariables, string $linkName, string $viewRoot = 'chaski-laravel::_partials.texts'): string
     {
         $result = $org;
 

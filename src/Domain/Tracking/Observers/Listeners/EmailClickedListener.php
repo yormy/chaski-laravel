@@ -3,7 +3,6 @@
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Observers\Listeners;
 
 use jdavidbakr\MailTracker\Events\LinkClickedEvent;
-use Yormy\ChaskiLaravel\Domain\Shared\Services\IpAddress;
 use Yormy\ChaskiLaravel\Services\Resolvers\IpResolver;
 use Yormy\ChaskiLaravel\Services\Resolvers\UserAgentResolver;
 

@@ -79,7 +79,7 @@ class TranslatableMailTemplate extends MailTemplate
 
         $this->notification_title = $data->getNotificationTitle();
 
-        if($data->getNotificationContent()) {
+        if ($data->getNotificationContent()) {
             $this->notification_content = $data->getNotificationContent();
         }
 

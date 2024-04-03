@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\User;
 
@@ -9,9 +11,9 @@ use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentCollection;
 use Yormy\ChaskiLaravel\Domain\Tracking\Resources\EmailSentResource;
 use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\BaseController;
 use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\Traits\EmailsSentDecoratorTrait;
+use Yormy\ChaskiLaravel\Http\Requests\EmailMarkOpenedRequest;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowUuidRequest;
 use Yormy\ChaskiLaravel\Http\Requests\EmailShowXidRequest;
-use Yormy\ChaskiLaravel\Http\Requests\EmailMarkOpenedRequest;
 
 class UserEmailsSentController extends BaseController
 {
@@ -68,7 +70,4 @@ class UserEmailsSentController extends BaseController
         return ApiResponse::withData($email)
             ->successResponse();
     }
-
-
 }
-

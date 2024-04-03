@@ -35,7 +35,7 @@ trait MailTrackerUserTrait
     {
         $mailTemplateName = $this->getMailable($sentEmail);
 
-        if (!$mailTemplateName || !$mailTemplateName::ALLOW_CONTENT_LOGGING || in_array($mailTemplateName, config('chaski.mail_tracker.prevent_content_logging'))) {
+        if (! $mailTemplateName || ! $mailTemplateName::ALLOW_CONTENT_LOGGING || in_array($mailTemplateName, config('chaski.mail_tracker.prevent_content_logging'))) {
             return true;
         }
 

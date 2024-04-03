@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Repositories;
 
@@ -8,8 +10,9 @@ class MailTemplateRepository
 {
     public function __construct(?TranslatableMailTemplate $model = null)
     {
-        if (!$model) {
+        if (! $model) {
             $this->model = new TranslatableMailTemplate();
+
             return;
         }
 

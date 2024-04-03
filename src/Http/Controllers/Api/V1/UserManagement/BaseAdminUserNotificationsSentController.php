@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\UserManagement;
 
@@ -11,8 +13,8 @@ use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\Traits\NotificationsSentDecorato
 
 class BaseAdminUserNotificationsSentController extends BaseController
 {
-
     use NotificationsSentDecoratorTrait;
+
     public function index(Request $request, $member_xid)
     {
         $user = $this->getUser($member_xid);

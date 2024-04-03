@@ -2,7 +2,6 @@
 
 namespace Yormy\ChaskiLaravel\Database\Seeders;
 
-
 use Illuminate\Database\Seeder;
 use Yormy\ChaskiLaravel\Domain\Tracking\Database\Seeders\SentEmailSeeder;
 
