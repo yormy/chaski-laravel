@@ -1,0 +1,1076 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$sentEmailModelClass of static method jdavidbakr\\\\MailTracker\\\\MailTracker\\:\\:useSentEmailModel\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/ChaskiServiceProvider.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$cannot_edit\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$html_layout\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$is_hidden\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$mail_unsubscribable\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$mailable\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$name\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$notes\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$notification\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$notification_content\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$notification_title\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$slack_unsubscribable\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$sms_unsubscribable\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$tags\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$text_layout\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Models\\\\TranslatableMailTemplate\\:\\:\\$translatable has no type specified\\.$#"
+			count: 1
+			path: src/Domain/Create/Models/TranslatableMailTemplate.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseNotificationData.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\BaseNotificationData\\:\\:make\\(\\) has parameter \\$user with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseNotificationData.php
+
+		-
+			message: "#^Parameter \\#1 \\$key of function __ expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseNotificationData.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\BaseNotificationData\\:\\:\\$appAbbreviation \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseNotificationData.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\BaseNotificationData\\:\\:\\$appName \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseNotificationData.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseNotificationData.php
+
+		-
+			message: "#^Access to an undefined property Spatie\\\\MailTemplates\\\\Interfaces\\\\MailTemplateInterface\\:\\:\\$html_layout\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Access to an undefined property Spatie\\\\MailTemplates\\\\Interfaces\\\\MailTemplateInterface\\:\\:\\$text_layout\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Access to an undefined property Spatie\\\\MailTemplates\\\\Interfaces\\\\MailTemplateInterface\\:\\:\\$xid\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Contracts\\\\View\\\\Factory\\|Illuminate\\\\Contracts\\\\View\\\\View\\:\\:render\\(\\)\\.$#"
+			count: 6
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Cannot assign offset 'html' to array\\|string\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\BaseTemplateMailable\\:\\:__construct\\(\\) has parameter \\$notifiable with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\BaseTemplateMailable\\:\\:addHeaders\\(\\) has parameter \\$notifiable with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Offset 'html' does not exist on array\\|string\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\BaseTemplateMailable\\:\\:\\$notifiable has no type specified\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\BaseTemplateMailable\\:\\:\\$templateModelClass has no type specified\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Return type \\(void\\) of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\BaseTemplateMailable\\:\\:send\\(\\) should be compatible with return type \\(Illuminate\\\\Mail\\\\SentMessage\\|null\\) of method Illuminate\\\\Contracts\\\\Mail\\\\Mailable\\:\\:send\\(\\)$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Return type \\(void\\) of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\BaseTemplateMailable\\:\\:send\\(\\) should be compatible with return type \\(Illuminate\\\\Mail\\\\SentMessage\\|null\\) of method Illuminate\\\\Mail\\\\Mailable\\:\\:send\\(\\)$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Variable \\$variables might not be defined\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/BaseTemplateMailable.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\TestNotification\\:\\:toMail\\(\\) has parameter \\$notifiable with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/TestNotification.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\TestNotification\\:\\:via\\(\\) has parameter \\$notifiable with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/TestNotification.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\TestNotification\\:\\:\\$notifications has no type specified\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/TestNotification.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\TestTemplateNotification\\:\\:toMail\\(\\) has parameter \\$notifiable with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/TestTemplateNotification.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Create\\\\Notifications\\\\TestTemplateNotification\\:\\:via\\(\\) has parameter \\$notifiable with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Create/Notifications/TestTemplateNotification.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Shared\\\\DataObjects\\\\MailTemplateObject\\:\\:getDefaultLanguge\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Domain/Shared/DataObjects/MailTemplateObject.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Domain/Shared/DataObjects/MailTemplateObject.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of static method Illuminate\\\\Support\\\\Facades\\\\Crypt\\:\\:encryptString\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Domain/Shared/Services/Encryption.php
+
+		-
+			message: "#^Cannot call method ip\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Domain/Shared/Services/IpAddress.php
+
+		-
+			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, mixed given\\.$#"
+			count: 1
+			path: src/Domain/Shared/Services/Locale.php
+
+		-
+			message: "#^Cannot access offset string on mixed\\.$#"
+			count: 1
+			path: src/Domain/Shared/Services/StringableUser.php
+
+		-
+			message: "#^Dead catch \\- Throwable is never thrown in the try block\\.$#"
+			count: 1
+			path: src/Domain/Shared/Services/StringableUser.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Shared\\\\Services\\\\StringableUser\\:\\:toString\\(\\) has parameter \\$notifyable with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Shared/Services/StringableUser.php
+
+		-
+			message: "#^Parameter \\#2 \\$haystack of function array_search expects array, mixed given\\.$#"
+			count: 1
+			path: src/Domain/Shared/Services/StringableUser.php
+
+		-
+			message: "#^Parameter \\#2 \\$string of function explode expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Domain/Shared/Services/StringableUser.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Subscription\\\\Observers\\\\Events\\\\UnsubscribeCompleted\\:\\:__construct\\(\\) has parameter \\$user with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Subscription/Observers/Events/UnsubscribeCompleted.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Subscription\\\\Observers\\\\Events\\\\UnsubscribePrevented\\:\\:__construct\\(\\) has parameter \\$user with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Subscription/Observers/Events/UnsubscribePrevented.php
+
+		-
+			message: "#^Call to an undefined static method Spatie\\\\MailTemplates\\\\Models\\\\MailTemplate\\:\\:where\\(\\)\\.$#"
+			count: 1
+			path: src/Domain/Subscription/Services/UnsubscribeService.php
+
+		-
+			message: "#^Cannot access property \\$id on stdClass\\|null\\.$#"
+			count: 1
+			path: src/Domain/Subscription/Services/UnsubscribeService.php
+
+		-
+			message: "#^Cannot access property \\$type on stdClass\\|null\\.$#"
+			count: 1
+			path: src/Domain/Subscription/Services/UnsubscribeService.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Subscription\\\\Services\\\\UnsubscribeService\\:\\:execute\\(\\) should return string but returns mixed\\.$#"
+			count: 5
+			path: src/Domain/Subscription/Services/UnsubscribeService.php
+
+		-
+			message: "#^Parameter \\#2 \\$string of function explode expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Domain/Subscription/Services/UnsubscribeService.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Database\\\\Factories\\\\SentEmailFactory\\:\\:forAdmin\\(\\) has parameter \\$user with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Database/Factories/SentEmailFactory.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Database\\\\Factories\\\\SentEmailFactory\\:\\:forMember\\(\\) has parameter \\$user with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Database/Factories/SentEmailFactory.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Database\\\\Factories\\\\SentEmailFactory\\:\\:generateData\\(\\) should return string but returns string\\|false\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Database/Factories/SentEmailFactory.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory\\<Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\>\\:\\:forAdmin\\(\\)\\.$#"
+			count: 2
+			path: src/Domain/Tracking/Database/Seeders/SentEmailSeeder.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory\\<Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\>\\:\\:forMember\\(\\)\\.$#"
+			count: 2
+			path: src/Domain/Tracking/Database/Seeders/SentEmailSeeder.php
+
+		-
+			message: "#^Call to static method where\\(\\) on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 2
+			path: src/Domain/Tracking/Database/Seeders/SentEmailSeeder.php
+
+		-
+			message: "#^Call to static method where\\(\\) on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 2
+			path: src/Domain/Tracking/Database/Seeders/SentEmailSeeder.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\HasMany\\:\\:orderBy\\(\\)\\.$#"
+			count: 2
+			path: src/Domain/Tracking/Models/SentEmail.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\:\\:logs\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Models/SentEmail.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\:\\:urlsClicked\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Models/SentEmail.php
+
+		-
+			message: "#^PHPDoc tag @mixin contains unknown class Eloquent\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Models/SentEmailLog.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$ip_address\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailClickedListener.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$link_url\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailClickedListener.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$sent_email_id\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailClickedListener.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$type\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailClickedListener.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$user_agent\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailClickedListener.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:save\\(\\)\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailClickedListener.php
+
+		-
+			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, mixed given\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailComplaintListener.php
+
+		-
+			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, mixed given\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailDeliveredListener.php
+
+		-
+			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, mixed given\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailPermanentBouncedListener.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\:\\:\\$mailable_type\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailSentListener.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\:\\:\\$sent_email_id\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailSentListener.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\:\\:\\$user_id\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailSentListener.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\:\\:\\$user_type\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailSentListener.php
+
+		-
+			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, mixed given\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailSentListener.php
+
+		-
+			message: "#^Property jdavidbakr\\\\MailTracker\\\\Model\\\\SentEmail\\:\\:\\$content \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailSentListener.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$ip_address\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailViewedListener.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$sent_email_id\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailViewedListener.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$type\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailViewedListener.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$user_agent\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailViewedListener.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:save\\(\\)\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailViewedListener.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\:\\:\\$id\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\:\\:\\$opened_at\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:\\$model\\.$#"
+			count: 6
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Access to constant class on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Access to constant class on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Access to property \\$id on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Access to property \\$id on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Call to an undefined static method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmailLog\\:\\:create\\(\\)\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:findSentEmailByIdOrFail\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:getAllForUser\\(\\) should return Illuminate\\\\Database\\\\Eloquent\\\\Collection but returns Illuminate\\\\Support\\\\Collection\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:getAllForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:getAllForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:getSentEmailForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:getSentEmailForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:getSentEmailForUserByUuid\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:getSentEmailForUserByUuid\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:markOpenedForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:markOpenedForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:queryForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\EmailsSentRepository\\:\\:queryForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/EmailsSentRepository.php
+
+		-
+			message: "#^Access to constant class on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Access to constant class on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Access to property \\$id on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Access to property \\$id on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Access to property \\$read_at on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\NotificationSent\\.$#"
+			count: 3
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Call to method save\\(\\) on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\NotificationSent\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Call to static method create\\(\\) on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\NotificationSentLog\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Call to static method get\\(\\) on an unknown class Mexion\\\\BedrockUsersv2\\\\Services\\\\Resolvers\\\\IpResolver\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Call to static method get\\(\\) on an unknown class Mexion\\\\BedrockUsersv2\\\\Services\\\\Resolvers\\\\UserAgentResolver\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Cannot call static method where\\(\\) on Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\NotificationSent\\|null\\.$#"
+			count: 2
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Instantiated class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\NotificationSent not found\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:getAllForUser\\(\\) should return Illuminate\\\\Database\\\\Eloquent\\\\Collection but returns Illuminate\\\\Support\\\\Collection\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:getAllNewForUser\\(\\) should return Illuminate\\\\Database\\\\Eloquent\\\\Collection but returns Illuminate\\\\Support\\\\Collection\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:getNotificationForUser\\(\\) has invalid return type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\NotificationSent\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:markReadForUser\\(\\) has invalid return type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\NotificationSent\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^PHPDoc tag @var contains unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\NotificationSent\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Parameter \\$model of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:__construct\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\NotificationSent\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:getAllForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:getAllForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:getAllNewForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:getAllNewForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:getNotificationForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:getNotificationForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:markReadForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:markReadForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:queryForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Parameter \\$user of method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:queryForUser\\(\\) has invalid type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Repositories\\\\NotificationsSentRepository\\:\\:\\$model has unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\NotificationSent as its type\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Repositories/NotificationsSentRepository.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentLogResource\\:\\:\\$created_at\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentLogResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentLogResource\\:\\:\\$ip_address\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentLogResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentLogResource\\:\\:\\$type\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentLogResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentLogResource\\:\\:\\$url\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentLogResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentLogResource\\:\\:\\$user_agent\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentLogResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentResource\\:\\:\\$content\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentResource\\:\\:\\$created_at\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentResource\\:\\:\\$opened_at\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentResource\\:\\:\\$opens\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentResource\\:\\:\\$recipient_email\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentResource\\:\\:\\$sender_name\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentResource\\:\\:\\$subject\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentResource\\:\\:\\$xid\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentUrlClickResource\\:\\:\\$clicks\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentUrlClickResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentUrlClickResource\\:\\:\\$created_at\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentUrlClickResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\EmailSentUrlClickResource\\:\\:\\$url\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/EmailSentUrlClickResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\NotificationSentResource\\:\\:\\$data\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/NotificationSentResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\NotificationSentResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/NotificationSentResource.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\NotificationSentResource\\:\\:\\$read_at\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/NotificationSentResource.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\NotificationSentResource\\:\\:extractData\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/NotificationSentResource.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Resources\\\\NotificationSentResource\\:\\:\\$dataAsArray \\(array\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Resources/NotificationSentResource.php
+
+		-
+			message: "#^Constructor of class Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\BaseController has an unused parameter \\$request\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/BaseController.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\BaseController\\:\\:\\$user has no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/BaseController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserEmailsSentController\\:\\:decorateWithStatus\\(\\) has parameter \\$emails with no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserEmailsSentController\\:\\:getEmailContentsByUuid\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserEmailsSentController\\:\\:getEmailContentsByXid\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserEmailsSentController\\:\\:index\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserEmailsSentController\\:\\:markOpened\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserEmailsSentController\\:\\:returnEmailContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserEmailsSentController\\:\\:returnEmailContent\\(\\) has parameter \\$email with no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserNotificationsSentController\\:\\:attention\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserNotificationsSentController\\:\\:decorateWithStatus\\(\\) has parameter \\$notifications with no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserNotificationsSentController\\:\\:index\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserNotificationsSentController\\:\\:markOpened\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserNotificationsSentController.php
+
+		-
+			message: "#^Parameter \\#1 \\$notifications of method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\User\\\\UserNotificationsSentController\\:\\:buildMenuData\\(\\) expects array, array\\|Illuminate\\\\Contracts\\\\Support\\\\Arrayable\\|JsonSerializable given\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/User/UserNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\AdminAdminNotificationsSentController\\:\\:getUser\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/AdminAdminNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\AdminAdminNotificationsSentController\\:\\:getUser\\(\\) has parameter \\$xid with no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/AdminAdminNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\AdminUserNotificationsSentController\\:\\:getUser\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/AdminUserNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\AdminUserNotificationsSentController\\:\\:getUser\\(\\) has parameter \\$xid with no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/AdminUserNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Admins\\\\AdminAdminEmailsSentController\\:\\:getUser\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Admins/AdminAdminEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Admins\\\\AdminAdminEmailsSentController\\:\\:getUser\\(\\) has parameter \\$member_xid with no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Admins/AdminAdminEmailsSentController.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\:\\:\\$logs\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Base/BaseAdminUserEmailsSentController.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Domain\\\\Tracking\\\\Models\\\\SentEmail\\:\\:\\$urlClicks\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Base/BaseAdminUserEmailsSentController.php
+
+		-
+			message: "#^Call to an undefined method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Base\\\\BaseAdminUserEmailsSentController\\:\\:getUser\\(\\)\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Base/BaseAdminUserEmailsSentController.php
+
+		-
+			message: "#^Constructor of class Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Base\\\\BaseAdminUserEmailsSentController has an unused parameter \\$request\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Base/BaseAdminUserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Base\\\\BaseAdminUserEmailsSentController\\:\\:decorateWithStatus\\(\\) has parameter \\$emails with no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Base/BaseAdminUserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Base\\\\BaseAdminUserEmailsSentController\\:\\:getEmailContentsByUuid\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Base/BaseAdminUserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Base\\\\BaseAdminUserEmailsSentController\\:\\:getEmailContentsByXid\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Base/BaseAdminUserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Base\\\\BaseAdminUserEmailsSentController\\:\\:index\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Base/BaseAdminUserEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Base\\\\BaseAdminUserEmailsSentController\\:\\:index\\(\\) has parameter \\$member_xid with no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Base/BaseAdminUserEmailsSentController.php
+
+		-
+			message: "#^Parameter \\#2 \\$emails of method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Base\\\\BaseAdminUserEmailsSentController\\:\\:addRelations\\(\\) expects array, array\\|Illuminate\\\\Contracts\\\\Support\\\\Arrayable\\|JsonSerializable given\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Base/BaseAdminUserEmailsSentController.php
+
+		-
+			message: "#^Call to an undefined method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\BaseAdminUserNotificationsSentController\\:\\:getUser\\(\\)\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/BaseAdminUserNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\BaseAdminUserNotificationsSentController\\:\\:decorateWithStatus\\(\\) has parameter \\$notifications with no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/BaseAdminUserNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\BaseAdminUserNotificationsSentController\\:\\:index\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/BaseAdminUserNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\BaseAdminUserNotificationsSentController\\:\\:index\\(\\) has parameter \\$member_xid with no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/BaseAdminUserNotificationsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Members\\\\AdminMemberEmailsSentController\\:\\:getUser\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Members/AdminMemberEmailsSentController.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Http\\\\Controllers\\\\Api\\\\V1\\\\UserManagement\\\\Members\\\\AdminMemberEmailsSentController\\:\\:getUser\\(\\) has parameter \\$member_xid with no type specified\\.$#"
+			count: 1
+			path: src/Http/Controllers/Api/V1/UserManagement/Members/AdminMemberEmailsSentController.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Http\\\\Requests\\\\EmailMarkOpenedRequest\\:\\:\\$routeParamsToValidate has no type specified\\.$#"
+			count: 1
+			path: src/Http/Requests/EmailMarkOpenedRequest.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Http\\\\Requests\\\\EmailShowUuidRequest\\:\\:\\$routeParamsToValidate has no type specified\\.$#"
+			count: 1
+			path: src/Http/Requests/EmailShowUuidRequest.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Http\\\\Requests\\\\EmailShowXidRequest\\:\\:\\$routeParamsToValidate has no type specified\\.$#"
+			count: 1
+			path: src/Http/Requests/EmailShowXidRequest.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: src/Http/Requests/EmailShowXidRequest.php
+
+		-
+			message: "#^Property Yormy\\\\ChaskiLaravel\\\\Http\\\\Requests\\\\MarkNotificationOpenedRequest\\:\\:\\$routeParamsToValidate has no type specified\\.$#"
+			count: 1
+			path: src/Http/Requests/MarkNotificationOpenedRequest.php
+
+		-
+			message: "#^Access to an undefined property Yormy\\\\ChaskiLaravel\\\\Repositories\\\\MailTemplateRepository\\:\\:\\$model\\.$#"
+			count: 3
+			path: src/Repositories/MailTemplateRepository.php
+
+		-
+			message: "#^Cannot call method ip\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Services/Resolvers/IpResolver.php
+
+		-
+			message: "#^Parameter \\#1 \\$ip of static method Yormy\\\\ChaskiLaravel\\\\Services\\\\Resolvers\\\\IpResolver\\:\\:matches\\(\\) expects string, array\\|string\\|null given\\.$#"
+			count: 1
+			path: src/Services/Resolvers/IpResolver.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Services\\\\Resolvers\\\\UserAgentResolver\\:\\:getFullAgent\\(\\) should return string but returns array\\|string\\|null\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserAgentResolver.php
+
+		-
+			message: "#^Parameter \\#1 \\$propertyName of method Jenssegers\\\\Agent\\\\Agent\\:\\:version\\(\\) expects string, bool\\|string given\\.$#"
+			count: 2
+			path: src/Services/Resolvers/UserAgentResolver.php
+
+		-
+			message: "#^Call to static method where\\(\\) on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserResolver.php
+
+		-
+			message: "#^Call to static method where\\(\\) on an unknown class Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserResolver.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Services\\\\Resolvers\\\\UserResolver\\:\\:getAdminById\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserResolver.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Services\\\\Resolvers\\\\UserResolver\\:\\:getAdminById\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserResolver.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Services\\\\Resolvers\\\\UserResolver\\:\\:getCurrent\\(\\) has invalid return type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserResolver.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Services\\\\Resolvers\\\\UserResolver\\:\\:getCurrent\\(\\) has invalid return type Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserResolver.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Services\\\\Resolvers\\\\UserResolver\\:\\:getCurrent\\(\\) should return Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Admin\\|Mexion\\\\BedrockUsersv2\\\\Domain\\\\User\\\\Models\\\\Member\\|null but returns Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable\\|null\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserResolver.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Services\\\\Resolvers\\\\UserResolver\\:\\:getMemberById\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserResolver.php
+
+		-
+			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Services\\\\Resolvers\\\\UserResolver\\:\\:getMemberById\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserResolver.php
+
+		-
+			message: "#^PHPDoc tag @var for variable \\$user contains unknown class Yormy\\\\ChaskiLaravel\\\\Services\\\\Resolvers\\\\User\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserResolver.php
+
+		-
+			message: "#^Variable \\$user in PHPDoc tag @var does not exist\\.$#"
+			count: 1
+			path: src/Services/Resolvers/UserResolver.php
