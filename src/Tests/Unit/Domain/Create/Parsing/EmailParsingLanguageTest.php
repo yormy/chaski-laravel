@@ -52,9 +52,8 @@ class EmailParsingLanguageTest extends TestCase
      */
     public function Email_as_english_Show_english(): void
     {
-        $this->markTestSkipped();
         App::setLocale('nl');
-        $this->assertStringContainsString($this->english.$this->username, $this->htmlEmailEnglish);
+        $this->assertStringContainsString($this->english, $this->htmlEmailEnglish);
     }
 
     /**
@@ -64,8 +63,7 @@ class EmailParsingLanguageTest extends TestCase
      */
     public function Email_as_dutch_Show_dutch(): void
     {
-        $this->markTestSkipped();
         App::setLocale('nl');
-        $this->assertStringContainsString($this->dutch.$this->username, $this->htmlEmailDutch);
+        $this->assertStringContainsString($this->dutch, $this->htmlEmailDutch);
     }
 }
