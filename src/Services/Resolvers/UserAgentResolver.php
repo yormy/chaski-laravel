@@ -23,7 +23,7 @@ class UserAgentResolver
     public static function getFullAgent(?Request $request = null): string
     {
         if (! $request) {
-            return $_SERVER['HTTP_USER_AGENT'];
+            return $_SERVER['HTTP_USER_AGENT'] ?? '';
         }
 
         return $request->server('HTTP_USER_AGENT');

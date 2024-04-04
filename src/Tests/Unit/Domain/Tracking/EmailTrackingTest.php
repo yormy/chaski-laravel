@@ -32,10 +32,10 @@ class EmailTrackingTest extends TestCase
      * @test
      *
      * @group chaski-tracking
+     * @group xxx
      */
     public function Email_send_Email_Opens_Counted(): void
     {
-        $this->markTestSkipped();
         $trackables = $this->prepareEmailGetTrackables();
 
         $emailHash = $this->getOpenHash($trackables);
@@ -61,7 +61,6 @@ class EmailTrackingTest extends TestCase
      */
     public function Email_send_Email_Opens_Log_added(): void
     {
-        $this->markTestSkipped();
         $trackables = $this->prepareEmailGetTrackables();
 
         $emailHash = $this->getOpenHash($trackables);
@@ -86,7 +85,6 @@ class EmailTrackingTest extends TestCase
      */
     public function Email_send_Link_clicked_Counted(): void
     {
-        $this->markTestSkipped();
         $trackables = $this->prepareEmailGetTrackables();
 
         $emailHash = $this->getOpenHash($trackables);
@@ -114,7 +112,6 @@ class EmailTrackingTest extends TestCase
      */
     public function Email_send_Link_clicked_Url_logged(): void
     {
-        $this->markTestSkipped();
         $trackables = $this->prepareEmailGetTrackables();
 
         $emailHash = $this->getOpenHash($trackables);

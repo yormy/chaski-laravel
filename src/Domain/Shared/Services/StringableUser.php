@@ -29,6 +29,10 @@ class StringableUser
 
     public static function fromString(?string $value): ?\stdClass
     {
+        if (!$value) {
+            return null;
+        }
+
         $items = explode('|', $value);
 
         if (count($items) !== 2) {

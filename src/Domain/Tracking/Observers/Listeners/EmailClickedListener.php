@@ -20,7 +20,7 @@ class EmailClickedListener
         $sentEmailLog->type = 'CLICK';
         $sentEmailLog->ip_address = IpResolver::get();
         $sentEmailLog->user_agent = UserAgentResolver::getFullAgent();
-        $sentEmailLog->link_url = $event->link_url;
+        $sentEmailLog->url = $event->link_url;
 
         $sentEmailLog->save();
     }
