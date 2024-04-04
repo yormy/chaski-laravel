@@ -36,7 +36,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function setUpConfig(): void
     {
-        config(['tripwire' => require __DIR__.'/../../config/chaski.php']);
+        config(['tripwire' => require __DIR__.'/../config/chaski.php']);
         config(['app.key' => 'base64:yNmpwO5YE6xwBz0enheYLBDslnbslodDqK1u+oE5CEE=']);
         config(['mail.default' => 'log']);
 
@@ -52,7 +52,7 @@ abstract class TestCase extends BaseTestCase
      */
     protected function updateEnv()
     {
-        copy('./src/Tests/Setup/.env', './vendor/orchestra/testbench-core/laravel/.env');
+        copy('./tests/Setup/.env', './vendor/orchestra/testbench-core/laravel/.env');
     }
 
     /**
