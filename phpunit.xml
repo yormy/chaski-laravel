@@ -10,7 +10,6 @@
     cacheDirectory=".phpunit.cache"
     backupStaticProperties="false"
 >
-  <coverage/>
   <testsuites>
     <testsuite name="Unit">
       <directory>tests/Unit</directory>
@@ -37,6 +36,14 @@
     <!--                <env name="DB_USERNAME" value="root"/>-->
     <!--                <env name="DB_PASSWORD" value="secret"/>-->
   </php>
+  <coverage cacheDirectory=".phpunit.cache/code-coverage" processUncoveredFiles="true">
+    <include>
+        <directory suffix=".php">src</directory>
+    </include>
+    <report>
+        <clover outputFile="clover.xml" />
+    </report>
+  </coverage>
   <source>
     <include>
       <directory suffix=".php">./src</directory>
