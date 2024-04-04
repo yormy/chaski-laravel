@@ -5,6 +5,7 @@ namespace Yormy\ChaskiLaravel\Tests\Unit\Domain\Subscription;
 use Illuminate\Support\Facades\Event;
 use LiranCo\NotificationSubscriptions\Models\NotificationSubscription;
 use Yormy\ChaskiLaravel\Domain\Create\Notifications\TestTemplateNotification;
+use Yormy\ChaskiLaravel\Domain\Shared\Services\Encryption;
 use Yormy\ChaskiLaravel\Domain\Subscription\Observers\Events\UnsubscribeCompleted;
 use Yormy\ChaskiLaravel\Domain\Subscription\Observers\Events\UnsubscribeFailed;
 use Yormy\ChaskiLaravel\Domain\Subscription\Observers\Events\UnsubscribePrevented;
@@ -64,10 +65,10 @@ class UnsubscribeTest extends TestCase
      * @test
      *
      * @group chaski-unsubscribe
+     * @group xxx
      */
     public function Email_sent_Click_unsubscribe_invalid_token_Failed(): void
     {
-        $this->markTestSkipped();
         $this->configMail();
 
         $this->createTemplate();
@@ -82,7 +83,8 @@ class UnsubscribeTest extends TestCase
 
         $unsubscribeToken = $this->sendEmailAndGetToken();
 
-        $unsubscribe = new UnsubscribeService('invalid');
+        $encryptedToken = Encryption::encrypt('invalid');
+        $unsubscribe = new UnsubscribeService($encryptedToken);
         $view = $unsubscribe->execute();
         $this->assertEquals(config('chaski.unsubscribe_view.invalid_token'), $view);
 
