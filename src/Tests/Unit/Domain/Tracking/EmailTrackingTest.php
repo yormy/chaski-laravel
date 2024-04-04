@@ -32,7 +32,6 @@ class EmailTrackingTest extends TestCase
      * @test
      *
      * @group chaski-tracking
-     * @group xxx
      */
     public function Email_send_Email_Opens_Counted(): void
     {

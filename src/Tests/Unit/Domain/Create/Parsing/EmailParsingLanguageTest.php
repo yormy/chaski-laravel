@@ -49,7 +49,6 @@ class EmailParsingLanguageTest extends TestCase
      * @test
      *
      * @group chaski-mail-translation
-     * @group xxx
      */
     public function Email_as_english_Show_english(): void
     {
