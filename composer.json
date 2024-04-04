@@ -22,10 +22,6 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/laravel-shift/laravel-notification-subscriptions.git"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/yormy/laravel-eloquent-query-cache.git"
         }
     ],
@@ -35,7 +31,7 @@
         "jdavidbakr/mail-tracker": "^7",
         "jenssegers/agent": "^2.6",
         "laravel/framework": "^11",
-        "liran-co/laravel-notification-subscriptions": "dev-l11-compatibility",
+        "liran-co/laravel-notification-subscriptions": "^1.8",
         "spatie/laravel-database-mail-templates": "^3.6",
         "spatie/laravel-translatable": "^6.6",
         "yormy/core-tools-laravel": "dev-master"
