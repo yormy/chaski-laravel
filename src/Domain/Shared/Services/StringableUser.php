@@ -29,7 +29,7 @@ class StringableUser
 
     public static function fromString(?string $value): ?\stdClass
     {
-        if (!$value) {
+        if (! $value) {
             return null;
         }
 
