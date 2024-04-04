@@ -69,7 +69,7 @@ trait EmailParsingTrait
     private function createNotificationData(): TestTemplateNotificationDTO
     {
         return TestTemplateNotificationDTO::make()
-            ->name($this->username)
+            ->userName($this->username)
             ->links(array_merge($this->link1, $this->link2))
             ->signature($this->signature)
             ->promo($this->promo)

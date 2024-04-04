@@ -8,7 +8,7 @@ use Yormy\ChaskiLaravel\Domain\Shared\Services\Purifier;
 
 abstract class BaseNotificationData
 {
-    public string $uuid;
+    public string $uuid = '';
 
     public string $userName = '';
 

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Yormy\ChaskiLaravel\Domain\Shared\DataObjects;
 
 use Illuminate\Support\Str;
@@ -30,9 +28,9 @@ class MailTemplateObject
 
     private array $textTemplate;
 
-    private array $notificationTitle;
+    private array $notificationTitle = [];
 
-    private array $notificationContent;
+    private array $notificationContent = [];
 
     private bool $isHidden = false;
 

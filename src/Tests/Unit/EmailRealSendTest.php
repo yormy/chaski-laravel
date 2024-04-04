@@ -32,8 +32,8 @@ class EmailRealSendTest extends TestCase
      */
     public function Email_send_to_mailgun_English(): void
     {
-        //App::setLocale('nl');
-        //Mail::fake(); // uncomment mail:fake to see the mail in your mail catcher
+        App::setLocale('nl');
+        Mail::fake(); // uncomment mail:fake to see the mail in your mail catcher
         $this->configMail();
         $this->createTemplate();
         $user = $this->createUser();
@@ -53,7 +53,7 @@ class EmailRealSendTest extends TestCase
     public function Email_send_to_mailgun_Dutch(): void
     {
         App::setLocale('nl');
-
+        Mail::fake(); // uncomment mail:fake to see the mail in your mail catcher
         $this->configMail();
         $this->createTemplate();
         $user = $this->createUser();
