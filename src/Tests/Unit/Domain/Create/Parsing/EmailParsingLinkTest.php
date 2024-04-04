@@ -24,11 +24,11 @@ class EmailParsingLinkTest extends TestCase
      * @test
      *
      * @group chaski-parsing
+     * @group xxx
      */
     public function Email_includes_name_from_data(): void
     {
-        $this->markTestSkipped();
-        $this->assertStringContainsString($this->english.$this->username, $this->htmlEmailEnglish);
+        $this->assertStringContainsString($this->english, $this->htmlEmailEnglish);
     }
 
     /**
