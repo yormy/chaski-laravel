@@ -65,7 +65,6 @@ class UnsubscribeTest extends TestCase
      * @test
      *
      * @group chaski-unsubscribe
-     * @group xxx
      */
     public function Email_sent_Click_unsubscribe_invalid_token_Failed(): void
     {
