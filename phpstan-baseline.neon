@@ -246,11 +246,6 @@ parameters:
 			path: src/Domain/Shared/Services/StringableUser.php
 
 		-
-			message: "#^Parameter \\#2 \\$string of function explode expects string, string\\|null given\\.$#"
-			count: 1
-			path: src/Domain/Shared/Services/StringableUser.php
-
-		-
 			message: "#^Method Yormy\\\\ChaskiLaravel\\\\Domain\\\\Subscription\\\\Observers\\\\Events\\\\UnsubscribeCompleted\\:\\:__construct\\(\\) has parameter \\$user with no type specified\\.$#"
 			count: 1
 			path: src/Domain/Subscription/Observers/Events/UnsubscribeCompleted.php
@@ -346,17 +341,17 @@ parameters:
 			path: src/Domain/Tracking/Observers/Listeners/EmailClickedListener.php
 
 		-
-			message: "#^Access to an undefined property object\\:\\:\\$link_url\\.$#"
-			count: 1
-			path: src/Domain/Tracking/Observers/Listeners/EmailClickedListener.php
-
-		-
 			message: "#^Access to an undefined property object\\:\\:\\$sent_email_id\\.$#"
 			count: 1
 			path: src/Domain/Tracking/Observers/Listeners/EmailClickedListener.php
 
 		-
 			message: "#^Access to an undefined property object\\:\\:\\$type\\.$#"
+			count: 1
+			path: src/Domain/Tracking/Observers/Listeners/EmailClickedListener.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$url\\.$#"
 			count: 1
 			path: src/Domain/Tracking/Observers/Listeners/EmailClickedListener.php
 
