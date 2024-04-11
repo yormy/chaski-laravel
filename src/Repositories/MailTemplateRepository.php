@@ -8,7 +8,7 @@ use Yormy\ChaskiLaravel\Domain\Create\Models\TranslatableMailTemplate;
 
 class MailTemplateRepository
 {
-    public function __construct(?TranslatableMailTemplate $model = null)
+    public function __construct(private ?TranslatableMailTemplate $model = null)
     {
         if (! $model) {
             $this->model = new TranslatableMailTemplate();

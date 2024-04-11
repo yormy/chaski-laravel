@@ -15,7 +15,7 @@ use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailLog;
 
 class EmailsSentRepository
 {
-    public function __construct(?SentEmail $model = null)
+    public function __construct(private ?SentEmail $model = null)
     {
         if (! $model) {
             $this->model = new SentEmail();
