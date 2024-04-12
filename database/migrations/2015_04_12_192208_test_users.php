@@ -10,9 +10,13 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('test_users', function (Blueprint $table) {
-            $table->id();
-            $table->string('email');
-        });
+        $table = 'test_users';
+        if (!Schema::hasTable($table)) {
+            Schema::create($table, function (Blueprint $table) {
+                $table->id();
+                $table->string('firstname');
+                $table->string('email');
+            });
+        }
     }
 };
