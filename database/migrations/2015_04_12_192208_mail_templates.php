@@ -10,7 +10,7 @@ return new class extends Migration
     {
         $table = 'mail_templates';
         if (!Schema::hasTable($table)) {
-            Schema::create('mail_templates', function (Blueprint $table) {
+            Schema::create($table, function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('mailable');
                 $table->json('subject')->nullable();
