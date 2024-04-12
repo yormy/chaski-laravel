@@ -9,6 +9,7 @@ trait UserTrait
     private function createUser()
     {
         $user = User::create([
+            'firstname' => 'FirstName',
             'email' => 'test@exampel.com',
         ]);
 
