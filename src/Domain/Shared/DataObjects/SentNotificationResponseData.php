@@ -2,9 +2,10 @@
 
 namespace Yormy\ChaskiLaravel\Domain\Shared\DataObjects;
 
+use Illuminate\Support\Facades\App;
 use Spatie\LaravelData\Data;
 
-class SentEmailResponseData extends Data
+class SentNotificationResponseData extends Data
 {
     public function __construct(
         public string $subject,
@@ -29,10 +30,11 @@ class SentEmailResponseData extends Data
 
     protected static function constructorData($model): array
     {
+        $locale = App::getLocale();
         return [
-            $model->subject,
-            'email',
-            $model->created_at->format('Y-m-d H:i:s'),
+            json_decode($model->data)->title->$locale,
+            'notification',
+            $model->created_at->format('Y-m-d H:i:s')
 //            self::status($model),
         ];
     }

@@ -34,7 +34,8 @@
         "liran-co/laravel-notification-subscriptions": "^1.8",
         "spatie/laravel-database-mail-templates": "^3.6",
         "spatie/laravel-translatable": "^6.6",
-        "yormy/core-tools-laravel": "dev-master"
+        "yormy/core-tools-laravel": "dev-master",
+        "spatie/laravel-data": "^4.2.0"
     },
     "require-dev": {
         "yormy/dev-tools-laravel": "dev-master"

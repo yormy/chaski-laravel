@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Tests\Feature\Domain\Tracking;
 
-use Illuminate\Support\Str;
 use Yormy\AssertLaravel\Traits\RouteHelperTrait;
+use Yormy\ChaskiLaravel\Domain\Tracking\Models\NotificationSent;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmail;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailLog;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailUrlClicked;
@@ -25,9 +25,10 @@ class MessageTest extends TestCase
     {
         //$this->dumpRouteName('indexxx');
         $member = $this->createUser();
-        $this->createSome($member);
+        $this->createSentEmails($member);
 
 
+        $this->createSentNotifications($member);
         $response = $this->actingAs($member)->json('GET', route('api.v1.member.account.chaski.messages.index'));
         dd($response->getContent());
 
@@ -37,13 +38,19 @@ class MessageTest extends TestCase
 //        $createdTask->delete();
     }
 
-    public function createSome($member)
+    public function createSentEmails($member)
     {
         SentEmail::factory()
             ->forMember($member)
             ->has(SentEmailUrlClicked::factory()->count(rand(1, 5)), 'urlsClicked')
             ->has(SentEmailLog::factory()->count(rand(1, 5)), 'logs')
             ->create();
+    }
+
+    public function createSentNotifications($member)
+    {
+        NotificationSent::factory(2)->forMember($member)->create();
+        NotificationSent::factory(3)->forMemberWithEmail($member)->create();
     }
 
 }

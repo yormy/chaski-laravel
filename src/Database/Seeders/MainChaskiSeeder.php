@@ -6,6 +6,7 @@ namespace Yormy\ChaskiLaravel\Database\Seeders;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Seeder;
+use Yormy\ChaskiLaravel\Domain\Tracking\Database\Seeders\NotificationSentSeeder;
 use Yormy\ChaskiLaravel\Domain\Tracking\Database\Seeders\SentEmailSeeder;
 
 class MainChaskiSeeder extends Seeder
@@ -13,5 +14,6 @@ class MainChaskiSeeder extends Seeder
     public function run(Authenticatable $memberModel, Authenticatable $adminModel): void
     {
         (new SentEmailSeeder($memberModel, $adminModel))->run();
+        (new NotificationSentSeeder($memberModel, $adminModel))->run();
     }
 }

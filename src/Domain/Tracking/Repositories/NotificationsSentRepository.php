@@ -8,10 +8,10 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Mexion\BedrockUsersv2\Domain\User\Models\NotificationSent;
-use Mexion\BedrockUsersv2\Domain\User\Models\NotificationSentLog;
-use Mexion\BedrockUsersv2\Services\Resolvers\IpResolver;
-use Mexion\BedrockUsersv2\Services\Resolvers\UserAgentResolver;
+use Yormy\ChaskiLaravel\Domain\Tracking\Models\NotificationSent;
+use Yormy\ChaskiLaravel\Domain\Tracking\Models\NotificationSentLog;
+use Yormy\ChaskiLaravel\Services\Resolvers\IpResolver;
+use Yormy\ChaskiLaravel\Services\Resolvers\UserAgentResolver;
 
 class NotificationsSentRepository
 {
