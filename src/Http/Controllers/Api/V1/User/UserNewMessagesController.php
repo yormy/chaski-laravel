@@ -31,10 +31,10 @@ class UserNewMessagesController extends BaseController
 
     public function index(Request $request)
     {
-        $emails = $this->sentEmailRepository->getAllForUser($this->user); // this is not new !
+        $emails = $this->sentEmailRepository->getAllNewForUser($this->user); // this is not new !
         $sentEmails = collect(SentEmailResponseData::collect($emails)->toArray());
 
-        $notifications = $this->notificationsSentRepository->getAllForUser($this->user);
+        $notifications = $this->notificationsSentRepository->getAllNewForUser($this->user);
         $sentNotification = collect(SentNotificationResponseData::collect($notifications)->toArray());
 
         $all = $sentEmails->merge($sentNotification);

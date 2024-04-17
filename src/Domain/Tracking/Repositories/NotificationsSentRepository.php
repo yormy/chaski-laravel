@@ -43,20 +43,11 @@ class NotificationsSentRepository
 
     public function getAllForUser(?Authenticatable $user): Collection
     {
-        return $this->queryForUser($user)
-            ->select([
-                'id',
-                'type',
-                'data',
-                'created_at',
-                'updated_at',
-                'read_at',
-            ])
-            ->orderByRaw('(ISNULL(read_at)) desc, created_at DESC')
+        return $this->queryAllForUser($user)
             ->get();
     }
 
-    public function getAllNewForUser(?Authenticatable $user): Collection
+    public function queryAllForUser(?Authenticatable $user): Builder
     {
         return $this->queryForUser($user)
             ->select([
@@ -67,6 +58,12 @@ class NotificationsSentRepository
                 'updated_at',
                 'read_at',
             ])
+            ->orderByRaw('(ISNULL(read_at)) desc, created_at DESC');
+    }
+
+    public function getAllNewForUser(?Authenticatable $user): Collection
+    {
+        return $this->queryAllForUser($user)
             ->whereNull('read_at')
             ->orderBy('created_at', 'DESC')
             ->get();

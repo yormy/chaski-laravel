@@ -21,11 +21,22 @@ class EmailsSentRepository
 
             return;
         }
+    }
 
-        $this->model = $model;
+    public function getAllNewForUser(Authenticatable $user): Collection
+    {
+        return $this->queryAllForUser($user)
+            ->whereNull('opened_at')
+            ->get();
     }
 
     public function getAllForUser(Authenticatable $user): Collection
+    {
+        return $this->queryAllForUser($user)
+            ->get();
+    }
+
+    public function queryAllForUser(Authenticatable $user): Builder
     {
         return $this->queryForUser($user)
             ->select([
@@ -40,8 +51,7 @@ class EmailsSentRepository
                 'opened_at',
                 'created_at',
             ])
-            ->orderByRaw('(ISNULL(opened_at)) desc, created_at DESC')
-            ->get();
+            ->orderByRaw('(ISNULL(opened_at)) desc, created_at DESC');
     }
 
     public function markOpenedForUser(Authenticatable $user, string $xid): SentEmail
