@@ -3,12 +3,13 @@
 namespace Yormy\ChaskiLaravel\Tests;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Route;
+
 use jdavidbakr\MailTracker\MailTrackerServiceProvider;
 use LiranCo\NotificationSubscriptions\NotificationSubscriptionsServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Spatie\LaravelRay\RayServiceProvider;
 use Yormy\ChaskiLaravel\ChaskiServiceProvider;
+use Yormy\AssertLaravel\Helpers\AssertJsonMacros;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -21,7 +22,13 @@ abstract class TestCase extends BaseTestCase
 
         parent::setUp();
 
-        $this->setUpConfig();
+        TestConfig::setup();
+
+        $this->withoutExceptionHandling();
+
+        TestRoutes::setup();
+
+        AssertJsonMacros::register();
     }
 
     protected function getPackageProviders($app)
@@ -32,18 +39,6 @@ abstract class TestCase extends BaseTestCase
             MailTrackerServiceProvider::class,
             NotificationSubscriptionsServiceProvider::class,
         ];
-    }
-
-    protected function setUpConfig(): void
-    {
-        config(['tripwire' => require __DIR__.'/../config/chaski.php']);
-        config(['app.key' => 'base64:yNmpwO5YE6xwBz0enheYLBDslnbslodDqK1u+oE5CEE=']);
-        config(['mail.default' => 'log']);
-
-        config(['app.url' => 'https://hhh.conm']);
-        config(['app.url' => 'http://test.test?myNewParam=5']);
-
-        Route::ChaskiUnsubscribeRoutes();
     }
 
     /**
