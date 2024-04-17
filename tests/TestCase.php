@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use jdavidbakr\MailTracker\MailTrackerServiceProvider;
 use LiranCo\NotificationSubscriptions\NotificationSubscriptionsServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use Spatie\LaravelData\LaravelDataServiceProvider;
 use Spatie\LaravelRay\RayServiceProvider;
 use Yormy\ChaskiLaravel\ChaskiServiceProvider;
 use Yormy\AssertLaravel\Helpers\AssertJsonMacros;
@@ -38,6 +39,7 @@ abstract class TestCase extends BaseTestCase
             RayServiceProvider::class,
             MailTrackerServiceProvider::class,
             NotificationSubscriptionsServiceProvider::class,
+            LaravelDataServiceProvider::class,
         ];
     }
 
