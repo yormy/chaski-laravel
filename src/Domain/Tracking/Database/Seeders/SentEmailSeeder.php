@@ -4,31 +4,30 @@ declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Database\Seeders;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Seeder;
-use Mexion\BedrockUsersv2\Domain\User\Models\Admin;
-use Mexion\BedrockUsersv2\Domain\User\Models\Member;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmail;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailLog;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailUrlClicked;
 
 class SentEmailSeeder extends Seeder
 {
-    public function run(): void
+    public function run(Authenticatable $memberModel, Authenticatable $adminModel): void
     {
-        $this->memberEmailSeeder();
-        $this->adminEmailSeeder();
+        $this->memberEmailSeeder($memberModel);
+        $this->adminEmailSeeder($adminModel);
     }
 
-    private function memberEmailSeeder(): void
+    private function memberEmailSeeder(Authenticatable $memberModel): void
     {
-        $member = Member::where('id', 1)->first();
+        $member = $memberModel->where('id', 1)->first();
         SentEmail::factory()
             ->forMember($member)
             ->has(SentEmailUrlClicked::factory()->count(rand(1, 5)), 'urlsClicked')
             ->has(SentEmailLog::factory()->count(rand(1, 5)), 'logs')
             ->create();
 
-        $member = Member::where('id', 2)->first();
+        $member = $memberModel->where('id', 2)->first();
         SentEmail::factory(2)
             ->forMember($member)
             ->has(SentEmailUrlClicked::factory()->count(rand(1, 5)), 'urlsClicked')
@@ -36,16 +35,16 @@ class SentEmailSeeder extends Seeder
             ->create();
     }
 
-    private function adminEmailSeeder(): void
+    private function adminEmailSeeder(Authenticatable $adminModel): void
     {
-        $admin = Admin::where('id', 1)->first();
+        $admin = $adminModel->where('id', 1)->first();
         SentEmail::factory()
             ->forAdmin($admin)
             ->has(SentEmailUrlClicked::factory()->count(rand(1, 5)), 'urlsClicked')
             ->has(SentEmailLog::factory()->count(rand(1, 5)), 'logs')
             ->create();
 
-        $admin = Admin::where('id', 2)->first();
+        $admin = $adminModel->where('id', 2)->first();
         SentEmail::factory(2)
             ->forAdmin($admin)
             ->has(SentEmailUrlClicked::factory()->count(rand(1, 5)), 'urlsClicked')

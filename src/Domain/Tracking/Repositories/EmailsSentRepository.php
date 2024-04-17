@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Repositories;
 
 use Carbon\Carbon;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Mexion\BedrockUsersv2\Domain\User\Models\Admin;
-use Mexion\BedrockUsersv2\Domain\User\Models\Member;
 use Yormy\ChaskiLaravel\Domain\Shared\Services\IpAddress;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmail;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailLog;
@@ -26,7 +25,7 @@ class EmailsSentRepository
         $this->model = $model;
     }
 
-    public function getAllForUser(Admin|Member $user): Collection
+    public function getAllForUser(Authenticatable $user): Collection
     {
         return $this->queryForUser($user)
             ->select([
@@ -45,7 +44,7 @@ class EmailsSentRepository
             ->get();
     }
 
-    public function markOpenedForUser(Admin|Member $user, string $xid): SentEmail
+    public function markOpenedForUser(Authenticatable $user, string $xid): SentEmail
     {
         $sentEmail = $this->getSentEmailForUser($user, $xid);
 
@@ -65,7 +64,7 @@ class EmailsSentRepository
         return $sentEmail;
     }
 
-    public function getSentEmailForUser(Admin|Member $user, string $xid): SentEmail
+    public function getSentEmailForUser(Authenticatable $user, string $xid): SentEmail
     {
         /**
          * @var SentEmail
@@ -75,7 +74,7 @@ class EmailsSentRepository
             ->firstOrFail();
     }
 
-    public function getSentEmailForUserByUuid(Admin|Member $user, string $uuid): SentEmail
+    public function getSentEmailForUserByUuid(Authenticatable $user, string $uuid): SentEmail
     {
         /**
          * @var SentEmail
@@ -115,7 +114,7 @@ class EmailsSentRepository
             ->firstOrFail();
     }
 
-    private function queryForUser(Admin|Member $user): Builder
+    private function queryForUser(Authenticatable $user): Builder
     {
         return $this->model::where('user_id', $user->id)
             ->where('user_type', $user::class);

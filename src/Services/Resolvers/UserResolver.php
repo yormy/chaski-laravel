@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Services\Resolvers;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Yormy\ChaskiLaravel\Tests\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Mexion\BedrockUsersv2\Domain\User\Models\Admin;
-use Mexion\BedrockUsersv2\Domain\User\Models\Member;
 
 class UserResolver
 {
-    public static function getCurrent(): Admin|Member|null
+    public static function getCurrent(): ?Authenticatable
     {
         /**
          * @var User $user
@@ -18,13 +18,13 @@ class UserResolver
         return Auth::user();
     }
 
-    public static function getMemberById($id)
+    public static function getMemberById($id): ?Authenticatable
     {
-        return Member::where('xid', $id)->first();
+        return User::where('xid', $id)->first();
     }
 
-    public static function getAdminById($id)
+    public static function getAdminById($id): ?Authenticatable
     {
-        return Admin::where('xid', $id)->first();
+        return User::where('xid', $id)->first();
     }
 }

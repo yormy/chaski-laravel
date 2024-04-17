@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace Yormy\ChaskiLaravel\Domain\Tracking\Repositories;
 
 use Carbon\Carbon;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Mexion\BedrockUsersv2\Domain\User\Models\Admin;
-use Mexion\BedrockUsersv2\Domain\User\Models\Member;
 use Mexion\BedrockUsersv2\Domain\User\Models\NotificationSent;
 use Mexion\BedrockUsersv2\Domain\User\Models\NotificationSentLog;
 use Mexion\BedrockUsersv2\Services\Resolvers\IpResolver;
@@ -23,7 +22,7 @@ class NotificationsSentRepository
         }
     }
 
-    public function markReadForUser(Admin|Member|null $user, string $notificationId): NotificationSent
+    public function markReadForUser(?Authenticatable $user, string $notificationId): NotificationSent
     {
         $notification = $this->getNotificationForUser($user, $notificationId);
 
@@ -42,7 +41,7 @@ class NotificationsSentRepository
         return $notification;
     }
 
-    public function getAllForUser(Admin|Member|null $user): Collection
+    public function getAllForUser(?Authenticatable $user): Collection
     {
         return $this->queryForUser($user)
             ->select([
@@ -57,7 +56,7 @@ class NotificationsSentRepository
             ->get();
     }
 
-    public function getAllNewForUser(Admin|Member|null $user): Collection
+    public function getAllNewForUser(?Authenticatable $user): Collection
     {
         return $this->queryForUser($user)
             ->select([
@@ -73,7 +72,7 @@ class NotificationsSentRepository
             ->get();
     }
 
-    public function getNotificationForUser(Admin|Member|null $user, string $notificationId): NotificationSent
+    public function getNotificationForUser(?Authenticatable $user, string $notificationId): NotificationSent
     {
         /**
          * @var NotificationSent
@@ -83,7 +82,7 @@ class NotificationsSentRepository
             ->firstOrFail();
     }
 
-    private function queryForUser(Admin|Member|null $user): Builder
+    private function queryForUser(?Authenticatable $user): Builder
     {
         if (! $user) {
             return $this->model::where('notifiable_id', -1); // always empty
