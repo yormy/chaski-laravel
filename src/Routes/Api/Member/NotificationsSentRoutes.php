@@ -19,7 +19,6 @@ class NotificationsSentRoutes
                         ->name('messages.')
                         ->group(function () {
                             Route::get('/', [UserNewMessagesController::class, 'index'])->name('index');
-                            //Route::put('/mark-opened/{id}', [UserNotificationsSentController::class, 'markOpened'])->name('mark-opened');
                         });
 
                     Route::prefix('notifications')
