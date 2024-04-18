@@ -11,6 +11,5 @@ class TestConfig
         config(['mail.default' => 'log']);
 
         config(['app.url' => 'https://hhh.conm']);
-        config(['app.url' => 'http://test.test?myNewParam=5']);
     }
 }

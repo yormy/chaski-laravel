@@ -15,6 +15,8 @@ class DashboardMessageResponseData extends Data
         public string $subject,
         public string $type,
         public string $created_at,
+        public bool $new,
+        public array $status,
     ) {
     }
 
@@ -39,8 +41,9 @@ class DashboardMessageResponseData extends Data
         return [
             json_decode($model->data)->title->$locale,
             'notification',
-            $model->created_at->format('Y-m-d H:i:s'),
-            //            self::status($model),
+            $model->created_at->formatDateTime(),
+            $model->read_at ? false : true,
+            $model->read_at ? [] : self::getStatusNew()
         ];
     }
 
@@ -49,7 +52,9 @@ class DashboardMessageResponseData extends Data
         return [
             $model->subject,
             'email',
-            $model->created_at->format('Y-m-d H:i:s'),
+            $model->created_at->formatDateTime(),
+            $model->opened_at ? false : true,
+            $model->opened_at ? [] : self::getStatusNew()
         ];
     }
 
@@ -69,17 +74,12 @@ class DashboardMessageResponseData extends Data
         );
     }
 
-    private static function status($model): array
+    private static function getStatusNew(): array
     {
-        $status = [];
-        if ($model->last_failed_at) {
-            $status = [
-                'key' => 'failed',
-                'nature' => 'danger',
-                'text' => 'FAILED',
-            ];
-        }
-
-        return $status;
+        return [
+            'key' => 'new',
+            'nature' => 'danger',
+            'text' => __('chaski::generic.new'),
+        ];
     }
 }

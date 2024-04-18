@@ -9,7 +9,7 @@ use Illuminate\Support\ServiceProvider;
 use jdavidbakr\MailTracker\MailTracker;
 use Yormy\ChaskiLaravel\ServiceProviders\EventServiceProvider;
 use Yormy\ChaskiLaravel\ServiceProviders\RouteServiceProvider;
-
+use Yormy\Dateformatter\Services\CarbonFormatterMacros;
 class ChaskiServiceProvider extends ServiceProvider
 {
     public const CONFIG_FILE = __DIR__.'/../config/chaski.php';
@@ -41,6 +41,8 @@ class ChaskiServiceProvider extends ServiceProvider
 
         $sentEmailModelClass = config('chaski.models.sent_email');
         MailTracker::useSentEmailModel($sentEmailModelClass);
+
+        CarbonFormatterMacros::register();
     }
 
     /**
