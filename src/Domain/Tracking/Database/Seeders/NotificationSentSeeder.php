@@ -22,7 +22,7 @@ class NotificationSentSeeder extends Seeder
         NotificationSent::factory(2)->forMember($member)->create();
         NotificationSent::factory(3)->forMemberWithEmail($member)->create();
 
-        $member = Member::where('id', 2)->first();
+        $member = $memberModel->where('id', 2)->first();
         NotificationSent::factory(1)->forMember($member)->create();
         NotificationSent::factory(1)->forMemberWithEmail($member)->create();
     }
@@ -33,7 +33,7 @@ class NotificationSentSeeder extends Seeder
         NotificationSent::factory(20)->forAdmin($admin)->create();
         NotificationSent::factory(10)->forAdminWithEmail($admin)->create();
 
-        $admin = Admin::where('id', 2)->first();
+        $admin = $adminModel->where('id', 2)->first();
         NotificationSent::factory(20)->forAdmin($admin)->create();
         NotificationSent::factory(10)->forAdminWithEmail($admin)->create();
     }

@@ -13,7 +13,7 @@ class MainChaskiSeeder extends Seeder
 {
     public function run(Authenticatable $memberModel, Authenticatable $adminModel): void
     {
-        (new SentEmailSeeder($memberModel, $adminModel))->run();
-        (new NotificationSentSeeder($memberModel, $adminModel))->run();
+        (new SentEmailSeeder())->run($memberModel, $adminModel);
+        (new NotificationSentSeeder())->run($memberModel, $adminModel);
     }
 }
