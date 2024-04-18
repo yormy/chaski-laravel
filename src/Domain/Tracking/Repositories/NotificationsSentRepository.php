@@ -69,6 +69,14 @@ class NotificationsSentRepository
             ->get();
     }
 
+    public function getAllAttentionForUser(?Authenticatable $user): Collection
+    {
+        return $this->queryAllForUser($user)
+            ->orderBy('created_at', 'DESC')
+            ->limit(10)
+            ->get();
+    }
+
     public function getNotificationForUser(?Authenticatable $user, string $notificationId): NotificationSent
     {
         /**

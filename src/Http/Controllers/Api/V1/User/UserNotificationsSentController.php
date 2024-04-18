@@ -32,7 +32,7 @@ class UserNotificationsSentController extends BaseController
     public function attention(Request $request)
     {
         $notificationsSentRepository = new NotificationsSentRepository();
-        $notifications = $notificationsSentRepository->getAllNewForUser($this->user);
+        $notifications = $notificationsSentRepository->getAllAttentionForUser($this->user);
 
         $notifications = (new NotificationSentCollection($notifications))->toArray($request);
 
@@ -84,6 +84,7 @@ class UserNotificationsSentController extends BaseController
                 'file' => array_key_exists('image_file', $item) ? $item['image_file'] : null,
                 'name' => array_key_exists('image_name', $item) ? $item['image_name'] : null,
             ],
+            'new' => (bool)$item['read_at'] ? false : true,
             'title' => $item['title'],
             'subtitle' => $item['content'],
             'date' => $item['created_at_human'],
