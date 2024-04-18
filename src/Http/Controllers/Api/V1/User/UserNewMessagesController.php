@@ -6,8 +6,7 @@ namespace Yormy\ChaskiLaravel\Http\Controllers\Api\V1\User;
 
 use Illuminate\Http\Request;
 use Yormy\Apiresponse\Facades\ApiResponse;
-use Yormy\ChaskiLaravel\Domain\Shared\DataObjects\SentEmailResponseData;
-use Yormy\ChaskiLaravel\Domain\Shared\DataObjects\SentNotificationResponseData;
+use Yormy\ChaskiLaravel\Domain\Shared\DataObjects\DashboardMessageResponseData;
 use Yormy\ChaskiLaravel\Domain\Tracking\Repositories\EmailsSentRepository;
 use Yormy\ChaskiLaravel\Domain\Tracking\Repositories\NotificationsSentRepository;
 use Yormy\ChaskiLaravel\Http\Controllers\Api\V1\BaseController;
@@ -32,10 +31,10 @@ class UserNewMessagesController extends BaseController
     public function index(Request $request)
     {
         $emails = $this->sentEmailRepository->getAllNewForUser($this->user); // this is not new !
-        $sentEmails = collect(SentEmailResponseData::collect($emails)->toArray());
+        $sentEmails = collect(DashboardMessageResponseData::collect($emails)->toArray());
 
         $notifications = $this->notificationsSentRepository->getAllNewForUser($this->user);
-        $sentNotification = collect(SentNotificationResponseData::collect($notifications)->toArray());
+        $sentNotification = collect(DashboardMessageResponseData::collect($notifications)->toArray());
 
         $all = $sentEmails->merge($sentNotification);
         $sorted = $all->sortByDesc(['created_at']);

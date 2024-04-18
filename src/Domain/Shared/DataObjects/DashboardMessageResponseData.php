@@ -1,11 +1,15 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel\Domain\Shared\DataObjects;
 
 use Illuminate\Support\Facades\App;
 use Spatie\LaravelData\Data;
+use Yormy\ChaskiLaravel\Domain\Tracking\Models\NotificationSent;
+use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmail;
 
-class SentNotificationResponseData extends Data
+class DashboardMessageResponseData extends Data
 {
     public function __construct(
         public string $subject,
@@ -28,20 +32,37 @@ class SentNotificationResponseData extends Data
         return $data;
     }
 
-    protected static function constructorData($model): array
+    protected static function constructorNotificationData(NotificationSent $model): array
     {
         $locale = App::getLocale();
+
         return [
             json_decode($model->data)->title->$locale,
             'notification',
-            $model->created_at->format('Y-m-d H:i:s')
-//            self::status($model),
+            $model->created_at->format('Y-m-d H:i:s'),
+            //            self::status($model),
         ];
     }
 
-    public static function fromModel($model): self
+    protected static function constructorEmailData(SentEmail $model): array
     {
-        $constuctorData = self::constructorData($model);
+        return [
+            $model->subject,
+            'email',
+            $model->created_at->format('Y-m-d H:i:s'),
+        ];
+    }
+
+    public static function fromModel(NotificationSent|SentEmail $model): self
+    {
+        $constuctorData = [];
+
+        if ($model instanceof NotificationSent) {
+            $constuctorData = self::constructorNotificationData($model);
+        }
+        if ($model instanceof SentEmail) {
+            $constuctorData = self::constructorEmailData($model);
+        }
 
         return new static(
             ...$constuctorData,
@@ -55,12 +76,10 @@ class SentNotificationResponseData extends Data
             $status = [
                 'key' => 'failed',
                 'nature' => 'danger',
-                'text' => 'FAILED'
+                'text' => 'FAILED',
             ];
         }
 
         return $status;
     }
 }
-
-
