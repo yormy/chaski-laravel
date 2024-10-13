@@ -980,16 +980,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.304.5",
+            "version": "3.304.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c9a02677b00e28133915afd451a1c8c3726474b7"
+                "reference": "02abf9b8e2afbdf281e28757c582049d3db16df7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c9a02677b00e28133915afd451a1c8c3726474b7",
-                "reference": "c9a02677b00e28133915afd451a1c8c3726474b7",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/02abf9b8e2afbdf281e28757c582049d3db16df7",
+                "reference": "02abf9b8e2afbdf281e28757c582049d3db16df7",
                 "shasum": ""
             },
             "require": {
@@ -1069,9 +1069,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.304.5"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.304.6"
             },
-            "time": "2024-04-16T19:20:23+00:00"
+            "time": "2024-04-17T18:27:31+00:00"
         },
         {
             "name": "brick/math",
@@ -8218,12 +8218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yormy/DateFormater.git",
-                "reference": "c08bb5d32a2982b4c776e90c681e6174a6db7bb4"
+                "reference": "f863558af07bf31f06f66d3a8d4ded4cbd498112"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yormy/DateFormater/zipball/c08bb5d32a2982b4c776e90c681e6174a6db7bb4",
-                "reference": "c08bb5d32a2982b4c776e90c681e6174a6db7bb4",
+                "url": "https://api.github.com/repos/yormy/DateFormater/zipball/f863558af07bf31f06f66d3a8d4ded4cbd498112",
+                "reference": "f863558af07bf31f06f66d3a8d4ded4cbd498112",
                 "shasum": ""
             },
             "require": {
@@ -8272,7 +8272,7 @@
                 "issues": "https://github.com/yormy/DateFormater/issues",
                 "source": "https://github.com/yormy/DateFormater/tree/master"
             },
-            "time": "2024-04-08T09:11:18+00:00"
+            "time": "2024-04-18T10:22:57+00:00"
         },
         {
             "name": "yormy/repository",
@@ -10777,12 +10777,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "d9bdbc2c6309864902d3f2b8ee3b73268e5cc5e5"
+                "reference": "70454578a862a3baceb57eb6acb76e90a761fab1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d9bdbc2c6309864902d3f2b8ee3b73268e5cc5e5",
-                "reference": "d9bdbc2c6309864902d3f2b8ee3b73268e5cc5e5",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/70454578a862a3baceb57eb6acb76e90a761fab1",
+                "reference": "70454578a862a3baceb57eb6acb76e90a761fab1",
                 "shasum": ""
             },
             "require": {
@@ -10828,7 +10828,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-17T14:47:46+00:00"
+            "time": "2024-04-18T08:46:36+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -11498,12 +11498,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "581b11097cf4ba8ed29a685645966a7eb8ea632e"
+                "reference": "5a4b95f36e44b3e55eb3b53a1108ac0fc8e28b37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/581b11097cf4ba8ed29a685645966a7eb8ea632e",
-                "reference": "581b11097cf4ba8ed29a685645966a7eb8ea632e",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/5a4b95f36e44b3e55eb3b53a1108ac0fc8e28b37",
+                "reference": "5a4b95f36e44b3e55eb3b53a1108ac0fc8e28b37",
                 "shasum": ""
             },
             "conflict": {
@@ -12083,7 +12083,7 @@
                 "thinkcmf/thinkcmf": "<=5.1.7",
                 "thorsten/phpmyfaq": "<3.2.2",
                 "tikiwiki/tiki-manager": "<=17.1",
-                "timber/timber": "<=1.23|==1.24|==2",
+                "timber/timber": "<1.23.1|>=1.24,<1.24.1|>=2,<2.1",
                 "tinymce/tinymce": "<7",
                 "tinymighty/wiki-seo": "<1.2.2",
                 "titon/framework": "<9.9.99",
@@ -12238,7 +12238,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-17T11:04:37+00:00"
+            "time": "2024-04-18T09:04:30+00:00"
         },
         {
             "name": "sebastian/cli-parser",
