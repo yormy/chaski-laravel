@@ -3,7 +3,6 @@
 use Yormy\ChaskiLaravel\Domain\Create\Models\TranslatableMailTemplate;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmail;
 use Yormy\ChaskiLaravel\Domain\Tracking\Models\SentEmailLog;
-use Yormy\ChaskiLaravel\Tests\Models\User;
 
 return [
 
@@ -17,9 +16,12 @@ return [
         // List here all the models that are notifyables.
         // if you send notifications to users and admins, list them both
         'notifiables' => [
-            User::class,
-            //Admin::class,
+            Member::class,
+            Admin::class,
         ],
+
+        'member' => Member::class,
+        'admin' => Admin::class,
 
         // set your overrideesfor encryption
         'sent_email' => SentEmail::class,
