@@ -54,12 +54,6 @@ class UserNotificationsSentController extends BaseController
 
     private function buildMenuData(array $notifications): array
     {
-        $button = [
-            'type' => 'danger',
-            'content' => count($notifications),
-            'icon' => 'y-icon icon icon-notification',
-        ];
-
         $header = [
             'title' => __('bedrock-usersv2::menu.top.notifications.title', ['count' => count($notifications)]),
         ];
@@ -70,7 +64,6 @@ class UserNotificationsSentController extends BaseController
         }
 
         return [
-            'button' => $button,
             'header' => $header,
             'items' => $items,
         ];
