@@ -72,6 +72,7 @@ class NotificationsSentRepository
     public function getAllAttentionForUser(?Authenticatable $user): Collection
     {
         return $this->queryAllForUser($user)
+            ->whereNull('read_at')
             ->orderBy('created_at', 'DESC')
             ->limit(10)
             ->get();
