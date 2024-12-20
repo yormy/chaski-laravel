@@ -225,7 +225,7 @@ X-Mailer-Hash: 2usaKtndrOqsTtpjBrm1meHN1TkVytn9
                                                     <table style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:separate;border-spacing:0px;background-color:#ffffff;border-radius:4px" width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff" role="presentation">
                                                         <tr style="border-collapse:collapse">
                                                             <td align="center" style="Margin:0;padding-bottom:5px;padding-left:30px;padding-right:30px;padding-top:35px"><h1 style="Margin:0;line-height:58px;mso-line-height-rule:exactly;font-family:lato, \'helvetica neue\', helvetica, arial, sans-serif;font-size:48px;font-style:normal;font-weight:normal;color:#111111">
-                                                                    Your App Name: Email Code
+                                                                    Seeded dummy email
                                                                 </h1></td>
                                                         </tr>
                                                         <tr style="border-collapse:collapse">
@@ -258,27 +258,14 @@ X-Mailer-Hash: 2usaKtndrOqsTtpjBrm1meHN1TkVytn9
                                                                     <h1>Rico, </h1>
 
 <p>
-Type the code below
-<div style="
-    text-align:center;
-    font-size:5rem;
-    letter-spacing: 10px;
-    font-weight:bolder;
-    font-family: \'Noto Sans Mono\', monospace;padding-top:35px"
->
-        PLU2F7
-</div>
-
+Seeded Email to test
+<br/>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 <hr style="margin-top:50px">
     <p><b>Thanks</b></p>
 
     <p style="margin-top:5px;margin-bottom:5px">The <b>team</b></p>
-
-
-<span style="font-size:10px;color:darkgrey">
-    To unsubscribe to these types of messages <a href="https://testapp.local/email/u/eyJpdiI6IkZrYVV5aW9Xc1BCcGN0ZE1TUHI3NWc9PSIsInZhbHVlIjoiMkdZNUltK3NvVEFTQkdmWTdWZDlVemRvUndUMW5RYkNKbzFFQ1p3Rm5yMnE0YkdUNlRSd09FdHoycDd4NmpQbiIsIm1hYyI6IjI1OTg1MGJmODliNjg5NTY3MmY0OGUxODFkZmUxMGZiNDU4MDM4ZjgwMjEyNGFhMWFmN2IyMGYwMDE5YWE0NDUiLCJ0YWciOiIifQ==">unsubscribe</a>
-    </span>
 
                                                                 </p></td>
                                                         </tr>
