@@ -115,6 +115,7 @@ X-Mailer-Hash: 2usaKtndrOqsTtpjBrm1meHN1TkVytn9
 
     private function getEmailContent(): string
     {
+        $randomName = $this->faker->name;
         return '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office"
       style="width:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
@@ -255,7 +256,7 @@ X-Mailer-Hash: 2usaKtndrOqsTtpjBrm1meHN1TkVytn9
                                                     <table style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:separate;border-spacing:0px;border-radius:4px;background-color:#ffffff" width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff" role="presentation">
                                                         <tr style="border-collapse:collapse">
                                                             <td class="es-m-txt-l" bgcolor="#ffffff" align="left" style="Margin:0;padding-top:20px;padding-bottom:20px;padding-left:30px;padding-right:30px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:lato, \'helvetica neue\', helvetica, arial, sans-serif;line-height:27px;color:#666666;font-size:18px">
-                                                                    <h1>Rico, </h1>
+                                                                    <h1>'.$randomName.'</h1>
 
 <p>
 Seeded Email to test
