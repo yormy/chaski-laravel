@@ -48,9 +48,16 @@ abstract class BaseNotificationData
         ];
     }
 
+    // Override to set defaults
+    public function setDefaults()
+    {
+        return;
+    }
+
     public static function make($user = null): static
     {
         $newObject = new static();
+        $newObject->setBranding();
         $newObject->setDefaults();
 
         return $newObject;
@@ -225,7 +232,7 @@ abstract class BaseNotificationData
         return $this->convertToLines($this->promo);
     }
 
-    private function setDefaults(): void
+    private function setBranding(): void
     {
         $defaultSignature = config('chaski.default_signature');
         if (! empty($defaultSignature)) {
