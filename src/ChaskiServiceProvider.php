@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace Yormy\ChaskiLaravel;
 
+
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use jdavidbakr\MailTracker\MailTracker;
+use Yormy\ChaskiLaravel\Console\Commands\CreateNotification;
 use Yormy\ChaskiLaravel\ServiceProviders\EventServiceProvider;
 use Yormy\ChaskiLaravel\ServiceProviders\RouteServiceProvider;
 use Yormy\Dateformatter\Services\CarbonFormatterMacros;
+
 class ChaskiServiceProvider extends ServiceProvider
 {
     public const CONFIG_FILE = __DIR__.'/../config/chaski.php';
@@ -98,6 +101,7 @@ class ChaskiServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
+                CreateNotification::class,
             ]);
         }
     }
